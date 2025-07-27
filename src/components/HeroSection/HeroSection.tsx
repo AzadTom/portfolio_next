@@ -5,9 +5,13 @@ import SplitText from "../SplitText/SplitText";
 import { DownloadIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 const HeroSection = () => {
+
+  const router = useRouter();
+
   return (
     <div
       className="absolute left-[16px] sm:left-[20px] md:left-[70px] right-[16px] sm:right-[20px] md:right-[70px] top-0 h-[650px] md:h-[600px] rounded-b-[50px]"
@@ -24,7 +28,7 @@ const HeroSection = () => {
           <SplitText text="Frontend software engineer from India, focussed on building pixel perfect web apps." />
         </h1>
         <div className="flex gap-4 items-center mt-[32px]">
-          <motion.button initial={{scale:0}} animate={{scale:1}} className="cursor-pointer bg-white  w-full text-black rounded-full h-[45px] px-[24px] py-[12px]  outfit-500 flex justify-center items-center">
+          <motion.button onClick={()=> router.replace("/#about-us")} initial={{scale:0}} animate={{scale:1}} className="cursor-pointer bg-white  w-full text-black rounded-full h-[45px] px-[24px] py-[12px]  outfit-500 flex justify-center items-center">
             <a href="#about-us">
               <SplitText text="Let's Talk"/>
             </a>
