@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <NavigationWrapper />
-      <div className="relative h-screen">
+      <div className="relative h-[100vh]">
          <HeroSection />
          <SocialSection/>
       </div>
