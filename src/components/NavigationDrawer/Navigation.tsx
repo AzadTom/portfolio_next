@@ -34,13 +34,18 @@ type LinkType = {
   id:3,
   name:"Works",
   link:"/works"
+},
+{
+  id:4,
+  name:"Contact Us",
+  link:"/contact-us"
 }
 ];
 
 
 export const Navigation = () => (
 
-<motion.ul variants={variantsNavigation} className="absolute  top-[100px]">
+<motion.ul variants={variantsNavigation} className="absolute  top-[100px] left-4 outfilt-700">
   {links.map((item:LinkType) => (
     <MenuItem  item={item} key={item.id} />
   ))}
@@ -77,8 +82,8 @@ export const MenuItem = ({ item }: { item: LinkType }) => {
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div className="text-placeholder text-black ml-4 text-6xl font-bold my-2">
-        <a className="flex gap-1 items-end" href={item.link}>{item.name} <GetRedirectIcon color="#000000"/></a>
+      <div className="text-placeholder text-black ml-4 text-4xl sm:text-6xl font-bold my-4">
+        <a className="flex gap-1 items-end hover:border-b hover:border-black " href={item.link}>{item.name} <GetRedirectIcon color="#000000"/></a>
       </div>
     </motion.li>
   );
