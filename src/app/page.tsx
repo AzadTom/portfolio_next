@@ -1,3 +1,4 @@
+import AboutMe from "@/components/AboutMe/AboutMe";
 import ContactUs from "@/components/Form/ContactUs";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import NavigationWrapper from "@/components/NavigationDrawer/NavigationWrapper";
@@ -14,6 +15,7 @@ export default function Home() {
         <SocialSection />
       </div>
       <ProjectSection />
+      <AboutMe/>
       <ContactUs />
     </main>
   );

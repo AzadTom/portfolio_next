@@ -44,10 +44,10 @@ const ContactUs = () => {
       className="max-w-[1000px] mx-auto my-10 px-4 outfit-500"
     >
       <div className="text-white rounded-3xl p-6 md:p-10 shadow-xl"
-        // style={{
-        //   background:
-        //     "radial-gradient(98.87% 98.87% at 51.11% 98.87%, rgba(0, 0, 0, 0) 0%, #000000 45.31%, #6A01D3 76.56%, #8F00FF 86.46%, #C883FF 100%)",
-        // }}
+      // style={{
+      //   background:
+      //     "radial-gradient(98.87% 98.87% at 51.11% 98.87%, rgba(0, 0, 0, 0) 0%, #000000 45.31%, #6A01D3 76.56%, #8F00FF 86.46%, #C883FF 100%)",
+      // }}
 
       >
 
