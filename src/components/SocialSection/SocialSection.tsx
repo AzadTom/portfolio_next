@@ -18,7 +18,6 @@ const tags = [
 const SocialSection = () => {
   return (
     <div className="flex flex-col absolute bottom-[32px] left-0 right-0 w-full z-50">
-      <InfiniteScrollTags />
       <div className="flex items-center justify-center gap-4 max-w-[300px] mx-auto px-6 pointer-events-auto">
         {socials.map((social, index) => (
           <motion.a
@@ -73,7 +72,7 @@ const socials = [
   },
 ];
 
-const InfiniteScrollTags = () => {
+export const InfiniteScrollTags = () => {
   return (
     <motion.div className="overflow-hidden w-full py-8 my-8">
       <motion.div

@@ -43,15 +43,8 @@ const ContactUs = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="max-w-[1000px] mx-auto my-10 px-4 outfit-500"
     >
-      <div className="text-white rounded-3xl p-6 md:p-10 shadow-xl"
-      // style={{
-      //   background:
-      //     "radial-gradient(98.87% 98.87% at 51.11% 98.87%, rgba(0, 0, 0, 0) 0%, #000000 45.31%, #6A01D3 76.56%, #8F00FF 86.46%, #C883FF 100%)",
-      // }}
-
-      >
-
-        <h2 className="text-3xl font-bold mb-6 text-center uppercase">Contact Us</h2>
+      <div className="text-white rounded-3xl p-6 md:p-10 shadow-xl">
+        <h2 className="text-3xl font-bold mb-6 text-center capitalize">Contact Us</h2>
 
         <AnimatePresence>
           {submitted && (
@@ -80,7 +73,7 @@ const ContactUs = () => {
               <input
                 {...register('name')}
                 placeholder="Azad Tom"
-                className="w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+                className="w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white outfit-400"
               />
               {errors.name && (
                 <p className="text-red-400 text-sm mt-1">{errors.name.message}</p>
@@ -96,7 +89,7 @@ const ContactUs = () => {
                 {...register('email')}
                 type="email"
                 placeholder="kumarazad2917@gmail.com"
-                className="w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+                className="outfit-400 w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
               />
               {errors.email && (
                 <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
@@ -113,7 +106,7 @@ const ContactUs = () => {
               {...register('phone')}
               type="tel"
               placeholder="+91 9310855758"
-              className="w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+              className="outfit-400 w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
             />
             {errors.phone && (
               <p className="text-red-400 text-sm mt-1">{errors.phone.message}</p>
@@ -128,7 +121,7 @@ const ContactUs = () => {
             <textarea
               {...register('message')}
               placeholder="Type your message here..."
-              className="w-full px-4 py-3 h-32 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white resize-none"
+              className="outfit-400 w-full px-4 py-3 h-32 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white resize-none"
             />
             {errors.message && (
               <p className="text-red-400 text-sm mt-1">{errors.message.message}</p>
