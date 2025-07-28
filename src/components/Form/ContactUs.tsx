@@ -43,7 +43,7 @@ const ContactUs = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="max-w-[1000px] mx-auto my-10 px-4 outfit-500"
+      className="max-w-[1000px] mx-auto my-10 px-4 outfit-500 scroll-m-8"
     >
       <div className="text-white rounded-3xl md:p-10 shadow-xl">
         <div className="text-center mb-12 outfit-500">

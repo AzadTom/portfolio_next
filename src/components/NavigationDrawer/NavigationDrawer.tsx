@@ -54,7 +54,7 @@ const NavigationDrawer = () => {
           className={cn("absolute top-0 right-0 bottom-0 w-full ", isOpen ? "bg-white" : "bg-white")}
           variants={variantsSidebar}
         />
-        <Navigation />
+        <Navigation toggle={() => toggleOpen()}  />
         <MenuToggle toggle={() => toggleOpen()} />
       </motion.nav>
     </div>

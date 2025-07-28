@@ -39,11 +39,12 @@ const links: LinkType[] = [{
 
 
 
-export const Navigation = () => (
+export const Navigation = ({toggle}:{toggle:()=>void}) => (
+
   <>
     <motion.ul variants={variantsNavigation} className="absolute  top-[100px] right-4 left-4 sm:left-12 sm:right-12 outfilt-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
       {links.map((item: LinkType) => (
-        <MenuItem item={item} key={item.id} />
+        <MenuItem item={item} key={item.id} toggle={toggle} />
       ))}
       <motion.li
         variants={variantsMenuItem}
@@ -88,7 +89,7 @@ const variantsMenuItem = {
 };
 
 
-export const MenuItem = ({ item }: { item: LinkType }) => {
+export const MenuItem = ({ item,toggle }: { item: LinkType,toggle:()=>void}) => {
 
 
   return (
@@ -102,12 +103,13 @@ export const MenuItem = ({ item }: { item: LinkType }) => {
         </h2>
         <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
           <span className="text-lg text-white/70 font-medium">Explore more</span>
-          <a
+          <Link
             href={item.link}
+            onClick={toggle}
             className="flex items-center gap-2 text-white text-xl font-semibold hover:translate-x-1 transition-transform duration-300"
           >
             Visit <GetRedirectIcon color="white" />
-          </a>
+          </Link>
         </div>
 
       </div>
