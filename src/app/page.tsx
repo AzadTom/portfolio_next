@@ -1,4 +1,5 @@
 import AboutMe from "@/components/AboutMe/AboutMe";
+import Footer from "@/components/Footer";
 import ContactUs from "@/components/Form/ContactUs";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import NavigationWrapper from "@/components/NavigationDrawer/NavigationWrapper";
@@ -16,8 +17,9 @@ export default function Home() {
       </div>
       <ProjectSection />
       <InfiniteScrollTags />
-      <AboutMe/>
+      <AboutMe />
       <ContactUs />
+      <Footer />
     </main>
   );
 }

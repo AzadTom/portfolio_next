@@ -43,7 +43,7 @@ const ContactUs = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className="max-w-[1000px] mx-auto my-10 px-4 outfit-500"
     >
-      <div className="text-white rounded-3xl p-6 md:p-10 shadow-xl">
+      <div className="text-white rounded-3xl md:p-10 shadow-xl">
         <h2 className="text-3xl font-bold mb-6 text-center capitalize">Contact Us</h2>
 
         <AnimatePresence>

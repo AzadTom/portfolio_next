@@ -57,7 +57,7 @@ const ProjectSection = () => {
   return (
     <div className="my-[32px]">
         <p className="text-white text-center text-3xl outfit-700 capitalize my-6">Projects</p>
-        <div className="grid grid-cols-1 sm:grid-cols-3 justify-center items-center mx-4 sm:mx-6">
+        <div className="flex gap-4 sm:grid sm:grid-cols-3 overflow-scroll sm:justify-center items-center mx-4 sm:mx-6">
             {webContent.map((item)=>(
                 <ProjectItem {...item} key={item.name}/>
             ))}
