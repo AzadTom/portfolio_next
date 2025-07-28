@@ -32,10 +32,10 @@ const HeroSection = () => {
           <SplitText text="Frontend software engineer from India, focussed on building pixel perfect web apps." />
         </h1>
         <div className="flex gap-4 items-center mt-[32px]">
-          <motion.button onClick={()=> router.replace("/#about-us")} initial={{scale:0}} animate={{scale:1}} className="cursor-pointer bg-white  w-full text-black rounded-full h-[45px] px-[24px] py-[12px]  outfit-500 flex justify-center items-center">
-            <a href="#about-us">
+          <motion.button initial={{scale:0}} animate={{scale:1}} className="cursor-pointer bg-white  w-full text-black rounded-full h-[45px] px-[24px] py-[12px]  outfit-500 flex justify-center items-center">
+            <Link href="#contact-me">
               <SplitText text="Let's Talk"/>
-            </a>
+            </Link>
           </motion.button>
         </div>
       </div>

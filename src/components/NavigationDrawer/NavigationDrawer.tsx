@@ -42,7 +42,7 @@ const NavigationDrawer = () => {
 
 
   return (
-    <div className='fixed inset-0 z-[999] w-[100vw] h-[100vh] overflow-hidden'>
+    <div className={cn("fixed inset-0 z-[999] w-[100vw] h-[100vh] overflow-hidden", !isOpen && 'pointer-events-none')}>
       <motion.nav
         initial={false}
         animate={isOpen ? "open" : "closed"}
@@ -55,7 +55,9 @@ const NavigationDrawer = () => {
           variants={variantsSidebar}
         />
         <Navigation toggle={() => toggleOpen()}  />
-        <MenuToggle toggle={() => toggleOpen()} />
+        <div className='pointer-events-auto'>
+           <MenuToggle toggle={() => toggleOpen()} />
+        </div>
       </motion.nav>
     </div>
   )

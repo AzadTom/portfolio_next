@@ -8,13 +8,7 @@ import ScrollIntoView from "@/components/ScrollIntoView";
 import SkillsSection from "@/components/SkillsSection";
 import SocialSection, { InfiniteScrollTags } from "@/components/SocialSection/SocialSection";
 
-
-
 export default function Home() {
-
-
- 
-
 
   return (
     <main>
