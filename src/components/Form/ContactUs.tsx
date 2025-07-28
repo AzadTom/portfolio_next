@@ -38,9 +38,10 @@ const ContactUs = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 50 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
       className="max-w-[1000px] mx-auto my-10 px-4 outfit-500"
     >
       <div className="text-white rounded-3xl md:p-10 shadow-xl">

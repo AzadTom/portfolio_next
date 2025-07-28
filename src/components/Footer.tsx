@@ -1,5 +1,5 @@
 'use client';
-import { motion, animate } from "framer-motion";
+import { motion, animate } from "motion/react";
 import { ArrowUp } from "lucide-react";
 
 const Footer = () => {
@@ -14,7 +14,12 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative flex flex-col items-center justify-center gap-3 border-t border-white/10 py-10 bg-black text-white outfit-500">
+    <motion.footer
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      className="relative flex flex-col items-center justify-center gap-3 border-t border-white/10 py-10 bg-black text-white outfit-500">
       <p className="text-xs text-white/40 tracking-widest uppercase">Since 2025</p>
 
       <p className="text-4xl font-bold">@azadtom</p>
@@ -42,7 +47,7 @@ const Footer = () => {
       >
         <ArrowUp className="h-5 w-5 text-white" />
       </motion.button>
-    </footer>
+    </motion.footer>
   );
 };
 

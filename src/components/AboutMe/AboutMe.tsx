@@ -1,8 +1,15 @@
+'use client';
+import { motion } from 'motion/react';
 import React from "react";
 
 const AboutMe = () => {
   return (
-    <section id="aboutme" className="py-16 px-4 sm:px-8 max-w-3xl mx-auto text-white">
+    <motion.section
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      viewport={{ once: true }}
+      id="aboutme" className="py-16 px-4 sm:px-8 max-w-3xl mx-auto text-white">
       <h2 className="text-xl sm:text-2xl font-semibold text-primary mb-6 outfit-500">
         about me.
       </h2>
@@ -23,7 +30,7 @@ const AboutMe = () => {
           creativity and collaboration.
         </span>
       </p>
-    </section>
+    </motion.section>
   );
 };
 
