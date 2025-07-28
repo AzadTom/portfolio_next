@@ -1,6 +1,7 @@
-import * as React from "react";
 import { motion } from "motion/react";
 import { GetRedirectIcon } from "@/icon/GetRedirectionIcon";
+import Image from "next/image";
+import Link from "next/link";
 
 const variantsNavigation = {
   open: {
@@ -23,34 +24,47 @@ const links: LinkType[] = [{
   link: "/",
 }, {
   id: 1,
-  name: "About",
-  link: "/about",
-},
-{
-  id: 2,
-  name: "Services",
-  link: "/services",
+  name: "About Me",
+  link: "#about-me",
 }, {
   id: 3,
   name: "Works",
-  link: "/works"
+  link: "#works"
 },
 {
   id: 4,
-  name: "Contact Us",
-  link: "/contact-us"
-}
-];
+  name: "Contact Me",
+  link: "#contact-me"
+}];
 
 
 
 export const Navigation = () => (
-
-  <motion.ul variants={variantsNavigation} className="absolute  top-[100px] left-4 outfilt-700">
-    {links.map((item: LinkType) => (
-      <MenuItem item={item} key={item.id} />
-    ))}
-  </motion.ul>
+  <>
+    <motion.ul variants={variantsNavigation} className="absolute  top-[100px] right-4 left-4 sm:left-12 sm:right-12 outfilt-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {links.map((item: LinkType) => (
+        <MenuItem item={item} key={item.id} />
+      ))}
+      <motion.li
+        variants={variantsMenuItem}
+        whileTap={{ scale: 0.95 }}
+      >
+        <div className="w-full bg-zinc-900 bg-opacity-60 border text-white p-4 rounded-2xl border-zinc-700 backdrop-blur-md shadow-2xl transition-all duration-500">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight capitalize flex gap-4 my-2 mx-4 justify-between items-center">
+            {socials.map((item) => (
+              <a href={item.href} key={item.alt}>
+                <Image src={item.icon} alt={item.alt} width={24} height={24} className="w-full h-full" />
+              </a>
+            ))}
+          </h2>
+          <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
+            <span className="text-lg text-white/70 font-medium"></span>
+            <GetRedirectIcon color="white" />
+          </div>
+        </div>
+      </motion.li>
+    </motion.ul>
+  </>
 );
 
 
@@ -80,13 +94,54 @@ export const MenuItem = ({ item }: { item: LinkType }) => {
   return (
     <motion.li
       variants={variantsMenuItem}
-      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
     >
-      <div className="text-placeholder text-black ml-4 text-4xl sm:text-6xl font-bold my-4">
-        <a className="flex gap-1 items-end hover:border-b hover:border-black " href={item.link}>{item.name} <GetRedirectIcon color="#000000" /></a>
+      <div className="w-full bg-zinc-900 bg-opacity-60 border text-white p-4 rounded-2xl border-zinc-700 backdrop-blur-md shadow-2xl transition-all duration-500">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight capitalize mb-2">
+          {item.name}
+        </h2>
+        <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
+          <span className="text-lg text-white/70 font-medium">Explore more</span>
+          <a
+            href={item.link}
+            className="flex items-center gap-2 text-white text-xl font-semibold hover:translate-x-1 transition-transform duration-300"
+          >
+            Visit <GetRedirectIcon color="white" />
+          </a>
+        </div>
+
       </div>
     </motion.li>
   );
 };
+
+
+
+const socials = [
+  {
+    href: "mailto:kumarazad2917@gmail.com",
+    icon: "/gmail.svg",
+    alt: "Gmail",
+    external: false,
+  },
+  {
+    href: "https://www.linkedin.com/in/azadkumar93108/",
+    icon: "/linkedin.svg",
+    alt: "LinkedIn",
+    external: true,
+  },
+  {
+    href: "https://github.com/AzadTom?tab=repositories",
+    icon: "/github_white.svg",
+    alt: "GitHub",
+    external: true,
+  },
+  {
+    href: "https://x.com/Azadtom2917",
+    icon: "/x_white.svg",
+    alt: "Twitter/X",
+    external: true,
+  },
+];
+
 

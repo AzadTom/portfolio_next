@@ -5,7 +5,6 @@ import { MenuToggle } from './MenuToggle';
 import { Navigation } from './Navigation';
 import { useDimensions } from '@/hooks/useDimension';
 import { cn } from '@/lib/utils';
-import Logo from '@/icon/Logo';
 
 const variantsSidebar = {
   open: (height = 1000) => {
