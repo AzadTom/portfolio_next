@@ -6,6 +6,7 @@ import { DownloadIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import Logo from "@/icon/Logo";
 
 
 const HeroSection = () => {
@@ -21,6 +22,9 @@ const HeroSection = () => {
       }}
     >
       <div className="text-white flex flex-col items-center justify-center mt-[12rem] sm:mt-20">
+        <motion.div  initial={{scale:0}} animate={{scale:1}} className="-mt-6 mb-6">
+          <Logo/>
+        </motion.div>
         <GradientBorderButton>
           <SplitText text="Get Resume"/>
         </GradientBorderButton>
