@@ -30,10 +30,24 @@ const ContactUs = () => {
   const [submitted, setSubmitted] = useState(false)
 
   const onSubmit = async (data: ContactFormData) => {
-    console.log('Submitted:', data)
-    setSubmitted(true)
-    reset()
-    setTimeout(() => setSubmitted(false), 5000)
+    try {
+
+      await fetch("https://formspree.io/f/xkgzbbyz", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      });
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setSubmitted(true)
+      reset()
+      setTimeout(() => setSubmitted(false), 5000)
+
+    }
   }
 
   return (
