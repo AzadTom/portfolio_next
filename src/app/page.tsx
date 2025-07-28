@@ -12,16 +12,16 @@ export default function Home() {
 
   return (
     <main>
-      <ScrollIntoView/>
+      <ScrollIntoView />
       <NavigationWrapper />
       <div className="relative h-[100vh]">
-      <HeroSection />
-      <SocialSection />
+        <HeroSection />
+        <SocialSection />
       </div>
+      <AboutMe />
       <ProjectSection />
       <InfiniteScrollTags />
-      <AboutMe />
-      <SkillsSection/>
+      <SkillsSection />
       <ContactUs />
       <Footer />
     </main>

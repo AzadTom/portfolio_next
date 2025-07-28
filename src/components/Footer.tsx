@@ -20,16 +20,16 @@ const Footer = () => {
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
       className="relative flex flex-col items-center justify-center gap-3 border-t border-white/10 py-10 bg-black text-white outfit-500">
-      <p className="text-xs text-white/40 tracking-widest uppercase">Since 2025</p>
+      <p className="text-xs text-white/40 tracking-widest uppercase outfit-300">Since 2025</p>
 
-      <p className="text-4xl font-bold tracking-widest capitalize">@AzadTom</p>
+      <p className="text-4xl font-bold tracking-widest capitalize">AzadTom</p>
 
-      <p className="text-center text-white/60 max-w-xl px-6 text-base leading-relaxed">
+      <p className="text-center text-white/60 max-w-xl px-6 text-base leading-relaxed outfit-300">
         Thank you for stopping by. This space is a reflection of passion and purpose—
         designed to inspire, connect, and grow. You&apos;re always welcome here.
       </p>
 
-      <p className="text-xs text-white/30 mt-6">© {new Date().getFullYear()} AzadTom. All rights reserved.</p>
+      <p className="text-xs text-white/30 mt-6 outfit-300">© {new Date().getFullYear()} AzadTom. All rights reserved.</p>
 
       {/* Back to Top Button with float + animated scroll */}
       <motion.button

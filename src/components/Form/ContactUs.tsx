@@ -62,7 +62,7 @@ const ContactUs = () => {
       <div className="text-white rounded-3xl md:p-10 shadow-xl">
         <div className="text-center mb-12 outfit-500">
           <h2 className="text-4xl font-bold mb-2 text-white">Contact Me</h2>
-          <p className="text-white/60 text-lg">
+          <p className="text-white/60 text-lg outfit-300">
             Let’s connect — whether it’s a project, collaboration, or just to say hi
           </p>
         </div>
@@ -90,11 +90,11 @@ const ContactUs = () => {
             {/* Name */}
             <div>
               <label className="block mb-1 text-sm font-medium text-white">
-                Name <span className="text-red-500">*</span>
+                Name
               </label>
               <input
                 {...register('name')}
-                placeholder="Azad Tom"
+                placeholder="Enter your name"
                 className="w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white outfit-400"
               />
               {errors.name && (
@@ -105,12 +105,12 @@ const ContactUs = () => {
             {/* Email */}
             <div>
               <label className="block mb-1 text-sm font-medium text-white">
-                Email <span className="text-red-500">*</span>
+                Email 
               </label>
               <input
                 {...register('email')}
                 type="email"
-                placeholder="kumarazad2917@gmail.com"
+                placeholder="Enter your email"
                 className="outfit-400 w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
               />
               {errors.email && (
@@ -122,12 +122,12 @@ const ContactUs = () => {
           {/* Phone */}
           <div>
             <label className="block mb-1 text-sm font-medium text-white">
-              Phone Number <span className="text-red-500">*</span>
+              Phone Number 
             </label>
             <input
               {...register('phone')}
               type="tel"
-              placeholder="+91 9310855758"
+              placeholder="Enter phone number"
               className="outfit-400 w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
             />
             {errors.phone && (

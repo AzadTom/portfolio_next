@@ -53,7 +53,7 @@ const SkillsSection = () => {
         className="text-center mb-12 outfit-500"
       >
         <h2 className="text-4xl font-bold mb-2 text-white">My Skills</h2>
-        <p className="text-white/60 text-lg">Technologies I work with and love</p>
+        <p className="text-white/60 text-lg outfit-300">Technologies I work with and love</p>
       </motion.div>
 
       <motion.div
