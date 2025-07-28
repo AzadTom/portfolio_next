@@ -22,7 +22,7 @@ const Footer = () => {
       className="relative flex flex-col items-center justify-center gap-3 border-t border-white/10 py-10 bg-black text-white outfit-500">
       <p className="text-xs text-white/40 tracking-widest uppercase">Since 2025</p>
 
-      <p className="text-4xl font-bold">@azadtom</p>
+      <p className="text-4xl font-bold tracking-widest capitalize">@AzadTom</p>
 
       <p className="text-center text-white/60 max-w-xl px-6 text-base leading-relaxed">
         Thank you for stopping by. This space is a reflection of passion and purpose—

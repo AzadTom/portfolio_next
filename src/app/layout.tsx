@@ -15,9 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Frontend Engineer | Azad Kumar",
   icons: {
-    icon: "white_fav.svg",
-    shortcut: "white_fav.svg",
-    apple:"white_fav.svg"
+    icon: "black_fav.png",
+    shortcut: "black_fav.png",
+    apple:"black_fav.png"
   },
   description: "Azad Kumar is a frontend software engineer from India who builds responsive, accessible, and pixel-perfect web applications using modern technologies.",
   keywords: [
