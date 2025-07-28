@@ -44,7 +44,13 @@ const ContactUs = () => {
       className="max-w-[1000px] mx-auto my-10 px-4 outfit-500"
     >
       <div className="text-white rounded-3xl md:p-10 shadow-xl">
-        <h2 className="text-3xl font-bold mb-6 text-center capitalize">Contact Us</h2>
+        <div className="text-center mb-12 outfit-500">
+          <h2 className="text-4xl font-bold mb-2 text-white">Contact Me</h2>
+          <p className="text-white/60 text-lg">
+            Let’s connect — whether it’s a project, collaboration, or just to say hi
+          </p>
+        </div>
+
 
         <AnimatePresence>
           {submitted && (

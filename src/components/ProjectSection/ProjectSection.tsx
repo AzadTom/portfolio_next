@@ -2,7 +2,7 @@
 import { ExternalLink } from "lucide-react";
 import Image from "next/image";
 
-const  webContent = [
+const webContent = [
   {
     img: "/img/foodlux.png",
     name: "Foodlux",
@@ -56,12 +56,17 @@ const  webContent = [
 const ProjectSection = () => {
   return (
     <div className="my-[32px]">
-        <p className="text-white text-center text-3xl outfit-700 capitalize my-6">Projects</p>
-        <div className="flex gap-4 sm:grid sm:grid-cols-3 overflow-scroll sm:justify-center items-center mx-4 sm:mx-6">
-            {webContent.map((item)=>(
-                <ProjectItem {...item} key={item.name}/>
-            ))}
-        </div>
+      <div className="text-center mb-12 outfit-500">
+        <h2 className="text-4xl font-bold mb-2 text-white">Projects</h2>
+        <p className="text-white/60 text-lg">
+          A showcase of my work, passion, and what I love building with
+        </p>
+      </div>
+      <div className="flex gap-4 sm:grid sm:grid-cols-3 overflow-scroll sm:justify-center items-center mx-4 sm:mx-6">
+        {webContent.map((item) => (
+          <ProjectItem {...item} key={item.name} />
+        ))}
+      </div>
     </div>
   )
 }
@@ -69,16 +74,16 @@ const ProjectSection = () => {
 export default ProjectSection
 
 
-const ProjectItem = ({ name,img,github,live}:{img:string,name:string,github:string,live:string})=>{
+const ProjectItem = ({ name, img, github, live }: { img: string, name: string, github: string, live: string }) => {
 
-    return(
-        <div className="shrink-0 w-[350px] sm:w-[450px] mt-6">
-           <Image src={img} width={300} height={250} alt={name} className="w-full h-[250px] sm:h-[350px] object-cover"/> 
-           <div className="flex justify-center gap-4 mt-4 items-center">
-            <button className="bg-white text-black px-4 py-2 rounded-xl outfit-500 capitalize flex  gap-1 items-center"><a href={live}>Live Link</a>  <ExternalLink /></button>
-            <button className="border border-white rounded-xl outfit-500 capitalize text-white px-4 py-2 flex gap-1 items-center"><a href={github}>Github</a>  <ExternalLink /></button>
-           </div>
-        </div>
-    )
+  return (
+    <div className="shrink-0 w-[350px] sm:w-[450px] mt-6">
+      <Image src={img} width={300} height={250} alt={name} className="w-full h-[250px] sm:h-[350px] object-cover" />
+      <div className="flex justify-center gap-4 mt-4 items-center">
+        <button className="bg-white text-black px-4 py-2 rounded-xl outfit-500 capitalize flex  gap-1 items-center"><a href={live}>Live Link</a>  <ExternalLink /></button>
+        <button className="border border-white rounded-xl outfit-500 capitalize text-white px-4 py-2 flex gap-1 items-center"><a href={github}>Github</a>  <ExternalLink /></button>
+      </div>
+    </div>
+  )
 
 }
