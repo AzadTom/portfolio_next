@@ -43,7 +43,7 @@ const NavigationDrawer = () => {
 
 
   return (
-    <div className='absolute inset-0 z-[999] w-[100vw] h-[100vh] overflow-hidden'>
+    <div className='fixed inset-0 z-[999] w-[100vw] h-[100vh] overflow-hidden'>
       <motion.nav
         initial={false}
         animate={isOpen ? "open" : "closed"}

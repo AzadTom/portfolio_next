@@ -36,7 +36,7 @@ function LogoIcon() {
           gradientUnits="userSpaceOnUse"
         >
           <stop stopColor="#ffffff" />
-          <stop offset={1} stopColor="#ffffff" stopOpacity={0.51} />
+          <stop offset={1} stopColor="#ffffff" stopOpacity={1} />
         </linearGradient>
       </defs>
     </svg>
