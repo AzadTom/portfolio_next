@@ -1,12 +1,12 @@
 import AboutMe from "@/components/AboutMe/AboutMe";
-import Footer from "@/components/Footer";
+import Footer from "@/components/HeroSection/Footer";
 import ContactUs from "@/components/Form/ContactUs";
 import HeroSection from "@/components/HeroSection/HeroSection";
 import InfiniteScrollTags from "@/components/InfiniteScrollTag/InfiniteScrollTag";
 import NavigationWrapper from "@/components/NavigationDrawer/NavigationWrapper";
 import ProjectSection from "@/components/ProjectSection/ProjectSection";
-import ScrollIntoView from "@/components/ScrollIntoView";
-import SkillsSection from "@/components/SkillsSection";
+import ScrollIntoView from "@/components/HeroSection/ScrollIntoView";
+import SkillsSection from "@/components/SkillsSection/SkillsSection";
 import SocialSection from "@/components/SocialSection/SocialSection";
 
 export default function Home() {
