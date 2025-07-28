@@ -1,20 +1,6 @@
 'use client';
-import { motion } from 'framer-motion';
-
-const skills = [
-  { name: 'HTML', logo: 'https://cdn.simpleicons.org/html5/E34F26' },
-  { name: 'CSS', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg' },
-  { name: 'JavaScript', logo: 'https://cdn.simpleicons.org/javascript/F7DF1E' },
-  { name: 'TypeScript', logo: 'https://cdn.simpleicons.org/typescript/3178C6' },
-  { name: 'ReactJS', logo: 'https://cdn.simpleicons.org/react/61DAFB' },
-  { name: 'NextJS', logo: 'https://cdn.simpleicons.org/nextdotjs/FFFFFF' },
-  { name: 'Framer Motion', logo: 'https://framerusercontent.com/images/3aQX5dnH5Yqgsn98QXKF2ZXxIE.png' },
-  { name: 'Redux', logo: 'https://cdn.simpleicons.org/redux/764ABC' },
-  { name: 'React Query', logo: 'https://cdn.simpleicons.org/reactquery/FF4154' },
-  { name: 'NodeJS', logo: 'https://cdn.simpleicons.org/nodedotjs/339933' },
-  { name: 'MongoDB', logo: 'https://cdn.simpleicons.org/mongodb/47A248' },
-  { name: 'MySQL', logo: 'https://cdn.simpleicons.org/mysql/4479A1' },
-];
+import { skills } from '@/utils/utils';
+import { motion } from 'motion/react';
 
 // Animation variants
 const containerVariants = {
@@ -63,7 +49,7 @@ const SkillsSection = () => {
         whileInView="show"
         viewport={{ once: true }}
       >
-        {skills.map((skill, index) => (
+        {skills.map((skill) => (
           <motion.div
             key={skill.name}
             variants={itemVariants}
@@ -77,6 +63,8 @@ const SkillsSection = () => {
           >
             <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center">
               <img
+                width={100}
+                height={100}
                 src={skill.logo}
                 alt={skill.name}
                 className="w-full h-full object-contain"

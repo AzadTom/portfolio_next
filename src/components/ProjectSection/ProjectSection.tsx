@@ -1,58 +1,10 @@
 'use client';
+import { webContent } from "@/utils/utils";
 import { ExternalLink } from "lucide-react";
 import { motion } from "motion/react";
 import Image from "next/image";
 
-const webContent = [
-  {
-    img: "/img/foodlux.png",
-    name: "Foodlux",
-    github: "https://github.com/AzadTom/FoodLux",
-    live: "https://foodlux.netlify.app/",
-  },
-  {
-    img: "/img/whiteboard.png",
-    name: "WhiteBoard",
-    github: "https://github.com/AzadTom/WhiteBoard-FrontEnd",
-    live: "https://white-board-front-end.vercel.app/",
-  },
-  {
-    img: "/img/gymrecord.jpeg",
-    name: "GymRecord",
-    live: "https://gymrecord.vercel.app/",
-    github: "https://github.com/AzadTom/GYMRecord",
-  },
-  {
-    img: "/img/luxeNust-img.png",
-    name: "LuxeNest website",
-    github: "https://github.com/AzadTom/RealState-React",
-    live: "https://luxenest.netlify.app/",
-  },
-  {
-    img: "/img/notes.png",
-    name: "Collabrative Notes",
-    github: "https://github.com/AzadTom/NoteTaking-Frontend",
-    live: "https://colabrationnotes.netlify.app/",
-  },
-  {
-    img: "/img/ecommerceb.png",
-    name: "Ecommerce Webapplication",
-    github: "https://github.com/AzadTom/REACT-ECOMMERCE",
-    live: "https://boldx.netlify.app/",
-  },
-  {
-    img: "/img/expenses.png",
-    name: "Expense website",
-    github: "https://github.com/AzadTom/ExpenseTracker",
-    live: "https://maintainexpense.netlify.app/",
-  },
-  {
-    img: "/img/neetflix.png",
-    name: "Neetflix website",
-    github: "https://github.com/AzadTom?tab=repositories",
-    live: "https://neetflixo.netlify.app/",
-  },
-];
+
 
 const ProjectSection = () => {
   return (
