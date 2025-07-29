@@ -12,20 +12,35 @@ import SocialSection from "@/components/SocialSection/SocialSection";
 export default function Home() {
 
   return (
-    <main>
-      <ScrollIntoView />
-      <NavigationWrapper />
-      <div className="relative h-[100vh]">
-        <HeroSection />
-        <SocialSection />
-      </div>
-      <AboutMe />
-      <ProjectSection />
-      <InfiniteScrollTags />
-      <SkillsSection />
-      <ContactUs />
-      <Footer />
-    </main>
+    <>
+      <main>
+        <ScrollIntoView />
+        <NavigationWrapper />
+        <div className="min-h-screen w-full bg-black relative">
+          <div
+            className="absolute inset-0 z-0"
+            style={{
+              background: "#000000",
+              backgroundImage: `
+        linear-gradient(to right, rgba(75, 85, 99, 0.4) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(75, 85, 99, 0.4) 1px, transparent 1px)
+      `,
+              backgroundSize: "40px 40px",
+            }}
+          />
+          <HeroSection />
+          <SocialSection />
+        </div>
+        <AboutMe />
+        <ProjectSection />
+        <InfiniteScrollTags />
+        <SkillsSection />
+        <ContactUs />
+        <Footer />
+      </main>
+    </>
+
+
   );
 }
 
