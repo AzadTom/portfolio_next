@@ -95,7 +95,7 @@ const ContactUs = () => {
               <input
                 {...register('name')}
                 placeholder="Enter your name"
-                className="w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white outfit-400"
+                className="w-full px-4 py-3 bg-zinc-950 border border-zinc-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white outfit-400"
               />
               {errors.name && (
                 <p className="text-red-400 text-sm mt-1">{errors.name.message}</p>
@@ -111,7 +111,7 @@ const ContactUs = () => {
                 {...register('email')}
                 type="email"
                 placeholder="Enter your email"
-                className="outfit-400 w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+                className="outfit-400 w-full px-4 py-3 bg-zinc-950 border border-zinc-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
               />
               {errors.email && (
                 <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
@@ -128,7 +128,7 @@ const ContactUs = () => {
               {...register('phone')}
               type="tel"
               placeholder="Enter phone number"
-              className="outfit-400 w-full px-4 py-3 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
+              className="outfit-400 w-full px-4 py-3 bg-zinc-950 border border-zinc-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
             />
             {errors.phone && (
               <p className="text-red-400 text-sm mt-1">{errors.phone.message}</p>
@@ -143,7 +143,7 @@ const ContactUs = () => {
             <textarea
               {...register('message')}
               placeholder="Type your message here..."
-              className="outfit-400 w-full px-4 py-3 h-32 bg-white border border-gray-200 text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white resize-none"
+              className="outfit-400 w-full px-4 py-3 h-32 bg-zinc-950 border border-zinc-900 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-white resize-none"
             />
             {errors.message && (
               <p className="text-red-400 text-sm mt-1">{errors.message.message}</p>
