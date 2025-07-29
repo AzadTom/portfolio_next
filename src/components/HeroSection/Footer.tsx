@@ -18,7 +18,7 @@ const Footer = () => {
       initial={{ opacity: 0, y: -20 }}
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
-      viewport={{ once: true }}
+      viewport={{ once: false }}
       className="relative flex flex-col items-center justify-center gap-3 border-t border-white/10 py-10 bg-black text-white outfit-500">
       <p className="text-xs text-white/40 tracking-widest uppercase outfit-300">Since 2025</p>
 

@@ -35,7 +35,7 @@ const SkillsSection = () => {
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         className="text-center mb-12 outfit-500"
       >
         <h2 className="text-4xl font-bold mb-2 text-white">My Skills</h2>

@@ -5,16 +5,17 @@ import SplitText from "../SplitText/SplitText";
 import { DownloadIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import Logo from "@/icon/Logo";
+
 
 
 const HeroSection = () => {
 
-  const router = useRouter();
+
 
   return (
-    <div
+    <motion.div
+     initial={{scale:0}}
+     animate={{scale:1}}
       className="absolute left-[16px] sm:left-[20px] md:left-[70px] right-[16px] sm:right-[20px] md:right-[70px] top-0 h-[650px] md:h-[600px] rounded-b-[50px]"
       style={{
         background:
@@ -39,7 +40,7 @@ const HeroSection = () => {
           </motion.button>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }
 
