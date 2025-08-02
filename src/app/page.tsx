@@ -32,8 +32,8 @@ export default function Home() {
           <SocialSection />
         </div>
         <AboutMe />
-        <ProjectSection />
         <InfiniteScrollTags />
+        <ProjectSection />
         <SkillsSection />
         <ContactUs />
         <Footer />

@@ -6,7 +6,7 @@ import { tags } from '@/utils/utils';
 
 const InfiniteScrollTags = () => {
     return (
-        <motion.div className="overflow-hidden w-full py-8 my-8">
+        <motion.div className="overflow-hidden w-full mt-16 mb-24 py-4 bg-gradient-to-r from-[#6A01D3] via-[#8F00FF] to-[#C883FF] -rotate-2">
             <motion.div
                 className="flex gap-4 w-max"
                 style={{ whiteSpace: "nowrap" }}
@@ -28,7 +28,7 @@ const InfiniteScrollTags = () => {
 export default InfiniteScrollTags;
 
 const TagItem = ({ item }: { item: string }) => (
-    <div className="text-xl px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-2 text-white uppercase outfit-300">
+    <div className="text-xl px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-2 text-white uppercase outfit-300 bg-black">
         <StarIcon fill="#ffffff" className="text-white rounded-none" />
         {item}
     </div>
