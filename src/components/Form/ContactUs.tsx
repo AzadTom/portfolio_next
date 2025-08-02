@@ -52,7 +52,7 @@ const ContactUs = () => {
   }
 
   return (
-    <div className='mx-8'>
+    <div className='mx-6'>
       <motion.div
         id='contact-me'
         initial={{ opacity: 0, y: -20 }}
