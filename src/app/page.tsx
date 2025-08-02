@@ -32,9 +32,9 @@ export default function Home() {
           <SocialSection />
         </div>
         <AboutMe />
-        <InfiniteScrollTags />
         <ProjectSection />
         <SkillsSection />
+         <InfiniteScrollTags />
         <ContactUs />
         <Footer />
       </main>
