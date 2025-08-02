@@ -45,7 +45,7 @@ const Footer = () => {
         className="absolute right-6 bottom-6 md:right-10 md:bottom-10 bg-white/10 border border-white/20 rounded-full p-2 hover:bg-white/20 transition-colors duration-200"
         aria-label="Back to Top"
       >
-        <ArrowUp className="h-5 w-5 text-white" />
+        <ArrowUp className="h-5 w-5 text-white cursor-pointer" />
       </motion.button>
     </motion.footer>
   );
