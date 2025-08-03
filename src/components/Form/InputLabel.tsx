@@ -82,5 +82,8 @@ export const TextAreaLabel: React.FC<InputLabelProps> = ({
 };
 
 
-export const inputStyle = 'w-full rounded-full px-4 h-[45px] outline-none outfit-400';
-export const textareaStyle = 'outfit-400 w-full px-4 py-3 h-32 bg-white border border-[#737373]  text-black rounded-2xl focus:outline-none  resize-none';
+const inputBaseStyle = 'w-full h-[45px] px-4 py-3 outline-none outfit-400 rounded-full';
+const textareatBaseStyle = 'w-full h-32 outline-none outfit-400 px-4 py-3 rounded-2xl'
+
+export const inputStyle = `${inputBaseStyle} bg-white border border-[#787878]`;
+export const textareaStyle = `${textareatBaseStyle} bg-white border border-[#787878]`;

@@ -119,7 +119,7 @@ const ContactUs = () => {
             errorMessage={errors.message?.message}
           />
           {/* Submit Button */}
-          <div className="flex">
+          <div>
             <motion.button
               whileTap={{ scale: 0.98 }}
               whileHover={{ scale: 1.02 }}
