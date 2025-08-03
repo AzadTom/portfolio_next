@@ -7,7 +7,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import FormBackground from './FormBackground'
 import FormTitle from './FormTitle'
 import FormContainer from './FormContainer'
-import InputLabel, { inputStyle, TextAreaLabel, textareaStyle } from './InputLabel'
+import InputLabel, { inputlabelStyle, inputStyle, TextAreaLabel, textareaStyle } from './InputLabel'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -56,13 +56,13 @@ const ContactUs = () => {
 
   return (
     <FormBackground bgImage='./contact_us_image.png' className='w-full h-screen flex justify-center items-center'>
-      <FormContainer className="w-full sm:max-w-[500px] mx-6 sm:mx-auto my-10 p-4 outfit-500 scroll-m-8 bg-white rounded-2xl">
+      <FormContainer className="w-full sm:max-w-[500px] mx-4 sm:mx-auto my-10 p-4 outfit-500 scroll-m-8 bg-black rounded-2xl">
         <FormTitle
           className='text-black rounded-3xl mt-8'
           title='Get in Touch'
-          titleClassName='text-4xl mb-2 text-black outfit-500'
+          titleClassName='text-4xl mb-2 text-white outfit-500'
           subtitle='You can reach us anytime'
-          subtitleClassName='text-black/60 text-lg outfit-400'
+          subtitleClassName='text-white/60 text-lg outfit-400'
         />
         <AnimatePresence>
           {submitted && (
@@ -79,7 +79,7 @@ const ContactUs = () => {
           )}
         </AnimatePresence>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-          <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-2 sm:gap-4">
             {/* Name */}
             <InputLabel
               inputClassName={inputStyle}
@@ -93,7 +93,7 @@ const ContactUs = () => {
             <InputLabel
               inputClassName={inputStyle}
               placeholder='Enter your email'
-              labelId='name'
+              labelId='email'
               register={register('email')}
               isError={errors.email ? true : false}
               errorMessage={errors.email?.message}
@@ -104,6 +104,7 @@ const ContactUs = () => {
             inputClassName={inputStyle}
             placeholder='Enter phone number'
             labelId='phone'
+            type='tel'
             register={register('phone')}
             isError={errors.phone ? true : false}
             errorMessage={errors.phone?.message}
@@ -125,7 +126,7 @@ const ContactUs = () => {
               whileHover={{ scale: 1.02 }}
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-black text-white cursor-pointer uppercase font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-xl transition-all disabled:opacity-50"
+              className="w-full bg-white text-black cursor-pointer uppercase font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-xl transition-all disabled:opacity-50"
             >
               {isSubmitting ? 'Submitting...' : 'Send Message'}
             </motion.button>

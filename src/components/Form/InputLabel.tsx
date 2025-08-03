@@ -14,6 +14,7 @@ interface InputLabelProps {
   labelClassName?: string;
   inputClassName?: string;
   wrapperClassName?: string;
+  type?:string;
 }
 
 const InputLabel: React.FC<InputLabelProps> = ({
@@ -26,6 +27,7 @@ const InputLabel: React.FC<InputLabelProps> = ({
   labelClassName = '',
   inputClassName = '',
   wrapperClassName = '',
+  type= 'text'
 }) => {
   return (
     <div className={wrapperClassName}>
@@ -35,13 +37,14 @@ const InputLabel: React.FC<InputLabelProps> = ({
         </Label>
       )}
       <Input
+       type={type}
         id={labelId}
         placeholder={placeholder}
         className={cn(inputClassName,'focus:outline-none')}
         {...register}
       />
       {isError && errorMessage && (
-        <span className="text-red-400 text-sm mt-1 block">{errorMessage}</span>
+        <span className="text-red-400 text-sm mt-1 block outfit-300">{errorMessage}</span>
       )}
     </div>
   );
@@ -75,7 +78,7 @@ export const TextAreaLabel: React.FC<InputLabelProps> = ({
         {...register}
       />
       {isError && errorMessage && (
-        <span className="text-red-400 text-sm mt-1 block">{errorMessage}</span>
+        <span className="text-red-400 text-sm mt-1 block outfit-300">{errorMessage}</span>
       )}
     </div>
   );
@@ -85,5 +88,6 @@ export const TextAreaLabel: React.FC<InputLabelProps> = ({
 const inputBaseStyle = 'w-full h-[45px] px-4 py-3 outline-none outfit-400 rounded-full';
 const textareatBaseStyle = 'w-full h-32 outline-none outfit-400 px-4 py-3 rounded-2xl'
 
-export const inputStyle = `${inputBaseStyle} bg-white border border-[#787878]`;
-export const textareaStyle = `${textareatBaseStyle} bg-white border border-[#787878]`;
+export const inputStyle = `${inputBaseStyle} bg-black border border-white text-white placeholder:text-white/60`;
+export const textareaStyle = `${textareatBaseStyle} bg-black border border-white text-white placeholder:text-white/60`;
+export const inputlabelStyle = 'text-black outfit-500';
