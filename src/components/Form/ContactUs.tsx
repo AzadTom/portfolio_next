@@ -4,7 +4,10 @@ import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { div } from 'motion/react-client'
+import FormBackground from './FormBackground'
+import FormTitle from './FormTitle'
+import FormContainer from './FormContainer'
+import InputLabel, { inputStyle, TextAreaLabel, textareaStyle } from './InputLabel'
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -52,123 +55,84 @@ const ContactUs = () => {
   }
 
   return (
-    <div className='mx-6'>
-      <motion.div
-        id='contact-me'
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: false }}
-        className="max-w-[1000px] mx-auto my-10 px-4 outfit-500 scroll-m-8 bg-white/5 rounded-2xl"
-      >
-        <div className="text-white rounded-3xl md:p-10 py-8">
-          <div className="text-center mb-12 outfit-500">
-            <h2 className="text-4xl font-bold mb-2 text-white">Contact Me</h2>
-            <p className="text-white/60 text-lg outfit-300">
-              Let’s connect — whether it’s a project, collaboration, or just to say hi
-            </p>
+    <FormBackground bgImage='./contact_us_image.png' className='w-full h-screen flex justify-center items-center'>
+      <FormContainer className="w-full sm:max-w-[500px] mx-6 sm:mx-auto my-10 p-4 outfit-500 scroll-m-8 bg-white rounded-2xl">
+        <FormTitle
+          className='text-black rounded-3xl mt-8'
+          title='Get in Touch'
+          titleClassName='text-4xl mb-2 text-black outfit-500'
+          subtitle='You can reach us anytime'
+          subtitleClassName='text-black/60 text-lg outfit-400'
+        />
+        <AnimatePresence>
+          {submitted && (
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              className="mb-6 text-white text-center py-3 px-4 rounded-lg font-semibold"
+            >
+              🎉 Thank you! Your message has been sent.
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+          <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+            {/* Name */}
+            <InputLabel
+              inputClassName={inputStyle}
+              placeholder='Enter your name'
+              labelId='name'
+              register={register('name')}
+              isError={errors.name ? true : false}
+              errorMessage={errors.name?.message}
+            />
+            {/* Email */}
+            <InputLabel
+              inputClassName={inputStyle}
+              placeholder='Enter your email'
+              labelId='name'
+              register={register('email')}
+              isError={errors.email ? true : false}
+              errorMessage={errors.email?.message}
+            />
           </div>
+          {/* Phone */}
+          <InputLabel
+            inputClassName={inputStyle}
+            placeholder='Enter phone number'
+            labelId='phone'
+            register={register('phone')}
+            isError={errors.phone ? true : false}
+            errorMessage={errors.phone?.message}
+          />
 
-
-          <AnimatePresence>
-            {submitted && (
-              <motion.div
-                key="success"
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-                className="mb-6 text-white text-center py-3 px-4 rounded-lg font-semibold"
-              >
-                🎉 Thank you! Your message has been sent.
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-
-            {/* Name & Email Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Name */}
-              <div>
-                <label className="block mb-1 text-sm font-medium text-white">
-                  Name
-                </label>
-                <input
-                  {...register('name')}
-                  placeholder="Enter your name"
-                  className="w-full px-4 py-3 bg-white/5 border border-white/10 shadow-md   text-white rounded-lg focus:outline-none  outfit-400"
-                />
-                {errors.name && (
-                  <p className="text-red-400 text-sm mt-1">{errors.name.message}</p>
-                )}
-              </div>
-
-              {/* Email */}
-              <div>
-                <label className="block mb-1 text-sm font-medium text-white">
-                  Email
-                </label>
-                <input
-                  {...register('email')}
-                  type="email"
-                  placeholder="Enter your email"
-                  className="outfit-400 w-full px-4 py-3 bg-white/5 border border-white/10 shadow-md text-white rounded-lg focus:outline-none "
-                />
-                {errors.email && (
-                  <p className="text-red-400 text-sm mt-1">{errors.email.message}</p>
-                )}
-              </div>
-            </div>
-
-            {/* Phone */}
-            <div>
-              <label className="block mb-1 text-sm font-medium text-white">
-                Phone Number
-              </label>
-              <input
-                {...register('phone')}
-                type="tel"
-                placeholder="Enter phone number"
-                className="outfit-400 w-full px-4 py-3 bg-white/5 border border-white/10 shadow-md text-white rounded-lg focus:outline-none "
-              />
-              {errors.phone && (
-                <p className="text-red-400 text-sm mt-1">{errors.phone.message}</p>
-              )}
-            </div>
-
-            {/* Message */}
-            <div>
-              <label className="block mb-1 text-sm font-medium text-white">
-                Message
-              </label>
-              <textarea
-                {...register('message')}
-                placeholder="Type your message here..."
-                className="outfit-400 w-full px-4 py-3 h-32 bg-white/5 border border-white/10 shadow-md text-white rounded-lg focus:outline-none  resize-none"
-              />
-              {errors.message && (
-                <p className="text-red-400 text-sm mt-1">{errors.message.message}</p>
-              )}
-            </div>
-
-            {/* Submit Button */}
-            <div className="flex justify-end">
-              <motion.button
-                whileTap={{ scale: 0.98 }}
-                whileHover={{ scale: 1.02 }}
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-white text-black uppercase font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-xl transition-all disabled:opacity-50"
-              >
-                {isSubmitting ? 'Submitting...' : 'Send Message'}
-              </motion.button>
-            </div>
-
-          </form>
-        </div>
-      </motion.div>
-    </div>
+          {/* Message */}
+          <TextAreaLabel
+            labelId='messsage'
+            placeholder="Tell us what can we help you..."
+            inputClassName={textareaStyle}
+            register={register('message')}
+            isError={errors.message ? true : false}
+            errorMessage={errors.message?.message}
+          />
+          {/* Submit Button */}
+          <div className="flex">
+            <motion.button
+              whileTap={{ scale: 0.98 }}
+              whileHover={{ scale: 1.02 }}
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-black text-white cursor-pointer uppercase font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-xl transition-all disabled:opacity-50"
+            >
+              {isSubmitting ? 'Submitting...' : 'Send Message'}
+            </motion.button>
+          </div>
+        </form>
+      </FormContainer>
+    </FormBackground>
   )
 }
 
