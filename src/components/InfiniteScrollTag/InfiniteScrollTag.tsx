@@ -6,7 +6,7 @@ import { tags } from '@/utils/utils';
 
 const InfiniteScrollTags = () => {
     return (
-        <motion.div className="overflow-hidden w-full mt-16 mb-24 py-4 bg-gradient-to-r from-[#6A01D3] via-[#8F00FF] to-[#C883FF] -rotate-2">
+        <motion.div className="overflow-hidden w-full mt-16 mb-24 py-4 bg-gradient-to-r from-[#6A01D3] via-[#8F00FF] to-[#C883FF]">
             <motion.div
                 className="flex gap-4 w-max"
                 style={{ whiteSpace: "nowrap" }}
