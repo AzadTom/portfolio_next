@@ -8,6 +8,7 @@ import ProjectSection from "@/components/ProjectSection/ProjectSection";
 import ScrollIntoView from "@/components/HeroSection/ScrollIntoView";
 import SkillsSection from "@/components/SkillsSection/SkillsSection";
 import SocialSection from "@/components/SocialSection/SocialSection";
+import { WorkExperienceDemo } from "@/components/WorkExperience/WorkExperience";
 
 export default function Home() {
 
@@ -33,6 +34,7 @@ export default function Home() {
         </div>
         <AboutMe />
         <ProjectSection />
+        <WorkExperienceDemo/>
         <SkillsSection />
         <InfiniteScrollTags />
         <ContactUs />

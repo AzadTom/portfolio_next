@@ -69,7 +69,7 @@ const WORK_EXPERIENCE: ExperienceItemType[] = [
 export function WorkExperienceDemo() {
   return (
     <WorkExperience
-      className="w-full rounded-lg border"
+      className="max-w-[1000px] mx-auto rounded-lg  text-white"
       experiences={WORK_EXPERIENCE}
     />
   );
