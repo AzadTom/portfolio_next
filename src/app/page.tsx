@@ -8,7 +8,7 @@ import ProjectSection from "@/components/ProjectSection/ProjectSection";
 import ScrollIntoView from "@/components/HeroSection/ScrollIntoView";
 import SkillsSection from "@/components/SkillsSection/SkillsSection";
 import SocialSection from "@/components/SocialSection/SocialSection";
-import { WorkExperienceSection } from "@/components/WorkExperience/WorkExperience";
+import { WorkExperienceSection } from "@/components/WorkExperienceSection/WorkExperienceSection";
 
 export default function Home() {
 
