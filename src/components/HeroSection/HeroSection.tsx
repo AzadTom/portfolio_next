@@ -39,12 +39,14 @@ const HeroSection = () => {
           </div>
         </div>
       </motion.div>
-      <div
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
         className='h-40 rounded-t-[50px] absolute bottom-0 left-[16px]  sm:left-[20px] md:left-[70px] right-[16px] sm:right-[20px] md:right-[70px]'
         style={{
           background: "radial-gradient(98.87% 98.87% at 51.11% 1.13%, #C883FF 0%, #8F00FF 20%, #6A01D3 40%, #000000 100%)",
         }}>
-      </div>
+      </motion.div>
     </>
 
   )
