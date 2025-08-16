@@ -106,13 +106,11 @@ export const MenuItem = ({ item,toggle }: { item: LinkType,toggle:()=>void}) => 
         </h2>
         <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
           <span className="text-lg text-white/70 font-medium">Explore more</span>
-          <Link
-            href={item.link}
-            onClick={toggle}
+          <div
             className="flex items-center gap-2 text-white text-xl font-semibold hover:translate-x-1 transition-transform duration-300"
           >
             Visit <GetRedirectIcon color="white" />
-          </Link>
+          </div>
         </div>
 
       </div>
