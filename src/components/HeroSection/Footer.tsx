@@ -23,7 +23,7 @@ const Footer = () => {
       {/* <p className="text-xs text-white/40 tracking-widest uppercase outfit-300">Since 2025</p> */}
 
       {/* <p className="text-4xl font-bold tracking-widest capitalize">AzadTom</p> */}
-
+      <p className="text-6xl font-bold text-white">The End!</p>
       <p className="text-center text-white/60 max-w-xl px-6 text-base leading-relaxed outfit-300">
         Thank you for stopping by. This space is a reflection of passion and purpose—
         designed to inspire, connect, and grow. You&apos;re always welcome here.

@@ -73,9 +73,10 @@ const WORK_EXPERIENCE2: ExperienceItemType[] = [
   },
 ];
 
-export function WorkExperienceDemo() {
+export function WorkExperienceSection() {
   return (
     <>
+      <h2  className="text-3xl font-semibold text-white outfit-600 max-w-[1000px] mx-auto px-4">Experience</h2>
       <WorkExperience
         className="max-w-[1000px] mx-auto rounded-lg outfit-400 text-white"
         experiences={WORK_EXPERIENCE1}

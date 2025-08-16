@@ -8,7 +8,7 @@ import ProjectSection from "@/components/ProjectSection/ProjectSection";
 import ScrollIntoView from "@/components/HeroSection/ScrollIntoView";
 import SkillsSection from "@/components/SkillsSection/SkillsSection";
 import SocialSection from "@/components/SocialSection/SocialSection";
-import { WorkExperienceDemo } from "@/components/WorkExperience/WorkExperience";
+import { WorkExperienceSection } from "@/components/WorkExperience/WorkExperience";
 
 export default function Home() {
 
@@ -17,25 +17,14 @@ export default function Home() {
       <main>
         <ScrollIntoView />
         <NavigationWrapper />
-        <div className="min-h-screen w-full bg-black relative">
-          <div
-            className="absolute inset-0 z-0"
-            style={{
-              background: "#000000",
-              backgroundImage: `
-        linear-gradient(to right, rgba(75, 85, 99, 0.4) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(75, 85, 99, 0.4) 1px, transparent 1px)
-      `,
-              backgroundSize: "40px 40px",
-            }}
-          />
+        <div className="relative h-screen">
           <HeroSection />
         </div>
         <SocialSection />
         <AboutMe />
-        <WorkExperienceDemo/>
-        <ProjectSection />
+        <WorkExperienceSection />
         <SkillsSection />
+        <ProjectSection />
         <InfiniteScrollTags />
         <ContactUs />
         <Footer />

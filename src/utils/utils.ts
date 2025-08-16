@@ -3,14 +3,21 @@ export const skills = [
   { name: 'CSS', logo: 'https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg' },
   { name: 'JavaScript', logo: 'https://cdn.simpleicons.org/javascript/F7DF1E' },
   { name: 'TypeScript', logo: 'https://cdn.simpleicons.org/typescript/3178C6' },
-  { name: 'ReactJS', logo: 'https://cdn.simpleicons.org/react/61DAFB' },
+  { name: "ReactJs", logo: "https://assets.chanhdai.com/images/tech-stack-icons/react.svg" },
+  { name: "FIgma", logo: "https://assets.chanhdai.com/images/tech-stack-icons/figma.svg" },
+  { name: "Docker", logo: "https://assets.chanhdai.com/images/tech-stack-icons/docker.svg" },
+  { name: "Shadcn", logo: "https://assets.chanhdai.com/images/tech-stack-icons/shadcn-ui-dark.svg" },
+  { name: "TailwindCss", logo: "https://assets.chanhdai.com/images/tech-stack-icons/tailwindcss.svg" },
+  { name: 'MySql', logo: 'https://assets.chanhdai.com/images/tech-stack-icons/mysql.svg' },
   { name: 'NextJS', logo: 'https://cdn.simpleicons.org/nextdotjs/FFFFFF' },
   { name: 'Framer Motion', logo: 'https://framerusercontent.com/images/3aQX5dnH5Yqgsn98QXKF2ZXxIE.png' },
   { name: 'Redux', logo: 'https://cdn.simpleicons.org/redux/764ABC' },
   { name: 'React Query', logo: 'https://cdn.simpleicons.org/reactquery/FF4154' },
   { name: 'NodeJS', logo: 'https://cdn.simpleicons.org/nodedotjs/339933' },
   { name: 'MongoDB', logo: 'https://cdn.simpleicons.org/mongodb/47A248' },
-  { name: 'MySQL', logo: 'https://cdn.simpleicons.org/mysql/4479A1' },
+  { name: "Git", logo: "https://assets.chanhdai.com/images/tech-stack-icons/git.svg" },
+
+  ,
 ];
 
 export const socials = [
@@ -18,24 +25,28 @@ export const socials = [
     href: "mailto:kumarazad2917@gmail.com",
     icon: "/gmail.svg",
     alt: "Gmail",
+    username: "azadtom",
     external: false,
   },
   {
     href: "https://www.linkedin.com/in/azadkumar93108/",
     icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/linkedin.webp",
     alt: "LinkedIn",
+    username: "azadkumar93108",
     external: true,
   },
   {
     href: "https://github.com/AzadTom?tab=repositories",
     icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/github.webp",
     alt: "GitHub",
+    username: "AzadTom",
     external: true,
   },
   {
     href: "https://x.com/Azadtom2917",
     icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/x.webp",
     alt: "Twitter/X",
+    username: "@Azadtom2917",
     external: true,
   },
 ];

@@ -9,11 +9,11 @@ const AboutMe = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once:false}}
-      id="about-me" className="py-16 px-4 sm:px-8 max-w-[1000px] mx-auto text-white">
-      <h2 className="text-xl sm:text-2xl font-semibold text-primary mb-6 outfit-500">
-        about me.
+      id="about-me" className="py-16 px-4 max-w-[1000px] mx-auto text-white">
+      <h2 className="mb-6 text-3xl font-semibold outfit-600">
+        About me.
       </h2>
-      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed space-y-4 flex flex-col gap-4 outfit-400 text-[#a3a3a3]">
+      <p className="text-base sm:text-lg text-muted-foreground leading-relaxed space-y-4 flex flex-col gap-4 outfit-400 text-[#f5f5f5]">
         <span>
           Hey! I&#39;m a frontend developer passionate about building scalable
           websites and applications. I focus on delivering exceptional user
