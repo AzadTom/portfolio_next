@@ -142,11 +142,11 @@ const ContactUs = () => {
 
         </form>
       </div>
-      <div className='flex-1'>
-        <h2 className='text-6xl sm:text-8xl font-black text-white'>Let's Talk.</h2>
-        <p className='text-3xl font-medium text-white'>Tell Us about your project</p>
-        <p className='text-3xl font-medium text-white/50'>__Whether it's a website,</p>
-        <p className='text-3xl font-medium text-white/50'>SEO, or designing </p>
+      <div className="flex-1">
+        <h2 className="text-6xl sm:text-8xl font-black text-white">Let's Talk.</h2>
+        <p className="text-3xl font-medium text-white">Tell Us about your project</p>
+        <p className="text-3xl font-medium text-white/50">__Whether it's a website,</p>
+        <p className="text-3xl font-medium text-white/50">SEO, or designing </p>
       </div>
     </motion.div>
   )
