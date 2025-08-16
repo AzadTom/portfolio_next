@@ -41,9 +41,9 @@ const ContactUs = () => {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
-      className="max-w-[1000px] mx-auto my-10 px-4 outfit-500 "
+      className="max-w-[1000px] mx-auto my-10 px-4 outfit-500 flex flex-col  sm:flex-row gap-16 justify-between items-start"
     >
-      <div className="text-white rounded-[12px] p-6 md:p-10 shadow-xl bg-white">
+      <div className="text-white rounded-[12px] p-6 md:p-10 shadow-xl bg-white flex-1 w-full">
         <h2 className="text-xl font-bold mb-6  text-black">Azadtom, <br /> Have a project <span className='text-[#0a0a0a99]'>in mind?</span></h2>
         <AnimatePresence>
           {submitted && (
@@ -63,7 +63,7 @@ const ContactUs = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
           {/* Name & Email Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {/* Name */}
             <div>
               <label className="block mb-1 text-xs font-medium text-black">
@@ -74,15 +74,15 @@ const ContactUs = () => {
                 placeholder="Azad Tom"
                 className="w-full px-4 py-3 bg-[#f5f5f5] text-black rounded-lg focus:outline-none focus:ring-2 focus:ring-white"
               />
-               {errors.name && (
-              <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>
-            )}
+              {errors.name && (
+                <p className="text-red-400 text-xs mt-1">{errors.name.message}</p>
+              )}
             </div>
 
             {/* Email */}
             <div>
               <label className="block mb-1 text-xs font-medium text-black">
-                E-mail* 
+                E-mail*
               </label>
               <input
                 {...register('email')}
@@ -134,13 +134,19 @@ const ContactUs = () => {
               whileHover={{ scale: 1.02 }}
               type="submit"
               disabled={isSubmitting}
-              className="bg-black text-white uppercase font-semibold py-3 px-6 rounded-lg shadow-md hover:shadow-xl transition-all disabled:opacity-50"
+              className="bg-black w-full rounded-full text-white  font-semibold py-3 px-6 shadow-md hover:shadow-xl transition-all disabled:opacity-50"
             >
               {isSubmitting ? 'Submitting...' : 'Send Message'}
             </motion.button>
           </div>
 
         </form>
+      </div>
+      <div className='flex-1'>
+        <h2 className='text-6xl sm:text-8xl font-black text-white'>Let's Talk.</h2>
+        <p className='text-3xl font-medium text-white'>Tell Us about your project</p>
+        <p className='text-3xl font-medium text-white/50'>__Whether it's a website,</p>
+        <p className='text-3xl font-medium text-white/50'>SEO, or designing </p>
       </div>
     </motion.div>
   )
