@@ -36,9 +36,9 @@ const SkillsSection = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: false }}
-        className="mb-12 outfit-500"
+        className="mb-4 outfit-500"
       >
-      <h2 className="text-3xl font-bold outfit-600 mb-2 text-white">Stack</h2>
+      <h2 className="text-3xl font-bold outfit-600  text-white">Stack</h2>
       </motion.div>
 
       <motion.div

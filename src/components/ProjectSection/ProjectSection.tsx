@@ -23,11 +23,8 @@ const ProjectSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: false }}
-          className="text-center mb-12 outfit-500">
-          <h2 className="text-4xl font-bold mb-2 text-white">Projects</h2>
-          <p className="text-white/60 text-lg outfit-300">
-            A showcase of my work, passion, and what I love building with
-          </p>
+          className="outfit-600">
+          <h2 className="text-3xl font-bold outfilt-600 mb-2 text-white px-4">Projects</h2>
         </motion.div>
         <Swiper
           modules={[Navigation]}

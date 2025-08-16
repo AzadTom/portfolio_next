@@ -18,13 +18,13 @@ export default function Home() {
         <ScrollIntoView />
         <NavigationWrapper />
         <div className="relative h-screen">
-          <HeroSection />
+        <HeroSection />
         </div>
         <SocialSection />
         <AboutMe />
+        <ProjectSection />
         <WorkExperienceSection />
         <SkillsSection />
-        <ProjectSection />
         <InfiniteScrollTags />
         <ContactUs />
         <Footer />
