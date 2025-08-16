@@ -24,7 +24,7 @@ const HeroSection = () => {
     >
       <div className="text-white flex flex-col items-center justify-center mt-[12rem] sm:mt-20">
         <GradientBorderButton>
-          <SplitText text="Get Resume"/>
+          Get Resume
         </GradientBorderButton>
         <h1 className="mt-[32px] text-4xl outfit-700 font-bold tracking-tight text-[#fafafae6] text-center max-w-[600px] mx-auto">
           <SplitText text="Frontend software engineer from India, focussed on building pixel perfect web apps." />
@@ -32,7 +32,7 @@ const HeroSection = () => {
         <div className="flex gap-4 items-end justify-end  mt-[32px]">
           <motion.button initial={{scale:0}} animate={{scale:1}} className="cursor-pointer bg-white  w-full text-black rounded-full h-[45px] px-[24px] py-[12px]  outfit-500 flex justify-center items-center self-end">
             <Link href="#contact-me">
-              <SplitText text="Let's Talk"/>
+             Lets Talk
             </Link>
           </motion.button>
         </div>
