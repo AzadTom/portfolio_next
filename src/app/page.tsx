@@ -17,7 +17,7 @@ export default function Home() {
       <main>
         <ScrollIntoView />
         <NavigationWrapper />
-        <div className="h-[110vh] w-full bg-black relative">
+        <div className="min-h-screen w-full bg-black relative">
           <div
             className="absolute inset-0 z-0"
             style={{
