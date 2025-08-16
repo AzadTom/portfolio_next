@@ -22,9 +22,9 @@ export default function Home() {
         </div>
         <SocialSection />
         <AboutMe />
-        <ProjectSection />
-        <WorkExperienceSection />
         <SkillsSection />
+        <WorkExperienceSection />
+        <ProjectSection />
         <InfiniteScrollTags />
         <ContactUs />
         <Footer />

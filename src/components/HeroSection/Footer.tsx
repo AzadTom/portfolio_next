@@ -27,7 +27,7 @@ const Footer = () => {
         whileTap={{ scale: 0.95 }}
         animate={{ y: [0, -4, 0] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute right-6 bottom-6 md:right-10 md:bottom-10 bg-white/10 border border-white/20 rounded-full p-2 hover:bg-white/20 transition-colors"
+        className="absolute right-6 bottom-6 cursor-pointer bg-white/10 border border-white/20 rounded-full p-2 hover:bg-white/20 transition-colors"
         aria-label="Back to Top"
       >
         <ArrowUp className="h-5 w-5 text-white" />
