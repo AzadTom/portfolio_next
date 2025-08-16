@@ -25,7 +25,7 @@ export const socials = [
     href: "mailto:kumarazad2917@gmail.com",
     icon: "/gmail.svg",
     alt: "Gmail",
-    username: "azadtom",
+    username: "",
     external: false,
   },
   {

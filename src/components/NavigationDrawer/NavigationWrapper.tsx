@@ -6,9 +6,7 @@ const NavigationWrapper = () => {
 
 
     return (
-        <>
-            <NavigationDrawer />
-        </>
+       <NavigationDrawer />
     )
 }
 

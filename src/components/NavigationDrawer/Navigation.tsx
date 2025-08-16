@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { GetRedirectIcon } from "@/icon/GetRedirectionIcon";
 import Image from "next/image";
 import Link from "next/link";
+import { socials } from "@/utils/utils";
 
 const variantsNavigation = {
   open: {
@@ -44,7 +45,9 @@ export const Navigation = ({toggle}:{toggle:()=>void}) => (
   <>
     <motion.ul variants={variantsNavigation} className="absolute  top-[100px] right-4 left-4 sm:left-12 sm:right-12 outfilt-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
       {links.map((item: LinkType) => (
-        <MenuItem item={item} key={item.id} toggle={toggle} />
+         <Link href={item.link} key={item.id}>
+          <MenuItem item={item} key={item.id} toggle={toggle} />
+         </Link>
       ))}
       <motion.li
         variants={variantsMenuItem}
@@ -53,9 +56,9 @@ export const Navigation = ({toggle}:{toggle:()=>void}) => (
         <div className="w-full bg-zinc-900 bg-opacity-60 border text-white p-4 rounded-2xl border-zinc-700 backdrop-blur-md shadow-2xl transition-all duration-500">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight capitalize flex gap-4 my-2 mx-4 justify-between items-center">
             {socials.map((item) => (
-              <a href={item.href} key={item.alt}>
-                <Image src={item.icon} alt={item.alt} width={24} height={24} className="w-full h-full" />
-              </a>
+              <Link href={item.href} key={item.alt}>
+                <Image src={item.icon} alt={item.alt} width={42} height={42} className="w-[42px] h-[42px]" />
+              </Link>
             ))}
           </h2>
           <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
@@ -116,34 +119,4 @@ export const MenuItem = ({ item,toggle }: { item: LinkType,toggle:()=>void}) => 
     </motion.li>
   );
 };
-
-
-
-const socials = [
-  {
-    href: "mailto:kumarazad2917@gmail.com",
-    icon: "/gmail.svg",
-    alt: "Gmail",
-    external: false,
-  },
-  {
-    href: "https://www.linkedin.com/in/azadkumar93108/",
-    icon: "/linkedin.svg",
-    alt: "LinkedIn",
-    external: true,
-  },
-  {
-    href: "https://github.com/AzadTom?tab=repositories",
-    icon: "/github_white.svg",
-    alt: "GitHub",
-    external: true,
-  },
-  {
-    href: "https://x.com/Azadtom2917",
-    icon: "/x_white.svg",
-    alt: "Twitter/X",
-    external: true,
-  },
-];
-
 
