@@ -17,7 +17,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const ProjectSection = () => {
   return (
     <>
-      <div className="my-[32px] scroll-m-8" id="works">
+      <div className="my-[32px] scroll-m-8 max-w-[1000px] mx-auto" id="works">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
