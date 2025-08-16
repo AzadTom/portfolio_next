@@ -22,19 +22,19 @@ export const socials = [
   },
   {
     href: "https://www.linkedin.com/in/azadkumar93108/",
-    icon: "/linkedin.svg",
+    icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/linkedin.webp",
     alt: "LinkedIn",
     external: true,
   },
   {
     href: "https://github.com/AzadTom?tab=repositories",
-    icon: "/github_white.svg",
+    icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/github.webp",
     alt: "GitHub",
     external: true,
   },
   {
     href: "https://x.com/Azadtom2917",
-    icon: "/x_white.svg",
+    icon: "https://assets.chanhdai.com/images/link-icons/liquid-glass/x.webp",
     alt: "Twitter/X",
     external: true,
   },

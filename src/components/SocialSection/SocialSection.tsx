@@ -1,12 +1,13 @@
 'use client';
+import { ArrowUpRight } from 'lucide-react';
 import { socials } from "@/utils/utils";
 import { motion } from "motion/react";
 import Image from "next/image";
 
 const SocialSection = () => {
   return (
-    <div className="flex flex-col absolute bottom-[32px] left-0 right-0 w-full z-50">
-      <div className="flex items-center justify-center gap-4 max-w-[300px] mx-auto px-6 pointer-events-auto">
+    <div className='absolute left-0 right-0 bottom-4'>
+      <div className="max-w-[1000px] mx-auto grid grid-cols-1 px-2 sm:grid-cols-2 pointer-events-auto">
         {socials.map((social, index) => (
           <motion.a
             key={index}
@@ -15,15 +16,24 @@ const SocialSection = () => {
             rel={social.external ? "noopener noreferrer" : ""}
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
-            className="w-10 h-10 flex items-center justify-center"
+            className="w-full flex items-center p-4 pr-2"
           >
-            <Image
-              src={social.icon}
-              alt={social.alt}
-              width={42}
-              height={42}
-              className="object-contain w-full h-full"
-            />
+            <div className="flex-1 flex gap-4 items-center w-full">
+              <Image
+                src={social.icon}
+                alt={social.alt}
+                width={42}
+                height={42}
+                className="object-contain w-[42px] h-[42px]"
+              />
+              <div className="text-white">
+                <h3 className="flex items-center font-medium underline-offset-4 group-hover/link:underline">{social.alt}</h3>
+                <p className="text-sm text-[#9f9fa9]">@Azadtom</p>
+              </div>
+            </div>
+            <span>
+              <ArrowUpRight color='#9f9fa9' size={16}/>
+            </span>
           </motion.a>
         ))}
       </div>
