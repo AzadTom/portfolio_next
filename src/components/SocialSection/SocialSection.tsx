@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const SocialSection = () => {
   return (
-    <div className='absolute left-0 right-0 bottom-4'>
+    <div className='absolute left-0 right-0 bottom-4 bg-black'>
       <div className="max-w-[1000px] mx-auto grid grid-cols-1 px-2 sm:grid-cols-2 pointer-events-auto">
         {socials.map((social, index) => (
           <motion.a

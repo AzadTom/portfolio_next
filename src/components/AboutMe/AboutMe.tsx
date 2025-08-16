@@ -9,7 +9,7 @@ const AboutMe = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once:false}}
-      id="about-me" className="py-16 px-4 sm:px-8 max-w-3xl mx-auto text-white">
+      id="about-me" className="py-16 px-4 sm:px-8 max-w-[1000px] mx-auto text-white">
       <h2 className="text-xl sm:text-2xl font-semibold text-primary mb-6 outfit-500">
         about me.
       </h2>
