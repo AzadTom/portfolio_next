@@ -60,7 +60,7 @@ const GradientBorderButton = ({ children }: { children: ReactNode }) => {
   return (
     <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} className="inline-block p-[1px] rounded-full bg-[linear-gradient(90deg,_#FFDEDE_0%,_#F67A7A_36%,_#D4D9FF_69%,_#DC79FF_100%)]">
       <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} className="px-[24px] py-[12px] rounded-full bg-black text-white font-medium flex gap-2 items-center">
-        <Link href="https://drive.google.com/file/d/1JEW2GipqbDwsrpmwgoDttHbLhzyFkc9I/view" className="flex items-center gap-2">
+        <Link href="https://drive.google.com/file/d/1a_wLmZIqFaq_B3inTpn26w6x8I9dMVT2/view?usp=sharing" className="flex items-center gap-2">
           <DownloadIcon />{children}
         </Link>
       </motion.button>
