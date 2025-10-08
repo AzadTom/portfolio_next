@@ -24,29 +24,22 @@ const HeroSection = () => {
         }}
       >
         <div className="text-white flex flex-col items-center justify-center mt-[12rem] sm:mt-20">
-          <GradientBorderButton>
-            Get Resume
-          </GradientBorderButton>
           <h1 className="mt-[32px] text-4xl outfit-700 font-bold tracking-tight text-[#fafafae6] text-center max-w-[600px] mx-auto">
             <SplitText text="Frontend software engineer from India, focussed on building pixel perfect web apps." />
           </h1>
           <div className="flex gap-4 items-end justify-end  mt-[32px]">
-            <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} className="cursor-pointer bg-white  w-full text-black rounded-full h-[45px] px-[24px] py-[12px]  outfit-500 flex justify-center items-center self-end">
+            <GradientBorderButton>
+              Get Resume
+            </GradientBorderButton>
+            {/* <motion.button initial={{ scale: 0 }} animate={{ scale: 1 }} className="cursor-pointer bg-white  w-full text-black rounded-full h-[45px] px-[24px] py-[12px]  outfit-500 flex justify-center items-center self-end">
               <Link href="#contact-me">
                 Lets Talk
               </Link>
-            </motion.button>
+            </motion.button> */}
           </div>
         </div>
       </motion.div>
-      <motion.div
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        className='h-40 rounded-t-[50px] absolute bottom-0 left-[16px]  sm:left-[20px] md:left-[70px] right-[16px] sm:right-[20px] md:right-[70px]'
-        style={{
-          background: "radial-gradient(98.87% 98.87% at 51.11% 1.13%, #C883FF 0%, #8F00FF 20%, #6A01D3 40%, #000000 100%)",
-        }}>
-      </motion.div>
+
     </>
 
   )
