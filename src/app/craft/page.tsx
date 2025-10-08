@@ -1,4 +1,4 @@
-import CircleRing from "@/components/AnimationSection/CircleRing"
+import CircleRing from "@/components/animations/CircleRing"
 
 
 const page = () => {
