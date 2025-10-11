@@ -1,4 +1,4 @@
-import { CircleRing, ClipPathButton, ExpandShape, GridLines } from "@/components/animations"
+import { CircleRing, ClipPathButton, ExpandShape, GridLines, SvgComponent } from "@/components/animations"
 
 
 
@@ -9,6 +9,7 @@ const page = () => {
         <ExpandShape/>
         {/* <GridLines/> */}
         <ClipPathButton/>
+        <SvgComponent/>
     </main>
   )
 }

@@ -5,7 +5,7 @@ import React from 'react'
 
 const ClipPathButton = () => {
     return (
-        <div className='bg-white h-[50vh] flex justify-center items-center'>
+        <div className='bg-white h-[50vh] flex justify-center items-center rounded-2xl m-4'>
             <div>
                 <button className="button">
                     <div aria-hidden="true" className="hold-overlay">
