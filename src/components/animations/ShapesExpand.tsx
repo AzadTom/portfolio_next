@@ -1,16 +1,33 @@
 'use client';
-
-import React from 'react'
+import React, { useState } from 'react';
+import { motion } from 'motion/react';
 
 const ShapesExpand = () => {
+  const [expand, setExpand] = useState<number | null>(null);
+
+  const handleExpand = (id: number) => {
+    setExpand(expand === id ? null : id); // toggle expand
+  };
+
   return (
-    <div className='h-screen m-4'>
-      <div className='bg-red-600 rounded-2xl h-full relative'>
-        <div className='absolute bg-blue-600 rounded-2xl h-full right-4 top-4 z-20'></div>
-      </div>
+    <section className="flex flex-col sm:flex-row m-4 justify-around  h-screen gap-4">
+      {[1, 2, 3, 4].map((id) => (
+        <motion.div
+          key={id}
+          onClick={() => handleExpand(id)}
+          animate={
+            expand === id
+              ? { width: '100%', height: '100vh', borderRadius: '1rem' }
+              : { width: '100%', height: '12rem', borderRadius: '1rem' }
+          }
+          transition={{ duration: 0.6, ease: 'easeInOut' }}
+          className={`bg-red-600 cursor-pointer  ${
+            expand === id ? 'z-10' : 'rounded-2xl'
+          }`}
+        />
+      ))}
+    </section>
+  );
+};
 
-    </div>
-  )
-}
-
-export default ShapesExpand
+export default ShapesExpand;
