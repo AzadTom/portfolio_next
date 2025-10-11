@@ -24,14 +24,14 @@ const CircleRing = () => {
   return (
     <motion.div className="w-full h-screen bg-black flex justify-center items-center overflow-hidden">
       <div>
-        <h1 className='text-5xl font-bold text-white text-center absolute bottom-4 left-0 right-0 z-50'>Valuable, that is <br />
-          our future.portfolio.collaboration.</h1>
+        {/* <h1 className='text-5xl font-bold text-white text-center absolute top-4 left-0 right-0 z-50'>Valuable, that is <br />
+          our future.portfolio.collaboration.</h1> */}
       </div>
       <div className="w-[330px] h-[200px] relative transform-3d perspective-[1000px]">
         <motion.div
-          animate={{rotateY:360}}
-          transition={{repeat:Infinity,ease:"linear",duration:20}}
-          style={{transformPerspective:1000}}
+          animate={{ rotateY: 360 }}
+          transition={{ repeat: Infinity, ease: "linear", duration: 20 }}
+          style={{ transformPerspective: 1000 }}
           className="w-full h-full relative transform-3d">
           {items.map((item: string, index: number) => {
             const rotateY = index * anglesteps;
