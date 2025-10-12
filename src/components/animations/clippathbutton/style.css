@@ -36,3 +36,19 @@
   clip-path: inset(0);
   transition: clip-path 2s linear;
 }
+
+
+
+.clipPathReveal {
+  clip-path: inset(0 0 100% 0);
+  animation: revealClipPath 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+ 
+@keyframes revealClipPath {
+  from {
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}

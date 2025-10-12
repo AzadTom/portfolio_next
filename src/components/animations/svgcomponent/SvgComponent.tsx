@@ -5,45 +5,35 @@ import { motion } from 'motion/react';
 
 const SvgComponent = () => {
     return (
+        <>
+            <section className='flex flex-col  gap-4 items-center justify-center bg-white h-[50vh] rounded-2xl m-4'>
+                <section className='flex gap-3 sm:gap-0 items-center'>
+                    <motion.div whileHover='animate' className='w-20 h-20 rounded-md shadow-sm bg-white flex justify-center items-center'>
+                        <SVG />
+                    </motion.div>
+                    <div>
+                        <Line />
+                    </div>
+                    <div className="size-[80px] bg-neutral-100 rounded-sm p-px relative overflow-hidden">
+                        <div className="absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#3b82f6_20%,_transparent_30%)] animate-spin scale-[1.4]"></div>
+                        <div className="w-full h-full bg-white rounded-sm relative font-bold text-3xl flex justify-center items-center">N</div>
+                    </div>
+                </section>
+            </section>
 
-        <section className='flex flex-col  gap-4 items-center justify-center bg-white h-[50vh] rounded-2xl m-4'>
-            <section className='flex gap-3 sm:gap-0 items-center'>
-                <motion.div whileHover='animate' className='w-20 h-20 rounded-md shadow-sm bg-white flex justify-center items-center'>
-                    <SVG />
-                </motion.div>
-                <div>
-                    <Line />
-                </div>
-                <div className="size-[80px] bg-neutral-100 rounded-sm p-px relative overflow-hidden">
-                    <div className="absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#3b82f6_20%,_transparent_30%)] animate-spin scale-[1.4]"></div>
-                    <div className="w-full h-full bg-white rounded-sm relative font-bold text-3xl flex justify-center items-center">M</div>
-                </div>
-            </section>
-             <section className='flex gap-3 sm:gap-0 items-center'>
-                <motion.div whileHover='animate' className='w-20 h-20 rounded-md shadow-sm bg-white flex justify-center items-center'>
-                    <SVG />
-                </motion.div>
-                <div>
-                    <Line />
-                </div>
-                <div className="size-[80px] bg-neutral-100 rounded-sm p-px relative overflow-hidden">
-                    <div className="absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#3b82f6_20%,_transparent_30%)] animate-spin scale-[1.4]"></div>
-                    <div className="w-full h-full bg-white rounded-sm relative font-bold text-3xl flex justify-center items-center">A</div>
-                </div>
-            </section>
-             <section className='flex gap-3 sm:gap-0 items-center'>
-                <motion.div whileHover='animate' className='w-20 h-20 rounded-md shadow-sm bg-white flex justify-center items-center'>
-                    <SVG />
-                </motion.div>
-                <div>
-                    <Line />
-                </div>
-                <div className="size-[80px] bg-neutral-100 rounded-sm p-px relative overflow-hidden">
-                    <div className="absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#3b82f6_20%,_transparent_30%)] animate-spin scale-[1.4]"></div>
-                    <div className="w-full h-full bg-white rounded-sm relative font-bold text-3xl flex justify-center items-center">N</div>
-                </div>
-            </section>
+
+        <section className='bg-white mx-4  rounded-2xl p-8 flex justify-center items-center'>
+             <div className='bg-neutral-100 size-20 rounded-md p-1 relative overflow-hidden'>
+                 <div className='absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#3b82f6_20%,_transparent_30%)] animate-spin scale-[1.4]'></div>
+                 <div className='absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#ff1b6b_20%,_transparent_30%)] animate-spin scale-[1.4]'></div>
+                  <div className='absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#60efff_20%,_transparent_30%)] animate-spin scale-[1.4]'></div>
+                   <div className='relative bg-white w-full h-full rounded-md shadow-md flex justify-center items-center'>
+                    <img src="black_fav.png" alt="logo"/>
+                 </div>
+            </div>
         </section>
+        </>
+
     )
 }
 

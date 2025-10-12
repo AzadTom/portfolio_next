@@ -1,22 +1,34 @@
 'use client';
 
 import './style.css';
-import React from 'react'
+import React, { useState } from 'react'
+import { motion } from 'motion/react';
+import { cn } from '@/lib/utils';
 
 const ClipPathButton = () => {
+
+
+
+    const [isOpen, setIsOpen] = useState(false);
+
+
     return (
-        <div className='bg-white h-[50vh] flex justify-center items-center rounded-2xl m-4'>
-            <div>
-                <button className="button">
-                    <div aria-hidden="true" className="hold-overlay">
+        <>
+            <div className='bg-white h-[50vh] flex justify-center items-center rounded-2xl m-4'>
+                <div>
+                    <button className="button">
+                        <div aria-hidden="true" className="hold-overlay">
+                            <TrashIcon />
+                            Hold to Delete
+                        </div>
                         <TrashIcon />
                         Hold to Delete
-                    </div>
-                    <TrashIcon />
-                    Hold to Delete
-                </button>
+                    </button>
+                </div>
             </div>
-        </div>
+
+            <ClipPathThemeBox/>
+        </>
     )
 }
 
@@ -35,4 +47,42 @@ const TrashIcon = () => {
             />
         </svg>
     )
+}
+
+
+
+function ClipPathThemeBox() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <motion.div
+        key={isOpen ? "dark" : "light"} // important for re-triggering animation
+        initial={{ clipPath: "inset(0 0 100% 0)" }}
+        animate={{ clipPath: "inset(0 0 0 0)" }}
+        exit={{ clipPath: "inset(0 0 100% 0)" }}
+        transition={{
+          duration: 1,
+          ease: [0.77, 0, 0.175, 1],
+        }}
+        className={cn(
+          "h-[50vh] mx-4 rounded-2xl overflow-hidden shadow-lg",
+          isOpen ? "bg-black text-white" : "bg-white text-black"
+        )}
+      >
+        <div className="flex justify-end p-4">
+          <button
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="cursor-pointer px-6 py-2 rounded-full bg-black text-white font-medium text-sm"
+          >
+            Theme
+          </button>
+        </div>
+
+        <div className="flex items-center justify-center h-full text-3xl font-semibold">
+          {isOpen ? "Dark Mode 🌙" : "Light Mode ☀️"}
+        </div>
+      </motion.div>
+    </div>
+  );
 }
