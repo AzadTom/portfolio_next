@@ -17,13 +17,32 @@ export const useChatGpt = (onSend: (message: string) => void) => {
     };
 
     const handleTextAreaChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        const value = e.target.value;
+        const el = e.target;
+        const value = el.value;
+
+        // Dynamic auto-height logic
+        requestAnimationFrame(() => {
+            const style = getComputedStyle(el);
+            const lineHeight = parseFloat(style.lineHeight);
+            const minHeight = lineHeight * 1; // start at 1 line
+            const maxHeight = lineHeight * 3; // max 3 lines
+
+            el.style.height = 'auto'; // reset
+            const newHeight = Math.min(el.scrollHeight, maxHeight);
+            el.style.height = `${Math.max(newHeight, minHeight)}px`;
+            el.style.overflowY = el.scrollHeight > maxHeight ? 'auto' : 'hidden';
+        });
+
         setMessage(value);
+
+        // If user clears all text → go back to input
         if (!value.trim()) {
             setIsExpanded(false);
-            setTimeout(() => inputRef.current?.focus(), 0);
+            setTimeout(() => inputRef.current?.focus(), 100);
         }
     };
+
+
 
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
