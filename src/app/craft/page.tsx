@@ -1,4 +1,4 @@
-import { CircleRing, ClipPathButton, ExpandShape, GridLines, SvgComponent } from "@/components/animations"
+import { ChatGptInput, CircleRing, CircleRound, ClipPathButton, ExpandShape, GridLines, SvgComponent } from "@/components/animations"
 
 
 
@@ -10,6 +10,8 @@ const page = () => {
         {/* <GridLines/> */}
         <ClipPathButton/>
         <SvgComponent/>
+        <CircleRound/>
+        <ChatGptInput/>
     </main>
   )
 }

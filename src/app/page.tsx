@@ -9,7 +9,6 @@ import ScrollIntoView from "@/components/HeroSection/ScrollIntoView";
 import SkillsSection from "@/components/SkillsSection/SkillsSection";
 import SocialSection from "@/components/SocialSection/SocialSection";
 import { WorkExperienceSection } from "@/components/WorkExperienceSection/WorkExperienceSection";
-import AnimationSection from "@/components/AnimationSection/AnimationSection";
 
 export default function Home() {
 
