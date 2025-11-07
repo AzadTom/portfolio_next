@@ -1,11 +1,11 @@
 'use client';
 
-import { animate, useMotionValue, useTransform,motion} from "motion/react";
+import { animate, useMotionValue, useTransform, motion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const CircleRound = ({ date = "15 Oct,2025", day ="Monday", week=4}: { date?: string, day?: string, week?: number }) => {
+const CircleRound = ({ date = "15 Oct,2025", day = "Monday", week = 4 }: { date?: string, day?: string, week?: number }) => {
 
-    const [weekl,setWeek] = useState(0);
+    const [weekl, setWeek] = useState(0);
     const percentageNumber = (weekl / 40) * 100;
     const progress = useMotionValue(0);
 
@@ -23,15 +23,15 @@ const CircleRound = ({ date = "15 Oct,2025", day ="Monday", week=4}: { date?: st
     );
 
     return (
-        <section className="h-screen flex justify-between items-center relative">
-            <div className="absolute left-1/2  bottom-1/4 -translate-x-1/2 z-50 flex gap-3 justify-center items-center bg-white text-base font-medium px-6 py-2 rounded-md">
-                <span className="text-2xl" onClick={()=>setWeek((prev)=>(prev-5))}>-</span>
+        <section className="flex justify-between items-center relative mt-12 mb-20">
+            <div className="absolute left-1/2  bottom-0 -translate-x-1/2 z-30  flex gap-3 justify-center items-center bg-white text-base font-medium px-6 py-2 rounded-md">
+                <span className="text-2xl" onClick={() => setWeek((prev) => prev > 0 ? prev - 10 : prev)}>-</span>
                 {weekl}
-                <span className="text-2xl" onClick={()=>setWeek((prev)=>(prev+5))}>+</span>
+                <span className="text-2xl" onClick={() => setWeek((prev) => prev > 40 ? prev : prev + 10)}>+</span>
             </div>
             <div className="w-[300px] h-[300px] mx-auto rounded-full bg-[#EDEDED] p-2 relative overflow-hidden">
                 <motion.div
-                    style={{backgroundImage}}
+                    style={{ backgroundImage }}
                     className="absolute w-full h-full inset-0 rounded-full"
                 />
                 <div className="absolute inset-0 w-full h-full rounded-full" style={{

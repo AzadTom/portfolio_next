@@ -27,7 +27,7 @@ const ClipPathButton = () => {
                 </div>
             </div>
 
-            <ClipPathThemeBox/>
+            {/* <ClipPathThemeBox/> */}
         </>
     )
 }

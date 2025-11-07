@@ -6,8 +6,6 @@ const page = () => {
   return (
     <main>
         <CircleRing/>
-        {/* <ExpandShape/> */}
-        {/* <GridLines/> */}
         <ClipPathButton/>
         <SvgComponent/>
         <CircleRound/>

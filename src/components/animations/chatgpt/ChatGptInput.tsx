@@ -15,7 +15,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend = () => { } }) => {
     <div className="w-full flex justify-center px-4 py-3 bg-transparent fixed bottom-0 left-0 right-0">
       <form
         onSubmit={handleSubmit}
-        className={`flex items-end gap-2 bg-white dark:bg-[#303030] rounded-3xl shadow-md px-3 py-2 w-full max-w-2xl border border-gray-200 dark:border-gray-700 transition-all duration-300`}
+        className={`flex items-end gap-2 bg-[#303030] rounded-4xl shadow-md px-3 py-2 w-full max-w-2xl  transition-all duration-300`}
       >
         <div className="w-full">
           {isExpanded && (
@@ -25,16 +25,16 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend = () => { } }) => {
               rows={1}
               onChange={handleTextAreaChange}
               placeholder="Ask anything..."
-              className="w-full bg-transparent outline-none text-gray-900 dark:text-gray-100 text-base resize-none border-none"
+              className="w-full bg-transparent outline-none text-white text-base resize-none border-none"
             />
           )}
 
           <div className="flex items-center w-full gap-2">
             <button
               type="button"
-              className="flex items-center justify-center h-10 w-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              className="flex items-center justify-center h-10 w-10 rounded-full hover:bg-gray-700 transition"
             >
-              <Plus className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              <Plus className="w-5 h-5 text-white" />
             </button>
 
             {!isExpanded ? (
@@ -44,7 +44,7 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend = () => { } }) => {
                 value={message}
                 onChange={handleOnChange}
                 placeholder="Ask anything..."
-                className="flex-1 bg-transparent border-none outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 text-base"
+                className="flex-1 bg-transparent border-none outline-none text-white text-base"
               />
             ) : (
               <p className="flex-1" />
@@ -52,16 +52,16 @@ const ChatInput: React.FC<ChatInputProps> = ({ onSend = () => { } }) => {
 
             <button
               type="button"
-              className="flex items-center justify-center h-10 w-10 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700 transition"
+              className="flex items-center justify-center h-10 w-10 rounded-full hover:bg-gray-700 transition"
             >
-              <Mic className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+              <Mic className="w-5 h-5 text-white" />
             </button>
 
             <button
               type="submit"
               disabled={!message.trim()}
               className={`flex items-center justify-center h-10 w-10 rounded-full transition text-white ${message.trim()
-                ? 'bg-blue-600 hover:bg-blue-700'
+                ? 'bg-black hover:bg-black'
                 : 'bg-gray-400 cursor-not-allowed'
                 }`}
             >
