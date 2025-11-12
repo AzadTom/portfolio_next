@@ -1,4 +1,4 @@
-import { ChatGptInput, CircleRing, CircleRound, ClipPathButton, ExpandShape, GridLines, SvgComponent } from "@/components/animations"
+import { ChatGptInput, CircleRing, CircleRound, ClipPathButton,SvgComponent } from "@/components/animations"
 import SurbhiPortfolio from '@/components/animations/Surbhiportfolio/index';
 
 
