@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import AutoComplete from "./AutoComplete";
 import { autoCompleteDataList } from "../utils/utils";
 
-const Index = () => {
+const AutoCompleteContainer = () => {
   const [query, setQuery] = useState("");
 
   return (
@@ -18,4 +18,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default AutoCompleteContainer;
