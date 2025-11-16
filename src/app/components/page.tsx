@@ -1,4 +1,4 @@
-import AutoCompleteContainer from '@/components/machinecodinground/autoComplete/index'
+import AutoCompleteContainer from '@/components/machinecodinground/autoComplete/Index'
 import React from 'react'
 
 const page = () => {
