@@ -5,16 +5,17 @@ const index = () => {
         <div className=''>
             <NavBar/>
             <div className='text-white text-center'>
-                <h1 className='font-bold text-[clamp(32px,48px,100px)]'>
+                <h1 className='font-bold text-[clamp(32px,48px,100px)] leading-12 mt-5'>
                     AI-Driven Conversion <br />
                     Growth Right Away 
                 </h1>
-                <p>From concept to conversation - manage thousands of successful influencer ads seamlessly.</p>
-                <div>
-                    <button>Download Free App</button>
-                    <button>Get Started Free</button>
+                <p className='text-center mt-5'>From concept to conversation - manage thousands of successful <br /> influencer ads seamlessly.</p>
+                <div className='flex justify-center items-center gap-4 mt-5'>
+                    <button className='bg-white text-black rounded-full px-6 py-2'>Download Free App</button>
+                    <button className='text-white border border-white px-6 py-2 rounded-full'>Get Started Free</button>
                 </div>
             </div>
+            <Graphics/>
         </div>
     )
 }
@@ -42,4 +43,14 @@ const NavBar = () => {
         </nav>
     )
 
+}
+
+
+const Graphics = ()=>{
+
+    return(
+        <div>
+            
+        </div>
+    )
 }
