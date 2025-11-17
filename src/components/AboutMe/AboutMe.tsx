@@ -25,8 +25,7 @@ const AboutMe = () => {
           </span>
         </span>
         <span>
-          Outside of coding, you&#39;ll often find me diving into books or exploring
-          immersive online games. I’m always curious and love learning through
+          Outside of coding, you&#39;ll often find me diving into books. I’m always curious and love learning through
           creativity and collaboration.
         </span>
       </p>

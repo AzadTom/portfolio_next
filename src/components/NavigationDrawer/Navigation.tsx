@@ -42,8 +42,8 @@ const links: LinkType[] = [{
 
 export const Navigation = ({toggle}:{toggle:()=>void}) => (
 
-  <>
-    <motion.ul variants={variantsNavigation} className="absolute  top-[100px] right-4 left-4 sm:left-12 sm:right-12 outfilt-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
+  <div>
+    <motion.ul variants={variantsNavigation} className="absolute overflow-scroll  top-[80px] right-4 left-4 sm:left-12 sm:right-12 outfilt-700 grid grid-cols-1 sm:grid-cols-2 gap-4">
       {links.map((item: LinkType) => (
          <Link href={item.link} key={item.id}>
           <MenuItem item={item} key={item.id} toggle={toggle} />
@@ -68,7 +68,7 @@ export const Navigation = ({toggle}:{toggle:()=>void}) => (
         </div>
       </motion.li>
     </motion.ul>
-  </>
+  </div>
 );
 
 
@@ -98,16 +98,17 @@ export const MenuItem = ({ item,toggle }: { item: LinkType,toggle:()=>void}) => 
   return (
     <motion.li
       variants={variantsMenuItem}
+      onClick={toggle}
       whileTap={{ scale: 0.95 }}
     >
       <div className="w-full bg-zinc-900 bg-opacity-60 border text-white p-4 rounded-2xl border-zinc-700 backdrop-blur-md shadow-2xl transition-all duration-500">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight capitalize mb-2">
+        <h2 className="text-2xl sm:text-5xl  md:text-6xl font-extrabold tracking-tight capitalize mb-2">
           {item.name}
         </h2>
         <div className="mt-auto flex items-center justify-between pt-6 border-t border-white/10">
-          <span className="text-lg text-white/70 font-medium">Explore more</span>
+          <span className="text-lg text-white/70 font-medium capitalize">Explore more</span>
           <div
-            className="flex items-center gap-2 text-white text-xl font-semibold hover:translate-x-1 transition-transform duration-300"
+            className="flex items-center gap-2 text-white text-lg capitalize font-semibold hover:translate-x-1 transition-transform duration-300"
           >
             Visit <GetRedirectIcon color="white" />
           </div>

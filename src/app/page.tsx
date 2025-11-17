@@ -1,3 +1,5 @@
+'use client';
+
 import AboutMe from "@/components/AboutMe/AboutMe";
 import Footer from "@/components/HeroSection/Footer";
 import ContactUs from "@/components/Form/ContactUs";
@@ -11,6 +13,8 @@ import SocialSection from "@/components/SocialSection/SocialSection";
 import { WorkExperienceSection } from "@/components/WorkExperienceSection/WorkExperienceSection";
 
 export default function Home() {
+
+
 
   return (
     <>
