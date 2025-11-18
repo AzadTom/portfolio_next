@@ -1432,3 +1432,92 @@ export const autoCompleteDataList = [
       ]
     }
   ];
+
+  export const quizData = [
+    {
+      id: 1,
+      question: "What is the purpose of the useState hook?",
+      options: [
+        "To manage component state",
+        "To fetch data",
+        "To style components",
+        "To create routes"
+      ],
+      answer: "To manage component state"
+    },
+    {
+      id: 2,
+      question: "Which method is used to update state in class components?",
+      options: ["setState()", "update()", "changeState()", "modify()"],
+      answer: "setState()"
+    },
+    {
+      id: 3,
+      question: "React components must return what?",
+      options: ["DOM elements", "HTML strings", "JSX", "CSS"],
+      answer: "JSX"
+    },
+    {
+      id: 4,
+      question: "What does useEffect mainly handle?",
+      options: [
+        "Side effects",
+        "Styling",
+        "LocalStorage only",
+        "Creating new components"
+      ],
+      answer: "Side effects"
+    },
+    {
+      id: 5,
+      question: "Which library is commonly used for routing in React?",
+      options: ["React Router", "Axios", "jQuery", "Redux"],
+      answer: "React Router"
+    },
+    {
+      id: 6,
+      question: "React follows which architecture?",
+      options: ["MVC", "MVVM", "Component-based", "Layered"],
+      answer: "Component-based"
+    },
+    {
+      id: 7,
+      question: "What is a controlled component?",
+      options: [
+        "A component fully managed by React state",
+        "A component controlled by CSS",
+        "A stateless component",
+        "A component without props"
+      ],
+      answer: "A component fully managed by React state"
+    },
+    {
+      id: 8,
+      question: "What is JSX?",
+      options: [
+        "A JavaScript XML syntax",
+        "A styling language",
+        "A server-side template",
+        "A testing tool"
+      ],
+      answer: "A JavaScript XML syntax"
+    },
+    {
+      id: 9,
+      question: "What is the virtual DOM?",
+      options: [
+        "A lightweight in-memory representation of the real DOM",
+        "A separate HTML file",
+        "A browser API",
+        "A CSS engine"
+      ],
+      answer: "A lightweight in-memory representation of the real DOM"
+    },
+    {
+      id: 10,
+      question: "Which hook is used to create global state without Redux?",
+      options: ["useContext", "useFetch", "useGlobal", "useLocal"],
+      answer: "useContext"
+    }
+  ];
+  

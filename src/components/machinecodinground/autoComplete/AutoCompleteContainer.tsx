@@ -7,7 +7,7 @@ const AutoCompleteContainer = () => {
   const [query, setQuery] = useState("");
 
   return (
-    <div className="bg-[#242424]  border border-[#363636]  max-w-[360px] mt-12 rounded-xl">
+    <div className="bg-[#242424]  border border-[#363636] rounded-xl">
       <AutoComplete
         placeholder="Search..."
         query={query}
