@@ -54,35 +54,35 @@ const Quiz = ({ list }: { list: QuestionProps[] }) => {
 
   const handleSelectOption = (item: AnswerProps) => {
     setTrackAnswerResponse((prev) => [...prev, item]);
+    handleNext();
   };
 
-  const getNumberQuestion = (answerResposne:AnswerProps[])=>{
-    const list = answerResposne.filter((item)=> item.userSelect ? true:false);
-    return list.length;
-  }
-
-  const getWrongRightAnswerResponse = (answerResponse:AnswerProps[],type:number)=>{
-    const rightlist = answerResponse.filter((item)=> item.answer.toLowerCase().includes(item.userSelect.toLowerCase()));
-    const wronglist = answerResponse.filter((item)=> !item.answer.toLowerCase().includes(item.userSelect.toLowerCase()));
-    return type === 0 ? wronglist.length :rightlist.length;
-  }
+  const handleReset = () => {
+    setTrackAnswerResponse([]);
+    setCurrent(0);
+  };
 
   return (
     <div className="bg-[#242424] border border-[#323232] rounded-xl text-white p-4">
       {current === list.length ? (
         <div>
-          <h2>You have answer {getNumberQuestion(trackAnswerResponse)} question out of {list.length}</h2>
-          <p>You have given {getWrongRightAnswerResponse(trackAnswerResponse,0)} wrong answer out of {list.length}</p>
-          <p>You have given {getWrongRightAnswerResponse(trackAnswerResponse,1)} right answer out of {list.length}</p>
-          <div className="flex flex-col gap-2 ">
-            {trackAnswerResponse.map((item)=>(
-              <div className="text-sm">
-                <p>{item.id}. {item.question}</p>
-                 <p className={cn(item.answer.toLowerCase().includes(item.userSelect.toLowerCase()) ? "text-green-600":"text-red-600")}>Your Answer: ${item.userSelect}</p>
-                 <p>Actual answer: {item.answer}</p>
-              </div>
-            ))}
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-medium ">Quiz Result</h2>
+            <button
+              className="bg-black text-white rounded-full px-8 py-2 cursor-pointer"
+              onClick={handleReset}
+            >
+              Reset
+            </button>
           </div>
+          <ul className="flex flex-col gap-4 list-disc list-outside mx-4">
+            {list.map((item,index:number) => (
+              <li className="text-sm">
+                <p>{item.question}</p>
+                <p className={cn("font-light",item.answer.toLowerCase().includes(trackAnswerResponse[index].userSelect.toLowerCase()) ? "text-green-600":"text-red-600")}>{item.answer}</p>
+              </li>
+            ))}
+          </ul>
         </div>
       ) : (
         <QuizItem
@@ -151,7 +151,7 @@ const QuizItem = ({
           </li>
         ))}
       </ul>
-      <div className="flex gap-4 justify-between items-center">
+      {/* <div className="flex gap-4 justify-between items-center">
         <button
           onClick={handlePrev}
           className="bg-black px-4 py-2 rounded-full flex-1 text-sm"
@@ -164,7 +164,7 @@ const QuizItem = ({
         >
           {isLast ? "Complete" : "Next"}
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -172,7 +172,7 @@ const QuizItem = ({
 const CheckBox = ({ value, onChange, id }: any) => {
   return (
     <label
-      className="relative flex items-center p-3 rounded-full cursor-pointer"
+      className="relative flex gap-2 items-center p-3 rounded-full cursor-pointer"
       htmlFor={id}
     >
       <input
@@ -182,7 +182,6 @@ const CheckBox = ({ value, onChange, id }: any) => {
         onChange={(e) => onChange(id)}
         id={id}
       />
-
       <span className="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
         <svg
           xmlns="http://www.w3.org/2000/svg"
