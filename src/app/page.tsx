@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import AboutMe from "@/components/AboutMe/AboutMe";
 import Footer from "@/components/HeroSection/Footer";
@@ -13,9 +13,6 @@ import SocialSection from "@/components/SocialSection/SocialSection";
 import { WorkExperienceSection } from "@/components/WorkExperienceSection/WorkExperienceSection";
 
 export default function Home() {
-
-
-
   return (
     <>
       <main>
@@ -34,26 +31,5 @@ export default function Home() {
         <Footer />
       </main>
     </>
-
-
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
