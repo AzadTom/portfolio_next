@@ -42,7 +42,7 @@ const getClassNames = (
   }
 
   if (selectedSeat.find((item) => item.id.includes(seat.id))) {
-    return `${base}`;
+    return `${base} ${colors["selected"]}`;
   }
 
   if (seat.type === "regular") {
