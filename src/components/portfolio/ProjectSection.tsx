@@ -80,8 +80,8 @@ const ProjectItem = ({ name, img, github, live }: { img: string, name: string, g
       className="w-full mt-6 mx-auto">
       <Image src={img} width={300} height={250} alt={name} className="w-full h-[250px] sm:h-[450px] object-cover sm:object-contain aspect-square" />
       <div className="flex justify-center gap-4 mt-4 items-center">
-        <button className="bg-white text-black px-4 py-2 rounded-xl outfit-500 capitalize flex  gap-1 items-center"><a href={live}>Live Link</a>  <ExternalLink /></button>
-        <button className="border border-white rounded-xl outfit-500 capitalize text-white px-4 py-2 flex gap-1 items-center"><a href={github}>Github</a>  <ExternalLink /></button>
+        <button className="bg-white text-black px-4 py-2 rounded-full outfit-500 capitalize flex  gap-1 items-center"><a href={live}>Live Link</a>  <ExternalLink /></button>
+        <button className="border border-white rounded-full outfit-500 capitalize text-white px-4 py-2 flex gap-1 items-center"><a href={github}>Github</a>  <ExternalLink /></button>
       </div>
     </motion.div>
   )

@@ -10,7 +10,6 @@ const page = () => {
         <ClipPathButton/>
         <SvgComponent/>
         <CircleRound/>
-        <ChatGptInput/>
         <SurbhiPortfolio/>
     </main>
   )

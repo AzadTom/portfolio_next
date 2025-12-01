@@ -1,6 +1,6 @@
 import React from 'react';
-import { Label } from '../ui/label';
-import { Input } from '../ui/input';
+import { Label } from '../../ui/label';
+import { Input } from '../../ui/input';
 import { UseFormRegisterReturn } from 'react-hook-form';
 import { cn } from '@/lib/utils';
 

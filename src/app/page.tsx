@@ -1,16 +1,15 @@
-"use client";
-
-import AboutMe from "@/components/AboutMe/AboutMe";
-import Footer from "@/components/HeroSection/Footer";
-import ContactUs from "@/components/Form/ContactUs";
-import HeroSection from "@/components/HeroSection/HeroSection";
-import InfiniteScrollTags from "@/components/InfiniteScrollTag/InfiniteScrollTag";
-import NavigationWrapper from "@/components/NavigationDrawer/NavigationWrapper";
-import ProjectSection from "@/components/ProjectSection/ProjectSection";
-import ScrollIntoView from "@/components/HeroSection/ScrollIntoView";
-import SkillsSection from "@/components/SkillsSection/SkillsSection";
-import SocialSection from "@/components/SocialSection/SocialSection";
-import { WorkExperienceSection } from "@/components/WorkExperienceSection/WorkExperienceSection";
+import AboutMe from "@/components/portfolio/AboutMe";
+import Footer from "@/components/portfolio/Footer";
+import ContactUs from "@/components/portfolio/form/ContactUs";
+import HeroSection from "@/components/portfolio/HeroSection";
+import InfiniteScrollTags from "@/components/portfolio/InfiniteScrollTag";
+import ProjectSection from "@/components/portfolio/ProjectSection";
+import ScrollIntoView from "@/components/helpers/ScrollIntoView";
+import SkillsSection from "@/components/portfolio/SkillsSection";
+import SocialSection from "@/components/portfolio/SocialSection";
+import { WorkExperienceSection } from "@/components/portfolio/WorkExperienceSection";
+import NavigationWrapper from "@/components/portfolio/navigation/NavigationWrapper";
+import Blogs_Components from "@/components/portfolio/Blogs_Components";
 
 export default function Home() {
   return (
@@ -24,6 +23,7 @@ export default function Home() {
         <SocialSection />
         <AboutMe />
         <SkillsSection />
+        <Blogs_Components/>
         <WorkExperienceSection />
         <ProjectSection />
         <InfiniteScrollTags />

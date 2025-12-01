@@ -116,3 +116,56 @@ export const webContent = [
     live: "https://neetflixo.netlify.app/",
   },
 ];
+
+export type TListItemType = {
+  id:number,
+  type:"component" | "blog",
+  name:string,
+  img:string,
+  date:Date,
+  link:string,
+}
+
+const blogs_components_list:TListItemType[] = [
+  {
+    id:101,
+    type:"component",
+    name:"Stepper Component",
+    img:"/blog_components/stepper_component_img.png",
+    date:new Date("2025-10-05"),
+    link:"/work/stepper-component/101",
+  },
+  {
+    id:102,
+    type:"component",
+    name:"Loader Component",
+    img:"/blog_components/loader_component_img.png",
+    date:new Date("2025-10-02"),
+    link:"/work/loader-component/102",
+  },
+  {
+    id:103,
+    type:"component",
+    name:"ChatGptInput Component",
+    img:"/blog_components/chatgpt_input_img.png",
+    date:new Date("2025-09-30"),
+    link:"/work/chatgpt-inputcomponent/103",
+  },
+  {
+    id:104,
+    type:"blog",
+    name:"Space ~ > + in CSS",
+    img:"/blog_components/blog_css_selector_img.png",
+    date:new Date(),
+    link:"https://medium.com/@kumarazad2917/space-in-css-d37b632bb076"
+  }
+];
+
+export const getOnlyComponents = ()=>{
+  return blogs_components_list.filter((item)=> item.type === "component");
+}
+
+export const getOnlyBlogs = ()=>{
+  return blogs_components_list.filter((item)=> item.type === "blog");
+}
+

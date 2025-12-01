@@ -1,5 +1,5 @@
 import Image from "next/image";
-import SocialSection from "../SocialSection/SocialSection";
+import SocialSection from "./SocialSection";
 
 const LogoTicker = ({ 
   logos = [], 
