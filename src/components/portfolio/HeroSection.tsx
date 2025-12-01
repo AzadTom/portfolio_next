@@ -50,7 +50,7 @@ const AnimateButton = ({ children }: { children: ReactNode }) => {
           "radial-gradient(rgba(0, 0, 0, 0) 0%, #6A01D3 76.56%, #8F00FF 86.46%)",
       }}
      className="cursor-pointer px-6 py-3 rounded-full border-[1px] border-white text-white font-medium group">
-        <div className="relative overflow-hidden">
+        <div className="relative overflow-hidden font-medium">
           <p className="group-hover:-translate-y-7 duration-[1.125s] ease-[cubic-bezier(0.19,1,0.22,1)] flex gap-1 items-center">
           <DownloadIcon />{children}
           </p>
