@@ -47,7 +47,7 @@ const AnimateButton = ({ children }: { children: ReactNode }) => {
     <button
       style={{
         background:
-          "radial-gradient(98.87% 98.87% at 51.11% 1.13%, rgba(0, 0, 0, 0) 0%, #000000 45.31%, #6A01D3 76.56%, #8F00FF 86.46%)",
+          "radial-gradient(rgba(0, 0, 0, 0) 0%, #6A01D3 76.56%, #8F00FF 86.46%)",
       }}
      className="cursor-pointer px-6 py-3 rounded-full border-[1px] border-white text-white font-medium group">
         <div className="relative overflow-hidden">
