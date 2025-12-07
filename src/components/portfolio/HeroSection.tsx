@@ -1,6 +1,6 @@
 "use client";
 import { ReactNode } from "react";
-// import SplitText from "../splittext/SplitText";
+import SplitText from "@/components/splittextanimation/SplitText";
 import { DownloadIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";
@@ -20,7 +20,7 @@ const HeroSection = () => {
       >
         <div className="text-white flex flex-col items-center justify-center mt-[12rem] sm:mt-20">
           <h1 className="mt-[32px] text-4xl outfit-700 font-bold tracking-tight text-[#fafafae6] text-center max-w-[600px] mx-auto">
-            {/* <SplitText text="Frontend software engineer from India, focussed on building pixel perfect web apps." /> */}
+            <SplitText text="Frontend software engineer from India, focussed on building pixel perfect web apps." />
           </h1>
           <div className="flex gap-4 items-end justify-end  mt-[32px]">
             {/* <GradientBorderButton>Get Resume</GradientBorderButton> */}
