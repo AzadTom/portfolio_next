@@ -15,7 +15,7 @@ const getInitialData = (currentTab: TTabs) => {
   if (currentTab === "components") {
     return getOnlyComponents();
   }
-  return [...getOnlyBlogs(), ...getOnlyComponents()];
+  return [...getOnlyBlogs(), ...getOnlyComponents()].sort((a:any,b:any)=>b.date- a.date);
 };
 
 const getIcon = (item: TTabs) => {

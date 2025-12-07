@@ -1,4 +1,5 @@
-import { ChatGptInput } from "@/components/animations";
+import { ChatGptInput, CircleRing } from "@/components/animations";
+import ButtonInteraction from "@/components/button/ButtonInteraction";
 import ProgressBarContainer from "@/components/machinecodinground/progressbar/ProgressBarContainer";
 import StepperContainer from "@/components/machinecodinground/stepper/StepperContainer";
 
@@ -19,15 +20,18 @@ const page = async ({ params }: WorkProps) => {
 
   if (Number(id) === 102) {
     return (
-      <main className="max-w-[1000px] mx-auto my-12">
+      <main className="max-w-[1000px]  mx-auto my-12 flex justify-center items-center h-screen">
+        <div className="min-w-[320px] w-full max-w-[460px]">
         <ProgressBarContainer />
+        </div>
       </main>
     );
   }
 
   if (Number(id) === 103) {
     return (
-      <main className="max-w-[1000px] mx-auto my-12">
+      <main className="mx-auto my-12">
+        <CircleRing/>
         <ChatGptInput />
       </main>
     );

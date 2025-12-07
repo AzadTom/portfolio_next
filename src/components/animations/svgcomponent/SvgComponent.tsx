@@ -1,13 +1,12 @@
 'use client';
-
 import React from 'react'
 import { motion } from 'motion/react';
 
 const SvgComponent = () => {
     return (
         <>
-            <section className='flex flex-col  gap-4 items-center justify-center bg-white h-[50vh] rounded-2xl m-4'>
-                <section className='flex gap-3 sm:gap-0 items-center'>
+            <section className='hidden sm:flex flex-col  gap-4 items-center justify-center bg-white h-[50vh] rounded-2xl m-4'>
+                <section className='flex flex-col sm:flex-row gap-3 sm:gap-0 items-center'>
                     <motion.div whileHover='animate' className='w-20 h-20 rounded-md shadow-sm bg-white flex justify-center items-center'>
                         <SVG />
                     </motion.div>
@@ -28,7 +27,6 @@ const SvgComponent = () => {
                  <div className='absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#ff1b6b_20%,_transparent_30%)] animate-spin scale-[1.4]'></div>
                   <div className='absolute w-full h-full  inset-0 [background-image:conic-gradient(at_center,_transparent,_#60efff_20%,_transparent_30%)] animate-spin scale-[1.4]'></div>
                    <div className='relative bg-white w-full h-full rounded-md shadow-md flex justify-center items-center'>
-                    <img src="black_fav.png" alt="logo"/>
                  </div>
             </div>
         </section>
@@ -79,7 +77,7 @@ const Line = () => {
 
 
     return (
-        <motion.svg className='hidden sm:block' width="1000" height="2" viewBox="0 0 1000 2" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <motion.svg width="1000" height="2" viewBox="0 0 1000 2" fill="none" xmlns="http://www.w3.org/2000/svg">
             <line y1="1" x2="1000" y2="1" stroke="#f8fafc" stroke-width="2" />
             <line y1="1" x2="1000" y2="1" stroke="url(#line-one-gradient)" stroke-width="2" />
             <defs>

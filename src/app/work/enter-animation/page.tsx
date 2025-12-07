@@ -1,14 +1,14 @@
 "use client";
-
 import React from "react";
 import { motion } from "motion/react";
 import type { Variants } from "motion/react";
+import ButtonInteraction from "@/components/button/ButtonInteraction";
 
 const page = () => {
   return (
-    <div className="w-full flex justify-center items-start">
+    <main>
       <HeroSection />
-    </div>
+    </main>
   );
 };
 
@@ -28,19 +28,6 @@ const HeroSection = () => {
 
   // Full animation timeline for the title
   const titleTotalDelay = letters.length * stagger + letterDuration;
-
-  const clipVariants: Variants = {
-    hidden: {
-      clipPath: "inset(0 0 100% 0)",
-    },
-    visible: {
-      clipPath: "inset(0 0 0 0)",
-      transition: {
-        duration: 1,
-        ease: [0.22, 1, 0.36, 1],
-      },
-    },
-  };
 
   // Parent handles the stagger
   const containerVariants: Variants = {
@@ -82,7 +69,7 @@ const HeroSection = () => {
 
   const videoVarients: Variants = {
     initial: {
-      y: 100,
+      y: 400,
       opacity: 0,
       scale: 0.8,
     },
@@ -98,49 +85,45 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="w-full flex flex-col">
-      <section className="w-full relative">
-        {/* BG Image Reveal */}
-        <motion.img
-          variants={clipVariants}
-          initial="hidden"
-          animate="visible"
-          className="w-full object-cover bg-cover overflow-hidden"
-          src="https://images.unsplash.com/photo-1513346940221-6f673d962e97?q=80&w=1470&auto=format&fit=crop"
-          alt="img"
-        />
+    <header className="flex flex-col-reverse sm:flex-row justify-between items-center">
+      <div className="mt-5 sm:flex-none sm:max-w-[30%]">
+        <div className="flex flex-col gap-4 sm:flex-col mx-4 justify-between items-center">
+          {/* Title */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-start font-semibold capitalize text-3xl sm:text-4xl tracking-tight text-white"
+          >
+            {letters.map((char, i) => (
+              <motion.span key={i} variants={letterVariant}>
+                {char}
+              </motion.span>
+            ))}
+          </motion.div>
 
-        <div className="max-w-[1000px] mx-auto flex flex-col absolute top-1/2 left-0 right-0">
-          <div className="flex flex-col gap-4 sm:flex-row mx-4 justify-between items-center">
-            {/* Title */}
-            <motion.div
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              className="flex-1 text-start font-semibold capitalize text-3xl sm:text-4xl tracking-tight text-white"
-            >
-              {letters.map((char, i) => (
-                <motion.span key={i} variants={letterVariant}>
-                  {char}
-                </motion.span>
-              ))}
-            </motion.div>
-
-            {/* Description */}
-            <motion.div
-              className="flex-1 max-w-sm text-start text-white/60 sm:text-white mt-4 sm:mt-0"
-              variants={fadeUp}
-              initial="hidden"
-              animate="visible"
-              transition={{ delay: titleTotalDelay + 0.15 }}
-            >
-              {content.description}
-            </motion.div>
-          </div>
-
-          {/* Buttons */}
-          <div className="flex gap-2 mt-6 mx-4">
-            <motion.button
+          {/* Description */}
+          <motion.div
+            className="text-start text-white/60 sm:text-white mt-4 sm:mt-0"
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: titleTotalDelay + 0.15 }}
+          >
+            {content.description}
+          </motion.div>
+        </div>
+        {/* Buttons */}
+        <div className="flex-none  flex gap-2 mt-6 mx-4">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            animate="visible"
+            transition={{ delay: titleTotalDelay + 0.35 }}
+          >
+            <ButtonInteraction name="Azad" />
+          </motion.div>
+          {/* <motion.button
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -148,9 +131,9 @@ const HeroSection = () => {
               className="bg-white text-black h-11 rounded-full px-4 font-medium"
             >
               Primary
-            </motion.button>
+            </motion.button> */}
 
-            <motion.button
+          {/* <motion.button
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -158,16 +141,15 @@ const HeroSection = () => {
               className="border border-[#323232] bg-[#242424] text-white h-11 rounded-full px-4 font-medium"
             >
               Secondary
-            </motion.button>
-          </div>
+            </motion.button> */}
         </div>
-      </section>
-      <div className="relative h-screen flex justify-center items-center">
+      </div>
+      <div className="flex-1 mx-4 flex justify-center items-center">
         <motion.video
           variants={videoVarients}
           initial="initial"
           whileInView="animate"
-          className="absolute inset-0 max-w-[1000px] mx-auto rounded-xl mt-12"
+          className="aspect-video inset-0 rounded-xl mt-12"
           loop
           autoPlay
           muted
@@ -176,6 +158,6 @@ const HeroSection = () => {
           <source src="/bg_video.mp4" type="video/mp4" />
         </motion.video>
       </div>
-    </section>
+    </header>
   );
 };

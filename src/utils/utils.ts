@@ -156,16 +156,35 @@ const blogs_components_list:TListItemType[] = [
     type:"blog",
     name:"Space ~ > + in CSS",
     img:"/blog_components/blog_css_selector_img.png",
-    date:new Date(),
+    date:new Date("2023-11-22"),
     link:"https://medium.com/@kumarazad2917/space-in-css-d37b632bb076"
+  },
+  {
+    id:105,
+    type:"component",
+    name:"Enter animation & Button interaction",
+    date:new Date("2025-12-07"),
+    img:"/blog_components/enter-animation-and-buttoninteraction.png",
+    link:"/work/enter-animation"
+  },
+  {
+    id:106,
+    type:"component",
+    date:new Date("2025-12-07"),
+    img:"/blog_components/clip_path_gradient_border_animation.png",
+    link:"/work/craft",
+    name:"Clip Path & Gradient border",
   }
 ];
 
-export const getOnlyComponents = ()=>{
-  return blogs_components_list.filter((item)=> item.type === "component");
-}
+export const getOnlyComponents = () => {
+  return blogs_components_list
+    .filter(item => item.type === "component")
+    .sort((a:any, b:any) => b.date - a.date);
+};
+
 
 export const getOnlyBlogs = ()=>{
-  return blogs_components_list.filter((item)=> item.type === "blog");
+  return blogs_components_list.filter((item)=> item.type === "blog").sort((a:any,b:any)=> b.date -a.date);
 }
 

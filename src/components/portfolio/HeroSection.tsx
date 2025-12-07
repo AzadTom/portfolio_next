@@ -1,6 +1,6 @@
 "use client";
 import { ReactNode } from "react";
-import SplitText from "../SplitText/SplitText";
+import SplitText from "../splittext/SplitText";
 import { DownloadIcon } from "lucide-react";
 import { motion } from "motion/react";
 import Link from "next/link";

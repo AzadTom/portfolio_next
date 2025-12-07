@@ -4,5 +4,5 @@ export {default as GridLines} from './gridlines/GridLines';
 export { default as ClipPathButton} from './clippathbutton/ClipPathButton';
 export {default as SvgComponent} from './svgcomponent/SvgComponent';
 export { default as CircleRound} from './circleround/CircleRound';
-export {default as ChatGptInput} from './chatgpt/ChatGptInput';
+export {default as ChatGptInput} from '../chatgpt/ChatGptInput';
 
