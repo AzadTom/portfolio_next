@@ -1,5 +1,6 @@
 import { ChatGptInput, CircleRing } from "@/components/animations";
 import ButtonInteraction from "@/components/button/ButtonInteraction";
+import EnterAnimation from "@/components/enteranimation/EnterAnimation";
 import ProgressBarContainer from "@/components/machinecodinground/progressbar/ProgressBarContainer";
 import StepperContainer from "@/components/machinecodinground/stepper/StepperContainer";
 
@@ -22,7 +23,7 @@ const page = async ({ params }: WorkProps) => {
     return (
       <main className="max-w-[1000px]  mx-auto my-12 flex justify-center items-center h-screen">
         <div className="min-w-[320px] w-full max-w-[460px]">
-        <ProgressBarContainer />
+          <ProgressBarContainer />
         </div>
       </main>
     );
@@ -31,8 +32,16 @@ const page = async ({ params }: WorkProps) => {
   if (Number(id) === 103) {
     return (
       <main className="mx-auto my-12">
-        <CircleRing/>
+        <CircleRing />
         <ChatGptInput />
+      </main>
+    );
+  }
+
+  if (Number(id) === 104) {
+    return (
+      <main className="mx-auto my-12">
+        <EnterAnimation/>
       </main>
     );
   }

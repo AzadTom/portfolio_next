@@ -3,16 +3,18 @@ import React from "react";
 import { motion } from "motion/react";
 import type { Variants } from "motion/react";
 import ButtonInteraction from "@/components/button/ButtonInteraction";
+import CircleImageTransition from "@/components/animations/CircleRotateTransition";
 
-const page = () => {
+const EnterAnimation = () => {
   return (
     <main>
       <HeroSection />
+      {/* <CircleImageTransition/> */}
     </main>
   );
 };
 
-export default page;
+export default EnterAnimation;
 
 const HeroSection = () => {
   const content = {
@@ -85,45 +87,46 @@ const HeroSection = () => {
   };
 
   return (
-    <header className="flex flex-col-reverse sm:flex-row justify-between items-center">
-      <div className="mt-5 sm:flex-none sm:max-w-[30%]">
-        <div className="flex flex-col gap-4 sm:flex-col mx-4 justify-between items-center">
-          {/* Title */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-start font-semibold capitalize text-3xl sm:text-4xl tracking-tight text-white"
-          >
-            {letters.map((char, i) => (
-              <motion.span key={i} variants={letterVariant}>
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
+    <>
+      <header className="flex flex-col-reverse sm:flex-row justify-between items-center">
+        <div className="mt-5 sm:flex-none sm:max-w-[30%]">
+          <div className="flex flex-col gap-4 sm:flex-col mx-4 justify-between items-center">
+            {/* Title */}
+            <motion.div
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="text-start font-semibold capitalize text-3xl sm:text-4xl tracking-tight text-white"
+            >
+              {letters.map((char, i) => (
+                <motion.span key={i} variants={letterVariant}>
+                  {char}
+                </motion.span>
+              ))}
+            </motion.div>
 
-          {/* Description */}
-          <motion.div
-            className="text-start text-white/60 sm:text-white mt-4 sm:mt-0"
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: titleTotalDelay + 0.15 }}
-          >
-            {content.description}
-          </motion.div>
-        </div>
-        {/* Buttons */}
-        <div className="flex-none  flex gap-2 mt-6 mx-4">
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            animate="visible"
-            transition={{ delay: titleTotalDelay + 0.35 }}
-          >
-            <ButtonInteraction name="Azad" />
-          </motion.div>
-          {/* <motion.button
+            {/* Description */}
+            <motion.div
+              className="text-start text-white/60 sm:text-white mt-4 sm:mt-0"
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: titleTotalDelay + 0.15 }}
+            >
+              {content.description}
+            </motion.div>
+          </div>
+          {/* Buttons */}
+          <div className="flex-none  flex gap-2 mt-6 mx-4">
+            <motion.div
+              variants={fadeUp}
+              initial="hidden"
+              animate="visible"
+              transition={{ delay: titleTotalDelay + 0.35 }}
+            >
+              <ButtonInteraction name="Azad" />
+            </motion.div>
+            {/* <motion.button
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -133,7 +136,7 @@ const HeroSection = () => {
               Primary
             </motion.button> */}
 
-          {/* <motion.button
+            {/* <motion.button
               variants={fadeUp}
               initial="hidden"
               animate="visible"
@@ -142,22 +145,23 @@ const HeroSection = () => {
             >
               Secondary
             </motion.button> */}
+          </div>
         </div>
-      </div>
-      <div className="flex-1 mx-4 flex justify-center items-center">
-        <motion.video
-          variants={videoVarients}
-          initial="initial"
-          whileInView="animate"
-          className="aspect-video inset-0 rounded-xl mt-12"
-          loop
-          autoPlay
-          muted
-          playsInline
-        >
-          <source src="/bg_video.mp4" type="video/mp4" />
-        </motion.video>
-      </div>
-    </header>
+        <div className="flex-1 mx-4 flex justify-center items-center">
+          <motion.video
+            variants={videoVarients}
+            initial="initial"
+            whileInView="animate"
+            className="aspect-video inset-0 rounded-xl mt-12"
+            loop
+            autoPlay
+            muted
+            playsInline
+          >
+            <source src="/bg_video.mp4" type="video/mp4" />
+          </motion.video>
+        </div>
+      </header>
+    </>
   );
 };

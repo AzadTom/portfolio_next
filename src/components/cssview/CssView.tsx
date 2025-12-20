@@ -88,7 +88,7 @@ const TextBlurEffect = () => {
 
 const HorizontalTransition = () => {
   return (
-    <div className="horizontal-scroll-wrapper flex">
+    <div className="horizontal-scroll-wrapper flex fadeUp">
       <img
         className="w-[300px] object-cover  fadeUp rounded-xl"
         src="https://images.unsplash.com/photo-1659959103888-ea4ab754e6f6?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMHx8fGVufDB8fHx8fA%3D%3D"

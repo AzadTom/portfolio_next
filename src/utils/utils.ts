@@ -165,7 +165,7 @@ const blogs_components_list:TListItemType[] = [
     name:"Enter animation & Button interaction",
     date:new Date("2025-12-07"),
     img:"/blog_components/enter-animation-and-buttoninteraction.png",
-    link:"/work/enter-animation"
+    link:"/work/enter-animation/104"
   },
   {
     id:106,
