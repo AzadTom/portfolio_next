@@ -176,7 +176,7 @@ const blogs_components_list:TListItemType[] = [
     name:"Clip Path & Gradient border",
   },
   {
-    id:105,
+    id:107,
     type:"component",
     date:new Date("2025-12-21"),
     img:"/blog_components/scrolltrigger.png",
