@@ -202,7 +202,7 @@ const ScrollTrigger = () => {
                         src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop"
                         alt="dashboard"
                         style={{ willChange: "transform,opacity" }}
-                        className='w-full h-full object-cover opacity-0  translate-z-[1000px]'
+                        className='w-full h-full object-cover opacity-0  translate-z-[1000px] rounded-xl'
                     />
                 </div>
             </div>
