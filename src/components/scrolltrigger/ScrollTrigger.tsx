@@ -1,12 +1,14 @@
 'use client';
+import './style.css';
 import _ScrollTrigger from 'gsap/ScrollTrigger';
 import Navigation from './Navigation';
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from "gsap";
 
-const frameCount = 68;
+
+const frameCount = 777;
 const currentFrame = (index: number) =>
-    `/scence_image/scene${(index + 1).toString().padStart(5, "0")}.jpg`;
+    `/scence_image2/scene${(index + 1).toString().padStart(5, "0")}.jpg`;
 
 
 const ScrollTrigger = () => {
@@ -190,7 +192,6 @@ const ScrollTrigger = () => {
                     className={`w-full h-full absolute inset-0 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                     ref={canvasref}
                 ></canvas>
-
                 <div ref={herocontentref} className='absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2'>
                     <HeroContent />
                 </div>
@@ -206,17 +207,21 @@ const ScrollTrigger = () => {
 export default ScrollTrigger
 
 const HeroContent = () => {
-    const clientlogos = ["https://pngimg.com/uploads/facebook_logos/facebook_logos_PNG19749.png", "https://freepngimg.com/thumb/disney/127434-logo-aladdin-png-image-high-quality.png", "https://pngimg.com/uploads/garfield/garfield_PNG2.png", "https://pngimg.com/uploads/naruto/naruto_PNG45.png", "https://pngimg.com/uploads/nintendo/nintendo_PNG16.png"];
+    const clientlogos = ["https://freepngimg.com/thumb/microsoft/28525-5-microsoft-logo-clipart.png", "https://freepngimg.com/thumb/pepsi_logo/32188-2-pepsi-logo-image.png", "https://freepngimg.com/thumb/computer/150275-logo-hewlett-packard-png-image-high-quality.png", "https://freepngimg.com/thumb/starbucks/24210-2-starbucks-logo-image.png", "https://freepngimg.com/thumb/the_legend_of_zelda/115897-logo-of-the-legend-zelda.png"];
 
     return (
-        <div className="text-black text-center z-50 hero-content" id='hero-content'>
+        <div className="text-white text-center z-50 hero-content" id='hero-content'>
             <div>
-                <h1 className='text-5xl font-bold max-w-2xl mx-auto'>One Unified  workspace to build,test,  and ship AI faster.</h1>
-                <p className='text-black/50 mt-5 uppercase'>Trusted by</p>
-                <div id='client-logos' className='flex items-center gap-8 max-w-lg mx-auto'>
+                <h1 className='text-5xl font-bold max-w-4xl mx-auto bbh'>One Unified  workspace to build,test,  and ship AI faster.</h1>
+                <p className='text-white/50 mt-5 uppercase bbh'>Trusted by</p>
+                <div id='client-logos' className='flex flex-wrap items-center justify-center gap-10 max-w-4xl mx-auto'>
                     {clientlogos.map((item: string) => (
-                        <div key={item} className='size-[100px] flex justify-center'>
-                            <img src={item} alt={item} width={42} height={42} className='w-full h-full object-contain' />
+                        <div key={item} className='flex items-center justify-center h-12 w-32'>
+                            <img
+                                src={item}
+                                alt="Client Logo"
+                                className='max-h-full max-w-full object-contain bg-blend-difference hover:opacity-100 transition-opacity duration-300 brightness-0 invert'
+                            />
                         </div>
                     ))}
                 </div>
