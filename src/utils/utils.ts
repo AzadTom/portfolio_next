@@ -174,6 +174,14 @@ const blogs_components_list:TListItemType[] = [
     img:"/blog_components/clip_path_gradient_border_animation.png",
     link:"/work/craft",
     name:"Clip Path & Gradient border",
+  },
+  {
+    id:105,
+    type:"component",
+    date:new Date("2025-12-21"),
+    img:"/blog_components/scrolltrigger.png",
+    link:"/work/scroll-trigger/105",
+    name:"Scroll Trigger",
   }
 ];
 
