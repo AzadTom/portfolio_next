@@ -19,13 +19,14 @@ const ScrollTrigger = () => {
     const canvasref = useRef<HTMLCanvasElement | null>(null);
     const navRef = useRef<HTMLDivElement | null>(null);
     const herocontentref = useRef<HTMLDivElement | null>(null);
+    const heroimgcontainerref = useRef<HTMLImageElement | null>(null);
     const [isLoading, setIsLoading] = useState(true);
 
 
     const setupscrollTrigger = (canvas: HTMLCanvasElement, context: CanvasRenderingContext2D) => {
 
         _ScrollTrigger.create({
-            trigger: "#hero-section",
+            trigger: ".hero-section",
             start: "top top",
             end: `+=${window.innerHeight * 7}px`,
             pin: true,
@@ -55,7 +56,7 @@ const ScrollTrigger = () => {
                 });
 
                 if (progress < 0.6) {
-                    gsap.set("hero-img-container", {
+                    gsap.set(heroimgcontainerref.current, {
                         transform: "translateZ(1000px)",
                         opacity: 0,
 
@@ -76,13 +77,13 @@ const ScrollTrigger = () => {
 
                     }
 
-                    gsap.set("hero-img-container", {
+                    gsap.set(heroimgcontainerref.current, {
                         transform: `translateZ(${translateZ}px)`,
                         opacity,
                     });
                 } else {
 
-                    gsap.set("hero-img-container", {
+                    gsap.set(heroimgcontainerref.current, {
                         transform: `translateZ(0px)`,
                         opacity: 1,
                     })
@@ -184,20 +185,26 @@ const ScrollTrigger = () => {
                     </div>
                 </div>
             )}
-            <div className="relative h-screen" id='hero-section'>
+            <div className="relative h-screen hero-section" id='hero-section'>
                 <div ref={navRef} className='fixed top-0 left-0 right-0 z-50'>
                     <Navigation />
                 </div>
                 <canvas
-                    className={`w-full h-full absolute inset-0 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+                    className={`w-full h-full absolute inset-0  ${isLoading ? 'opacity-0' : 'opacity-100'}`}
                     ref={canvasref}
                 ></canvas>
-                <div ref={herocontentref} className='absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2'>
+                <div ref={herocontentref} className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
                     <HeroContent />
                 </div>
-            </div>
-            <div className='max-w-[1200px] mx-auto my-12 hero-img-container'>
-                <img width={1200} height={960} className='rounded-xl' src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop" alt="dashboard" />
+                <div className='z-50 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform-3d perspective-[1000px]'>
+                    <img
+                        ref={heroimgcontainerref}
+                        src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1470&auto=format&fit=crop"
+                        alt="dashboard"
+                        style={{ willChange: "transform,opacity" }}
+                        className='w-full h-full object-cover opacity-0  translate-z-[1000px]'
+                    />
+                </div>
             </div>
             <OutroSection />
         </div>
@@ -212,7 +219,7 @@ const HeroContent = () => {
     return (
         <div className="text-white text-center z-50 hero-content" id='hero-content'>
             <div>
-                <h1 className='text-5xl font-bold max-w-4xl mx-auto bbh'>One Unified  workspace to build,test,  and ship AI faster.</h1>
+                <h1 className='text-3xl sm:text-5xl font-bold max-w-4xl mx-auto bbh'>One Unified  workspace to build,test,  and ship AI faster.</h1>
                 <p className='text-white/50 mt-5 uppercase bbh'>Trusted by</p>
                 <div id='client-logos' className='flex flex-wrap items-center justify-center gap-10 max-w-4xl mx-auto'>
                     {clientlogos.map((item: string) => (
@@ -234,7 +241,7 @@ const OutroSection = () => {
 
     return (
         <div className='h-screen bg-white text-black flex justify-center items-center' id='outro-section'>
-            <p className='font-medium text-center text-5xl'>Join teams building faster with Byewind.</p>
+            <p className='font-medium text-center text-5xl bbh'>Join teams building faster with Byewind.</p>
         </div>
     );
 }
