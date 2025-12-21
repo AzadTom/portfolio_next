@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/helpers/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,7 +18,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "black_fav.png",
     shortcut: "black_fav.png",
-    apple:"black_fav.png"
+    apple: "black_fav.png"
   },
   description: "Azad Kumar is a frontend software engineer from India who builds responsive, accessible, and pixel-perfect web applications using modern technologies.",
   keywords: [
@@ -70,7 +71,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );

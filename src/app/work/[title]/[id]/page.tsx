@@ -3,6 +3,7 @@ import ButtonInteraction from "@/components/button/ButtonInteraction";
 import EnterAnimation from "@/components/enteranimation/EnterAnimation";
 import ProgressBarContainer from "@/components/machinecodinground/progressbar/ProgressBarContainer";
 import StepperContainer from "@/components/machinecodinground/stepper/StepperContainer";
+import ScrollTrigger from "@/components/scrolltrigger/ScrollTrigger";
 
 interface WorkProps {
   params: Promise<{ title: string; id: number }>;
@@ -42,6 +43,14 @@ const page = async ({ params }: WorkProps) => {
     return (
       <main className="mx-auto my-12">
         <EnterAnimation/>
+      </main>
+    );
+  }
+
+  if (Number(id) === 105) {
+    return (
+      <main>
+        <ScrollTrigger/>
       </main>
     );
   }
