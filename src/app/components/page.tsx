@@ -1,5 +1,6 @@
 import AutoCompleteContainer from '@/components/machinecodinground/autoComplete/AutoCompleteContainer'
 import CinemaHallContainer from '@/components/machinecodinground/cinemehallComponent/CinemaHallContainer'
+import CountDown from '@/components/machinecodinground/countdown/CountDown'
 import ProgressBarContainer from '@/components/machinecodinground/progressbar/ProgressBarContainer'
 import QuizContainer from '@/components/machinecodinground/quizComponent/QuizContainer'
 import StepperContainer from '@/components/machinecodinground/stepper/StepperContainer'
@@ -14,6 +15,7 @@ const page = () => {
         <QuizContainer/>
         <ProgressBarContainer/>
         <CinemaHallContainer/>
+        <CountDown/>
     </div>
   )
 }
