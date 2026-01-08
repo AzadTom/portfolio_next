@@ -68,6 +68,12 @@ export const tags = [
 
 export const webContent = [
   {
+    img: "/img/collabdraw-img.png",
+    name: "Collabdraw",
+    github: "https://github.com/AzadTom/Collabraw/tree/feat/redesign-editor",
+    live: "https://colliabdraw.netlify.app/",
+  },
+  {
     img: "/img/foodlux.png",
     name: "Foodlux",
     github: "https://github.com/AzadTom/FoodLux",
@@ -118,81 +124,81 @@ export const webContent = [
 ];
 
 export type TListItemType = {
-  id:number,
-  type:"component" | "blog",
-  name:string,
-  img:string,
-  date:Date,
-  link:string,
+  id: number,
+  type: "component" | "blog",
+  name: string,
+  img: string,
+  date: Date,
+  link: string,
 }
 
-const blogs_components_list:TListItemType[] = [
+const blogs_components_list: TListItemType[] = [
   {
-    id:101,
-    type:"component",
-    name:"Stepper Component",
-    img:"/blog_components/stepper_component_img.png",
-    date:new Date("2025-10-05"),
-    link:"/work/stepper-component/101",
+    id: 101,
+    type: "component",
+    name: "Stepper Component",
+    img: "/blog_components/stepper_component_img.png",
+    date: new Date("2025-10-05"),
+    link: "/work/stepper-component/101",
   },
   {
-    id:102,
-    type:"component",
-    name:"Loader Component",
-    img:"/blog_components/loader_component_img.png",
-    date:new Date("2025-10-02"),
-    link:"/work/loader-component/102",
+    id: 102,
+    type: "component",
+    name: "Loader Component",
+    img: "/blog_components/loader_component_img.png",
+    date: new Date("2025-10-02"),
+    link: "/work/loader-component/102",
   },
   {
-    id:103,
-    type:"component",
-    name:"ChatGptInput Component",
-    img:"/blog_components/chatgpt_input_img.png",
-    date:new Date("2025-09-30"),
-    link:"/work/chatgpt-inputcomponent/103",
+    id: 103,
+    type: "component",
+    name: "ChatGptInput Component",
+    img: "/blog_components/chatgpt_input_img.png",
+    date: new Date("2025-09-30"),
+    link: "/work/chatgpt-inputcomponent/103",
   },
   {
-    id:104,
-    type:"blog",
-    name:"Space ~ > + in CSS",
-    img:"/blog_components/blog_css_selector_img.png",
-    date:new Date("2023-11-22"),
-    link:"https://medium.com/@kumarazad2917/space-in-css-d37b632bb076"
+    id: 104,
+    type: "blog",
+    name: "Space ~ > + in CSS",
+    img: "/blog_components/blog_css_selector_img.png",
+    date: new Date("2023-11-22"),
+    link: "https://medium.com/@kumarazad2917/space-in-css-d37b632bb076"
   },
   {
-    id:105,
-    type:"component",
-    name:"Enter animation & Button interaction",
-    date:new Date("2025-12-07"),
-    img:"/blog_components/enter-animation-and-buttoninteraction.png",
-    link:"/work/enter-animation/104"
+    id: 105,
+    type: "component",
+    name: "Enter animation & Button interaction",
+    date: new Date("2025-12-07"),
+    img: "/blog_components/enter-animation-and-buttoninteraction.png",
+    link: "/work/enter-animation/104"
   },
   {
-    id:106,
-    type:"component",
-    date:new Date("2025-12-07"),
-    img:"/blog_components/clip_path_gradient_border_animation.png",
-    link:"/work/craft",
-    name:"Clip Path & Gradient border",
+    id: 106,
+    type: "component",
+    date: new Date("2025-12-07"),
+    img: "/blog_components/clip_path_gradient_border_animation.png",
+    link: "/work/craft",
+    name: "Clip Path & Gradient border",
   },
   {
-    id:107,
-    type:"component",
-    date:new Date("2025-12-21"),
-    img:"/blog_components/scrolltrigger.png",
-    link:"/work/scroll-trigger/105",
-    name:"Scroll Trigger",
+    id: 107,
+    type: "component",
+    date: new Date("2025-12-21"),
+    img: "/blog_components/scrolltrigger.png",
+    link: "/work/scroll-trigger/105",
+    name: "Scroll Trigger",
   }
 ];
 
 export const getOnlyComponents = () => {
   return blogs_components_list
     .filter(item => item.type === "component")
-    .sort((a:any, b:any) => b.date - a.date);
+    .sort((a: any, b: any) => b.date - a.date);
 };
 
 
-export const getOnlyBlogs = ()=>{
-  return blogs_components_list.filter((item)=> item.type === "blog").sort((a:any,b:any)=> b.date -a.date);
+export const getOnlyBlogs = () => {
+  return blogs_components_list.filter((item) => item.type === "blog").sort((a: any, b: any) => b.date - a.date);
 }
 
