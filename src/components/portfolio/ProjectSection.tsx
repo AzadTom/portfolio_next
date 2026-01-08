@@ -24,7 +24,7 @@ const ProjectSection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: false }}
           className="outfit-600">
-          <h2 className="text-3xl font-bold outfilt-600 mb-2 text-white px-4">Projects <span className="text-white/50 text-xl">{webContent.length}</span></h2>
+          <h2 className="text-3xl font-bold outfilt-600 mb-2 text-white px-4">Projects <span className="text-white/50 text-xl">({webContent.length})</span></h2>
         </motion.div>
         <Swiper
           modules={[Navigation]}
