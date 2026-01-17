@@ -134,6 +134,54 @@ export type TListItemType = {
 
 const blogs_components_list: TListItemType[] = [
   {
+    id: 108,
+    type: "component",
+    date: new Date("2026-01-17"),
+    img: "/blog_components/kanban.png",
+    link: "/work/stepper-component/106",
+    name: "KanBan",
+  },
+  {
+    id: 107,
+    type: "component",
+    date: new Date("2025-12-21"),
+    img: "/blog_components/scrolltrigger.png",
+    link: "/work/scroll-trigger/105",
+    name: "Scroll Trigger",
+  },
+  {
+    id: 106,
+    type: "component",
+    date: new Date("2025-12-07"),
+    img: "/blog_components/clip_path_gradient_border_animation.png",
+    link: "/work/craft",
+    name: "Clip Path & Gradient border",
+  },
+  {
+    id: 105,
+    type: "component",
+    name: "Enter animation & Button interaction",
+    date: new Date("2025-12-07"),
+    img: "/blog_components/enter-animation-and-buttoninteraction.png",
+    link: "/work/enter-animation/104"
+  },
+  {
+    id: 104,
+    type: "blog",
+    name: "Space ~ > + in CSS",
+    img: "/blog_components/blog_css_selector_img.png",
+    date: new Date("2023-11-22"),
+    link: "https://medium.com/@kumarazad2917/space-in-css-d37b632bb076"
+  },
+  {
+    id: 103,
+    type: "component",
+    name: "ChatGptInput Component",
+    img: "/blog_components/chatgpt_input_img.png",
+    date: new Date("2025-09-30"),
+    link: "/work/chatgpt-inputcomponent/103",
+  },
+  {
     id: 101,
     type: "component",
     name: "Stepper Component",
@@ -149,46 +197,6 @@ const blogs_components_list: TListItemType[] = [
     date: new Date("2025-10-02"),
     link: "/work/loader-component/102",
   },
-  {
-    id: 103,
-    type: "component",
-    name: "ChatGptInput Component",
-    img: "/blog_components/chatgpt_input_img.png",
-    date: new Date("2025-09-30"),
-    link: "/work/chatgpt-inputcomponent/103",
-  },
-  {
-    id: 104,
-    type: "blog",
-    name: "Space ~ > + in CSS",
-    img: "/blog_components/blog_css_selector_img.png",
-    date: new Date("2023-11-22"),
-    link: "https://medium.com/@kumarazad2917/space-in-css-d37b632bb076"
-  },
-  {
-    id: 105,
-    type: "component",
-    name: "Enter animation & Button interaction",
-    date: new Date("2025-12-07"),
-    img: "/blog_components/enter-animation-and-buttoninteraction.png",
-    link: "/work/enter-animation/104"
-  },
-  {
-    id: 106,
-    type: "component",
-    date: new Date("2025-12-07"),
-    img: "/blog_components/clip_path_gradient_border_animation.png",
-    link: "/work/craft",
-    name: "Clip Path & Gradient border",
-  },
-  {
-    id: 107,
-    type: "component",
-    date: new Date("2025-12-21"),
-    img: "/blog_components/scrolltrigger.png",
-    link: "/work/scroll-trigger/105",
-    name: "Scroll Trigger",
-  }
 ];
 
 export const getOnlyComponents = () => {

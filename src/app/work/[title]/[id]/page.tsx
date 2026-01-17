@@ -1,6 +1,7 @@
 import { ChatGptInput, CircleRing } from "@/components/animations";
 import ButtonInteraction from "@/components/button/ButtonInteraction";
 import EnterAnimation from "@/components/enteranimation/EnterAnimation";
+import KanBan from "@/components/machinecodinground/kanban/KanBan";
 import ProgressBarContainer from "@/components/machinecodinground/progressbar/ProgressBarContainer";
 import StepperContainer from "@/components/machinecodinground/stepper/StepperContainer";
 import ScrollTrigger from "@/components/scrolltrigger/ScrollTrigger";
@@ -51,6 +52,14 @@ const page = async ({ params }: WorkProps) => {
     return (
       <main>
         <ScrollTrigger/>
+      </main>
+    );
+  }
+
+   if (Number(id) === 106) {
+    return (
+      <main>
+        <KanBan/>
       </main>
     );
   }
