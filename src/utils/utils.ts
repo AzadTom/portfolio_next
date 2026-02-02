@@ -134,6 +134,14 @@ export type TListItemType = {
 
 const blogs_components_list: TListItemType[] = [
   {
+    id: 109,
+    type: "blog",
+    date: new Date("2026-02-02"),
+    img: "/blog_components/Input_Output based_Question.png",
+    link: "https://medium.com/@kumarazad2917/8-input-output-based-js-question-d25b5e328bbe",
+    name: "Input Output Question",
+  },
+  {
     id: 108,
     type: "component",
     date: new Date("2026-01-17"),
