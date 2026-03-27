@@ -5,13 +5,14 @@ import KanBan from '@/components/machinecodinground/kanban/KanBan'
 import ProgressBarContainer from '@/components/machinecodinground/progressbar/ProgressBarContainer'
 import QuizContainer from '@/components/machinecodinground/quizComponent/QuizContainer'
 import StepperContainer from '@/components/machinecodinground/stepper/StepperContainer'
+import ToastExample from '@/components/Toast/ToastExample'
 import React from 'react'
 
 const page = () => {
   return (
 
     <>
-      <div className='max-w-[1000px] p-4 sm:my-8  mx-auto grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2'>
+      <div className='max-w-[1000px] mx-auto p-4 sm:my-8'>
         <AutoCompleteContainer />
         <StepperContainer />
         <QuizContainer />
@@ -19,8 +20,9 @@ const page = () => {
         <CinemaHallContainer />
         <CountDown />
         <KanBan />
+       
       </div>
-
+     <ToastExample/>
     </>
 
   )

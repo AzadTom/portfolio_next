@@ -24,7 +24,7 @@ export default function Home() {
         <AboutMe />
         <SkillsSection />
         <Blogs_Components/>
-        <WorkExperienceSection />
+        {/* <WorkExperienceSection /> */}
         <ProjectSection />
         <InfiniteScrollTags />
         <ContactUs />
