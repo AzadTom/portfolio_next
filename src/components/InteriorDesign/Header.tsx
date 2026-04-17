@@ -40,7 +40,9 @@ const Header = () => {
                     <div className="md:hidden">
                         <Sheet open={open} onOpenChange={setOpen}>
                             <SheetTrigger asChild>
-                                <Hamburger isOpen={open} toggle={() => setOpen(!open)} />
+                                <button className="bg-white rounded">
+                                    <Hamburger isOpen={open} toggle={() => setOpen(!open)} />
+                                </button>
                             </SheetTrigger>
 
                             <SheetContent side="left" className="w-64 bg-white p-4 [&>button]:hidden">

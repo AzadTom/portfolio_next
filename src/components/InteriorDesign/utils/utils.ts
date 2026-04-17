@@ -24,3 +24,12 @@ export const SERVICES = [
     image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
   },
 ]
+
+
+export const WHY_CHOOSE = [
+  { title: "Experienced", desc: "7+ years of experience in design and execution." },
+  { title: "Superior Quality", desc: "We deliver excellence with every project." },
+  { title: "Honest & Dependable", desc: "Integrity defines our work." },
+  { title: "Competitive Rates", desc: "Premium work at competitive pricing." },
+  { title: "Free Consultation", desc: "Expert advice tailored to your project." },
+]

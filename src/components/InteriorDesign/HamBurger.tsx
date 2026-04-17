@@ -21,7 +21,7 @@ const Hamburger = ({ isOpen, toggle}: Props) => {
             rotate: isOpen ? 45 : 0,
             y: isOpen ? 8 : 0,
           }}
-          className="absolute left-0 top-0 w-full h-[2px] bg-white rounded"
+          className="absolute left-0 top-0 w-full h-[2px] bg-black rounded"
         />
 
         {/* Middle Line */}
@@ -29,7 +29,7 @@ const Hamburger = ({ isOpen, toggle}: Props) => {
           animate={{
             opacity: isOpen ? 0 : 1,
           }}
-          className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[2px] bg-white rounded"
+          className="absolute left-0 top-1/2 -translate-y-1/2 w-full h-[2px] bg-black rounded"
         />
 
         {/* Bottom Line */}
@@ -38,7 +38,7 @@ const Hamburger = ({ isOpen, toggle}: Props) => {
             rotate: isOpen ? -45 : 0,
             y: isOpen ? -8 : 0,
           }}
-          className="absolute left-0 bottom-0 w-full h-[2px] bg-white rounded"
+          className="absolute left-0 bottom-0 w-full h-[2px] bg-black rounded"
         />
 
       </div>
