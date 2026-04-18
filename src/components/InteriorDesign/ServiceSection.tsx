@@ -54,7 +54,7 @@ const ServicesSection = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 1, delay: 0.1 }}
-                                className="text-5xl md:text-6xl lg:text-[4.5rem] font-light leading-[1.05] tracking-tight text-zinc-900"
+                                className="text-4xl md:text-xl lg:text-[4.5rem] font-light leading-[1.05] tracking-tight text-zinc-900"
                             >
                                 Crafting Spaces That <br />
                                 <span className="font-serif italic font-normal text-zinc-800 pr-2">Inspire & Function</span>
