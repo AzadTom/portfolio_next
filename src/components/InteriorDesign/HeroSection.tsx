@@ -57,7 +57,7 @@ const HeroSection = () => {
             className="flex items-center gap-4"
           >
             <div className="w-12 h-[1px] bg-white/60" />
-            <span className="text-xs md:text-sm tracking-[0.4em] text-white/80 uppercase font-light">
+            <span className="text-xs md:text-sm tracking-[0.4em] text-white/80 uppercase outfit-200">
               Premium Interior Studio
             </span>
           </motion.div>
