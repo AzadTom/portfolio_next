@@ -1,73 +1,61 @@
 "use client"
 
-import { Phone, Clock, ArrowUpRight } from "lucide-react"
+import { Phone, Clock } from "lucide-react"
 import { motion } from "framer-motion"
 
 const HeroInfoCard = () => {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
-      className="absolute bottom-6 md:bottom-10 left-1/2 -translate-x-1/2 z-20 w-[90%] md:w-auto"
+      transition={{ duration: 1.2, delay: 1, ease: "easeOut" }}
+      className="inline-block"
     >
       <div
         className="
-        flex flex-col md:flex-row 
-        gap-6 md:gap-10 
-        bg-white/80 backdrop-blur-xl 
-        border border-white/30 
-        shadow-[0_8px_30px_rgba(0,0,0,0.1)] 
-        rounded-xl md:rounded-2xl 
-        px-4 md:px-10 
-        py-4 md:py-6
+        inline-flex flex-col sm:flex-row 
+        gap-4 sm:gap-10 
+        bg-black/40 backdrop-blur-xl 
+        border border-white/20 
+        shadow-[0_8px_40px_rgba(0,0,0,0.4)] 
+        rounded-2xl sm:rounded-full 
+        px-6 sm:px-8 
+        py-4 sm:py-4
       "
       >
-        {/* Phone Row */}
-        <div className="flex items-center justify-between w-full md:w-auto gap-4">
-
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="p-2 md:p-3 rounded-full bg-black/5">
-              <Phone className="w-4 h-4 md:w-5 md:h-5 text-black" />
-            </div>
-
-            <div>
-              <p className="text-[10px] md:text-xs text-gray-500 tracking-wide">
-                CALL US NOW
-              </p>
-              <p className="text-sm md:text-base font-semibold text-gray-900">
-                +91 9016112409
-              </p>
-            </div>
+        {/* Phone Section */}
+        <div className="flex items-center gap-4 group cursor-pointer transition-opacity hover:opacity-80">
+          <div className="p-2.5 rounded-full bg-white/10">
+            <Phone className="w-4 h-4 text-white" />
           </div>
 
-          {/* External Icon */}
-          <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-gray-500" />
+          <div className="flex flex-col">
+            <span className="text-[9px] sm:text-[10px] text-white/50 tracking-[0.2em] font-medium uppercase">
+              Start a Conversation
+            </span>
+            <span className="text-sm font-light text-white tracking-wider mt-0.5">
+              +91 90161 12409
+            </span>
+          </div>
         </div>
 
         {/* Divider */}
-        <div className="hidden md:block h-10 w-px bg-gray-200" />
+        <div className="hidden sm:block w-px bg-white/20" />
 
-        {/* Timing Row */}
-        <div className="flex items-center justify-between w-full md:w-auto gap-4">
-
-          <div className="flex items-center gap-3 md:gap-4">
-            <div className="p-2 md:p-3 rounded-full bg-black/5">
-              <Clock className="w-4 h-4 md:w-5 md:h-5 text-black" />
-            </div>
-
-            <div>
-              <p className="text-[10px] md:text-xs text-gray-500 tracking-wide">
-                OPENING HOURS
-              </p>
-              <p className="text-sm md:text-base font-semibold text-gray-900">
-                Mon - Sat: 10 AM - 6 PM
-              </p>
-            </div>
+        {/* Timing Section */}
+        <div className="flex items-center gap-4">
+          <div className="p-2.5 rounded-full bg-white/10">
+            <Clock className="w-4 h-4 text-white" />
           </div>
 
-          {/* External Icon */}
-          <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5 text-gray-500" />
+          <div className="flex flex-col">
+            <span className="text-[9px] sm:text-[10px] text-white/50 tracking-[0.2em] font-medium uppercase">
+              Studio Hours
+            </span>
+            <span className="text-sm font-light text-white tracking-wider mt-0.5">
+              Mon - Sat: 10 AM - 6 PM
+            </span>
+          </div>
         </div>
 
       </div>
