@@ -8,15 +8,31 @@ import {
     SheetTrigger,
 } from "@/components/ui/sheet"
 import Hamburger from "./HamBurger"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const Header = () => {
 
     const [open, setOpen] = useState(false);
+    const [isScrolled, setIsScrolled] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            // Check if scrolled past viewport height minus a small threshold (like header height)
+            if (window.scrollY > window.innerHeight - 80) {
+                setIsScrolled(true);
+            } else {
+                setIsScrolled(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll(); // Trigger once on mount
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
 
     return (
         <>
-            <nav className="w-full fixed top-0 z-50">
+            <nav className={`w-full fixed top-0 z-50 transition-all duration-300 ${isScrolled ? "bg-black/50 backdrop-blur-md" : "bg-transparent"}`}>
                 <div className="max-w-7xl mx-auto flex flex-row-reverse sm:flex-row items-center justify-between px-4 py-4 md:px-8">
 
                     {/* Logo */}
