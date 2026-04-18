@@ -1,4 +1,3 @@
-import ContactSection from "@/components/InteriorDesign/ContactUsSection";
 import Header from "@/components/InteriorDesign/Header";
 import HeroSection from "@/components/InteriorDesign/HeroSection";
 import ServicesSection from "@/components/InteriorDesign/ServiceSection";

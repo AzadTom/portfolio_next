@@ -25,9 +25,9 @@ const ServicesSection = () => {
     return (
         <section
             ref={containerRef}
-            className="relative h-[200vh] bg-white text-zinc-900 border-t border-zinc-100"
+            className="relative bg-white text-zinc-900 border-t border-zinc-100 pt-24 pb-32 md:pt-32 md:pb-40"
         >
-            <div className="sticky top-0 pt-24 md:pt-40 overflow-hidden h-screen flex flex-col">
+            <div className="flex flex-col">
 
                 <div className="max-w-[85rem] mx-auto px-6 lg:px-12 w-full flex-shrink-0">
 
