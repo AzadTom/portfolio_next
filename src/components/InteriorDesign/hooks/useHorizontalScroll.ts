@@ -12,42 +12,29 @@ export const useHorizontalScroll = <T extends HTMLElement>({
   scrollRef,
 }: UseHorizontalScrollProps<T>): void => {
   useEffect(() => {
-    let ticking = false
+    const scrollEl = scrollRef.current
+    if (!scrollEl) return
 
-    const handleScroll = () => {
-      const container = containerRef.current
-      const scrollEl = scrollRef.current
+    const handleWheel = (e: WheelEvent) => {
+      // If the user uses a trackpad sideways, let it naturally horizontal scroll
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return
 
-      if (!container || !scrollEl) return
+      const maxScroll = scrollEl.scrollWidth - scrollEl.clientWidth
+      
+      // Allow native page scrolling if trying to scroll strictly beyond the boundaries
+      if (scrollEl.scrollLeft <= 0 && e.deltaY < 0) return
+      if (Math.ceil(scrollEl.scrollLeft) >= maxScroll && e.deltaY > 0) return
 
-      if (ticking) return
-
-      requestAnimationFrame(() => {
-        const rect = container.getBoundingClientRect()
-
-        const totalScroll =
-          container.offsetHeight - window.innerHeight
-
-        const progress = Math.min(
-          Math.max(-rect.top / totalScroll, 0),
-          1
-        )
-
-        const maxScroll =
-          scrollEl.scrollWidth - scrollEl.clientWidth
-
-        scrollEl.scrollLeft = progress * maxScroll
-
-        ticking = false
-      })
-
-      ticking = true
+      // Otherwise intercept vertical scroll and shift horizontally
+      e.preventDefault()
+      scrollEl.scrollLeft += e.deltaY * 1.5 // Multiplier for smoother fast scrolling
     }
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
+    // Must be passive: false to allow e.preventDefault()
+    scrollEl.addEventListener("wheel", handleWheel, { passive: false })
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      scrollEl.removeEventListener("wheel", handleWheel)
     }
-  }, [containerRef, scrollRef])
+  }, [scrollRef])
 }

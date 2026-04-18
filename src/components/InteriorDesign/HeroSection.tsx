@@ -68,10 +68,10 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.4, ease: "easeOut" }}
-            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-light leading-[1.05] tracking-tight"
+            className="text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] outfit-300 leading-[1.05] tracking-tight"
           >
             Build Experiences <br /> 
-            That People <span className="font-serif italic font-normal text-white/90">Remember</span>
+            That People <span className="font-serif italic text-white/90">Remember</span>
           </motion.h1>
 
           <motion.p
@@ -79,7 +79,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-            className="text-white/70 text-lg md:text-xl font-light max-w-lg leading-relaxed"
+            className="text-white/80 text-lg md:text-xl max-w-lg leading-relaxed outfit-200"
           >
             We design and curate modern interior spaces that help your property stand out with exceptional aesthetics and functionality.
           </motion.p>
