@@ -79,7 +79,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.6, ease: "easeOut" }}
-            className="text-white/80 text-lg md:text-xl max-w-lg leading-relaxed outfit-200"
+          className="text-white/80 text-lg md:text-xl max-w-lg leading-relaxed outfit-200"
           >
             We design and curate modern interior spaces that help your property stand out with exceptional aesthetics and functionality.
           </motion.p>
