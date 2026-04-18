@@ -40,27 +40,43 @@ const Header = () => {
                     <div className="md:hidden">
                         <Sheet open={open} onOpenChange={setOpen}>
                             <SheetTrigger asChild>
-                                <button className="bg-white rounded">
-                                    <Hamburger isOpen={open} toggle={() => setOpen(!open)} />
+                                <button className="p-4 bg-[#050505] hover:bg-black transition-colors rounded-full shadow-lg flex items-center justify-center">
+                                    <Hamburger isOpen={open} toggle={()=> setOpen((prev)=>(!prev))}/>
                                 </button>
                             </SheetTrigger>
 
-                            <SheetContent side="left" className="w-64 bg-white p-4 [&>button]:hidden">
-                                <div className="flex justify-end">
-                                    <SheetClose asChild>
-                                        <button className="p-2 hover:bg-gray-100 rounded-full">
-                                            <X className="w-5 h-5" />
-                                        </button>
-                                    </SheetClose>
+                            <SheetContent side="left" className="w-full sm:w-[450px] bg-[#050505] border-l border-white/5 p-8 flex flex-col justify-between [&>button]:hidden">
+                                <div>
+                                    <div className="flex items-center justify-between mb-16">
+                                        <span className="text-[10px] tracking-[0.3em] uppercase text-zinc-500 font-bold">Navigation</span>
+                                        <SheetClose asChild>
+                                            <button className="p-3 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full transition-colors text-white">
+                                                <X className="w-4 h-4" />
+                                            </button>
+                                        </SheetClose>
+                                    </div>
+                                    
+                                    <div className="flex flex-col gap-8">
+                                        {['Services', 'Projects', 'Journal', 'Studio'].map((item, i) => (
+                                            <a key={item} href="#" className="flex flex-col md:flex-row md:items-end gap-2 md:gap-6 group">
+                                                <span className="text-zinc-600 text-sm font-serif italic">0{i + 1}</span>
+                                                <span className="text-4xl md:text-5xl font-light text-zinc-400 group-hover:text-white transition-colors tracking-tight">{item}</span>
+                                            </a>
+                                        ))}
+                                    </div>
                                 </div>
-                                <div className="flex flex-col gap-6 mt-6 text-lg">
-                                    <a href="#">Services</a>
-                                    <a href="#">Projects</a>
-                                    <a href="#">Blogs</a>
-                                    <a href="#">About</a>
 
-                                    <Button variant="outline" className="mt-4">
-                                        Contact us
+                                <div className="mt-12 flex flex-col gap-8">
+                                    <div className="h-[1px] w-full bg-white/10" />
+                                    
+                                    <div className="flex items-center justify-between text-zinc-500 text-xs tracking-[0.2em] uppercase font-semibold">
+                                        <a href="#" className="hover:text-white transition-colors">Instagram</a>
+                                        <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
+                                        <a href="#" className="hover:text-white transition-colors">Twitter</a>
+                                    </div>
+
+                                    <Button className="w-full bg-white text-black hover:bg-zinc-200 rounded-full py-6 text-sm font-semibold tracking-wide transition-transform hover:scale-[1.02] duration-300">
+                                        Start a Project
                                     </Button>
                                 </div>
                             </SheetContent>
