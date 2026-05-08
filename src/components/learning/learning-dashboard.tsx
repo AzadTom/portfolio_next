@@ -282,6 +282,16 @@ export function LearningDashboard() {
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.95),rgba(247,241,231,0.95)_42%,rgba(242,234,220,0.92))] text-slate-950">
       <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-4 py-5 sm:px-6 sm:py-8 lg:px-8">
+        <div className="flex items-center justify-start">
+          <Link
+            href="/"
+            className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:text-slate-950"
+          >
+            <ArrowLeft className="size-3.5" />
+            Back to home
+          </Link>
+        </div>
+
         <CalendarCard
           visitDays={visitDays}
           onCheckInToday={handleCheckInToday}
