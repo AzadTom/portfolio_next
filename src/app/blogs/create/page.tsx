@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import type EditorJS from "@editorjs/editorjs";
 import { ArrowLeft, Redo2, Undo2 } from "lucide-react";
 import styles from "./style.module.css";
-import { createBox } from "motion/react";
 import { postBlogs } from "@/lib/blogs/blogsapi";
 import { BlogStatus } from "@/lib/blogs/type";
 import { useRouter } from "next/navigation";
