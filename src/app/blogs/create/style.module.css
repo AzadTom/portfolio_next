@@ -384,6 +384,78 @@
   font-family: var(--font-outfit), sans-serif;
 }
 
+.editor :global(.youtube-iframe-tool) {
+  position: relative;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.editor :global(.youtube-iframe-tool__panel) {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.editor :global(.youtube-iframe-tool__input) {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(63, 48, 34, 0.12);
+  border-radius: 0;
+  background: transparent;
+  color: #201b17;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+  outline: none;
+}
+
+.editor :global(.youtube-iframe-tool[data-has-embed="true"] .youtube-iframe-tool__input[hidden]) {
+  display: none;
+}
+
+.editor :global(.youtube-iframe-tool__input:empty::before) {
+  content: attr(data-placeholder);
+  color: #9b8b79;
+}
+
+.editor :global(.youtube-iframe-tool__edit) {
+  position: absolute;
+  top: -6px;
+  right: 0;
+  z-index: 2;
+  padding: 6px 10px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(31, 24, 18, 0.88);
+  color: #fff;
+  font-size: 0.72rem;
+  line-height: 1;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+}
+
+.editor :global(.youtube-iframe-tool:hover .youtube-iframe-tool__edit),
+.editor :global(.youtube-iframe-tool:focus-within .youtube-iframe-tool__edit) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.editor :global(.youtube-iframe-tool__preview) {
+  position: relative;
+}
+
+.editor :global(.youtube-iframe-tool__iframe) {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  border-radius: 0;
+  background: #000;
+}
+
 .editor :global(.ce-delimiter) {
   width: 100%;
   max-width: 860px;

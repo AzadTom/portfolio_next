@@ -66,7 +66,11 @@ export async function updateTrackerVideoStatus(videoId: number, status: VideoSta
 
 export function buildYouTubeEmbedUrl(sourceUrl: string) {
   try {
-    const url = new URL(sourceUrl);
+    const iframeMatch = sourceUrl.match(
+      /<iframe[^>]+src=["']([^"']+)["'][^>]*><\/iframe>/i,
+    );
+    const source = iframeMatch?.[1] ?? sourceUrl;
+    const url = new URL(source);
 
     if (url.hostname.includes("youtu.be")) {
       const videoId = url.pathname.replace("/", "").trim();
@@ -87,4 +91,3 @@ export function buildYouTubeEmbedUrl(sourceUrl: string) {
     return sourceUrl;
   }
 }
-

@@ -6,8 +6,198 @@ import styles from "./style.module.css";
 import { postBlogs } from "@/lib/blogs/blogsapi";
 import { BlogStatus } from "@/lib/blogs/type";
 import { useRouter } from "next/navigation";
+import { buildYouTubeEmbedUrl } from "@/lib/learning/api";
 
 const AUTOSAVE_KEY = "blog-editor-draft";
+
+type YouTubeIframeToolData = {
+  source?: string;
+  embedUrl?: string;
+};
+
+function getYouTubeEmbedUrl(source: string) {
+  const trimmedSource = source.trim();
+
+  if (!trimmedSource) return null;
+
+  const embedUrl = buildYouTubeEmbedUrl(trimmedSource).trim();
+
+  if (!embedUrl) return null;
+
+  try {
+    const url = new URL(embedUrl);
+    const host = url.hostname.replace(/^www\./, "");
+    const isYouTubeHost =
+      host === "youtube.com" ||
+      host === "youtube-nocookie.com" ||
+      host === "youtu.be";
+
+    if (isYouTubeHost && (url.pathname.includes("/embed/") || host === "youtu.be")) {
+      return embedUrl;
+    }
+  } catch {
+    return null;
+  }
+
+  return null;
+}
+
+class YouTubeIframeTool {
+  private api: any;
+  private readOnly: boolean;
+  private data: YouTubeIframeToolData;
+  private wrapper: HTMLDivElement | null = null;
+  private input: HTMLDivElement | null = null;
+  private panel: HTMLDivElement | null = null;
+  private editButton: HTMLButtonElement | null = null;
+  private preview: HTMLDivElement | null = null;
+  private isEditing = false;
+
+  static get toolbox() {
+    return {
+      title: "YouTube iframe",
+      icon: '<svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 4.9C14.3 4.1 13.7 3.5 12.9 3.3C11.4 3 8.5 3 8.5 3C8.5 3 5.6 3 4.1 3.3C3.3 3.5 2.7 4.1 2.5 4.9C2.2 6.4 2.2 8.5 2.2 8.5C2.2 8.5 2.2 10.6 2.5 12.1C2.7 12.9 3.3 13.5 4.1 13.7C5.6 14 8.5 14 8.5 14C8.5 14 11.4 14 12.9 13.7C13.7 13.5 14.3 12.9 14.5 12.1C14.8 10.6 14.8 8.5 14.8 8.5C14.8 8.5 14.8 6.4 14.5 4.9Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><path d="M7 6.5L11 8.5L7 10.5V6.5Z" fill="currentColor"/></svg>',
+    };
+  }
+
+  static get isReadOnlySupported() {
+    return true;
+  }
+
+  constructor({
+    data,
+    api,
+    readOnly,
+  }: {
+    data: YouTubeIframeToolData;
+    api: any;
+    readOnly: boolean;
+  }) {
+    this.api = api;
+    this.readOnly = readOnly;
+    this.data = {
+      source: data?.source ?? data?.embedUrl ?? "",
+      embedUrl: data?.embedUrl ?? "",
+    };
+  }
+
+  render() {
+    const wrapper = document.createElement("div");
+    wrapper.className = "youtube-iframe-tool";
+
+    const panel = document.createElement("div");
+    panel.className = "youtube-iframe-tool__panel";
+
+    const input = document.createElement("div");
+    input.className = "youtube-iframe-tool__input";
+    input.contentEditable = String(!this.readOnly);
+    input.spellcheck = false;
+    input.dataset.placeholder = "Paste a YouTube URL or iframe code";
+    input.textContent = this.data.source ?? "";
+    panel.appendChild(input);
+
+    const editButton = document.createElement("button");
+    editButton.type = "button";
+    editButton.className = "youtube-iframe-tool__edit";
+    editButton.textContent = "Edit";
+    editButton.hidden = true;
+    panel.appendChild(editButton);
+
+    const preview = document.createElement("div");
+    preview.className = "youtube-iframe-tool__preview";
+
+    this.wrapper = wrapper;
+    this.input = input;
+    this.panel = panel;
+    this.editButton = editButton;
+    this.preview = preview;
+
+    if (!this.readOnly) {
+      this.api.listeners.on(input, "input", () => {
+        this.syncPreview();
+      });
+      this.api.listeners.on(input, "blur", () => {
+        if (getYouTubeEmbedUrl(this.input?.textContent?.trim() ?? "")) {
+          this.isEditing = false;
+          this.syncPreview();
+        }
+      });
+      this.api.listeners.on(input, "paste", (event: ClipboardEvent) => {
+        event.preventDefault();
+
+        const pastedText =
+          event.clipboardData?.getData("text/html") ||
+          event.clipboardData?.getData("text/plain") ||
+          "";
+
+        document.execCommand("insertText", false, pastedText);
+        this.syncPreview();
+      });
+      this.api.listeners.on(editButton, "click", () => {
+        this.isEditing = !this.isEditing;
+        this.syncPreview();
+        if (this.isEditing) {
+          input.focus();
+        }
+      });
+    }
+
+    this.syncPreview();
+    return wrapper;
+  }
+
+  save() {
+    const source =
+      this.input?.textContent?.trim() ?? this.data.source?.trim() ?? "";
+
+    return {
+      source,
+      embedUrl: getYouTubeEmbedUrl(source) ?? this.data.embedUrl ?? "",
+    };
+  }
+
+  private syncPreview() {
+    if (!this.input || !this.wrapper || !this.panel || !this.preview || !this.editButton) return;
+
+    const source = this.input.textContent?.trim() || "";
+    const embedUrl = getYouTubeEmbedUrl(source);
+
+    this.data = {
+      source,
+      embedUrl: embedUrl ?? "",
+    };
+
+    this.wrapper.dataset.hasEmbed = embedUrl ? "true" : "false";
+    this.wrapper.dataset.embedUrl = embedUrl ?? "";
+    this.wrapper.replaceChildren();
+
+    if (!embedUrl) {
+      this.editButton.hidden = true;
+      this.isEditing = true;
+      this.input.hidden = false;
+      this.preview.hidden = true;
+      this.wrapper.appendChild(this.panel);
+      this.wrapper.appendChild(this.preview);
+      return;
+    }
+
+    const iframe = document.createElement("iframe");
+    iframe.className = "youtube-iframe-tool__iframe";
+    iframe.src = embedUrl;
+    iframe.allow =
+      "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+    iframe.allowFullscreen = true;
+    iframe.loading = "lazy";
+    iframe.referrerPolicy = "strict-origin-when-cross-origin";
+
+    this.preview.replaceChildren(iframe);
+    this.input.hidden = !this.isEditing;
+    this.preview.hidden = false;
+    this.editButton.hidden = false;
+    this.wrapper.appendChild(this.panel);
+    this.wrapper.appendChild(this.preview);
+  }
+}
 
 export default function BlogEditorClient() {
   const editorRef = useRef<EditorJS | null>(null);
@@ -305,11 +495,15 @@ export default function BlogEditorClient() {
             inlineToolbar: true,
           },
           marker: Marker,
+          youtubeIframe: {
+            class: YouTubeIframeTool,
+          },
           embed: {
             class: Embed,
             config: {
               services: {
                 youtube: true,
+                instagram: true,
                 github: true,
                 codepen: true,
               },
