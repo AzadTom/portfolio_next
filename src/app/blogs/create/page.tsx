@@ -7,6 +7,8 @@ import { createBox } from "motion/react";
 import { postBlogs } from "@/lib/blogs/blogsapi";
 import { BlogStatus } from "@/lib/blogs/type";
 
+const AUTOSAVE_KEY = "blog-editor-draft";
+
 export default function BlogEditorClient() {
   const editorRef = useRef<EditorJS | null>(null);
   const historyRef = useRef<string[]>([]);
@@ -27,6 +29,36 @@ export default function BlogEditorClient() {
     const editor = editorRef.current;
     if (!editor?.saver?.save) return null;
     return editor.saver.save();
+  };
+
+  const saveDraftToLocalStorage = async () => {
+    if (typeof window === "undefined") return;
+
+    const data = await getEditorData();
+    if (!data) return;
+
+    window.localStorage.setItem(AUTOSAVE_KEY, JSON.stringify(data));
+  };
+
+  const loadDraftFromLocalStorage = () => {
+    if (typeof window === "undefined") return null;
+
+    const rawDraft = window.localStorage.getItem(AUTOSAVE_KEY);
+    if (!rawDraft) return null;
+
+    try {
+      return JSON.parse(rawDraft);
+    } catch {
+      return null;
+    }
+  };
+
+  const waitForEditorReady = async (editor: EditorJS) => {
+    const maybeReady = editor as EditorJS & { isReady?: Promise<void> };
+
+    if (maybeReady.isReady) {
+      await maybeReady.isReady;
+    }
   };
 
   const pushSnapshot = async () => {
@@ -79,6 +111,7 @@ export default function BlogEditorClient() {
     void (async () => {
       await pushSnapshot();
       await syncTitleFromContent();
+      await saveDraftToLocalStorage();
     })();
   };
 
@@ -149,8 +182,31 @@ export default function BlogEditorClient() {
     }
   };
 
-  const uploadImage = async (file: File) => {
-    const url = await fileToDataUrl(file);
+  const uploadImageToCloud = async (file: File) => {
+    const formData = new FormData();
+    formData.append("image", file, file.name);
+    const response = await fetch("https://nestjsserver.vercel.app/upload/image", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error(`Image upload failed with status ${response.status}`);
+    }
+
+    const payload = await response.json().catch(() => null);
+    const url =
+      (typeof payload === "string" ? payload : null) ??
+      payload?.url ??
+      payload?.file?.url ??
+      payload?.data?.url ??
+      payload?.imageUrl ??
+      payload?.location ??
+      payload?.result?.url;
+
+    if (typeof url !== "string" || !url.trim()) {
+      throw new Error("Image upload did not return a usable URL.");
+    }
 
     return {
       success: 1,
@@ -229,23 +285,13 @@ export default function BlogEditorClient() {
             class: ImageTool,
             config: {
               uploader: {
-                async uploadByFile(file: File) {
-                  return {
-                    success: 1,
-                    file: {
-                      url: URL.createObjectURL(file),
-                    },
-                  };
-                },
-
-                async uploadByUrl(url: string) {
-                  return {
-                    success: 1,
-                    file: {
-                      url,
-                    },
-                  };
-                },
+                uploadByFile: uploadImageToCloud,
+                uploadByUrl: async (url: string) => ({
+                  success: 1,
+                  file: {
+                    url,
+                  },
+                }),
               },
             },
           },
@@ -280,7 +326,19 @@ export default function BlogEditorClient() {
         },
       });
 
-      await pushSnapshot();
+      await waitForEditorReady(editorRef.current);
+
+      const savedDraft = loadDraftFromLocalStorage();
+
+      if (savedDraft) {
+        await editorRef.current.render(savedDraft);
+        historyRef.current = [JSON.stringify(savedDraft)];
+        historyIndexRef.current = 0;
+        refreshHistoryControls();
+      } else {
+        await pushSnapshot();
+      }
+
       await syncTitleFromContent();
       refreshHistoryControls();
     };
@@ -293,23 +351,6 @@ export default function BlogEditorClient() {
       editorRef.current = null;
     };
   }, []);
-
-  const fileToDataUrl = (file: File) =>
-    new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-
-      reader.onload = () => {
-        if (typeof reader.result === "string") {
-          resolve(reader.result);
-          return;
-        }
-
-        reject(new Error("Failed to read image file."));
-      };
-
-      reader.onerror = () => reject(new Error("Failed to read image file."));
-      reader.readAsDataURL(file);
-    });
 
   return (
     <main className={styles.page}>
