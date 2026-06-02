@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import type EditorJS from "@editorjs/editorjs";
 import { ArrowLeft, Redo2, Undo2 } from "lucide-react";
 import styles from "./style.module.css";
+import CodeBlockTool from "@/components/editor-tools/CodeBlockTool";
 import { postBlogs } from "@/lib/blogs/blogsapi";
 import { BlogStatus } from "@/lib/blogs/type";
 import { useRouter } from "next/navigation";
@@ -13,6 +14,18 @@ const AUTOSAVE_KEY = "blog-editor-draft";
 type YouTubeIframeToolData = {
   source?: string;
   embedUrl?: string;
+};
+
+type EditorBlock = {
+  type: string;
+  data?: Record<string, unknown>;
+};
+
+type EditorDocument = {
+  time?: number;
+  version?: string;
+  blocks?: EditorBlock[];
+  [key: string]: unknown;
 };
 
 function getYouTubeEmbedUrl(source: string) {
@@ -40,6 +53,43 @@ function getYouTubeEmbedUrl(source: string) {
   }
 
   return null;
+}
+
+function normalizeEditorDocument(data: unknown): EditorDocument | null {
+  if (!data || typeof data !== "object") return null;
+
+  const document = data as EditorDocument;
+
+  if (!Array.isArray(document.blocks)) {
+    return document;
+  }
+
+  return {
+    ...document,
+    blocks: document.blocks.map((block) => {
+      if (block.type !== "code") {
+        return block;
+      }
+
+      const blockData = (block.data ?? {}) as Record<string, unknown>;
+      const language = typeof blockData.language === "string" ? blockData.language : "typescript";
+      const code =
+        typeof blockData.code === "string"
+          ? blockData.code
+          : typeof blockData.text === "string"
+            ? blockData.text
+            : "";
+
+      return {
+        ...block,
+        type: "codeBlock",
+        data: {
+          language,
+          code,
+        },
+      };
+    }),
+  };
 }
 
 class YouTubeIframeTool {
@@ -417,7 +467,6 @@ export default function BlogEditorClient() {
         { default: Header },
         { default: List },
         { default: Quote },
-        { default: CodeTool },
         { default: ImageTool },
         { default: Checklist },
         { default: Delimiter },
@@ -432,7 +481,6 @@ export default function BlogEditorClient() {
         import("@editorjs/header"),
         import("@editorjs/list"),
         import("@editorjs/quote"),
-        import("@editorjs/code"),
         import("@editorjs/image"),
         import("@editorjs/checklist"),
         import("@editorjs/delimiter"),
@@ -468,8 +516,13 @@ export default function BlogEditorClient() {
             class: Quote,
             inlineToolbar: true,
           },
-          code: {
-            class: CodeTool,
+          codeBlock: {
+            class: CodeBlockTool,
+            config: {
+              defaultLanguage: "typescript",
+              showLineNumbers: true,
+              maxHeight: 420,
+            },
           },
           image: {
             class: ImageTool,
@@ -525,8 +578,9 @@ export default function BlogEditorClient() {
       const savedDraft = loadDraftFromLocalStorage();
 
       if (savedDraft) {
-        await editorRef.current.render(savedDraft);
-        historyRef.current = [JSON.stringify(savedDraft)];
+        const normalizedDraft = normalizeEditorDocument(savedDraft) ?? savedDraft;
+        await editorRef.current.render(normalizedDraft);
+        historyRef.current = [JSON.stringify(normalizedDraft)];
         historyIndexRef.current = 0;
         refreshHistoryControls();
       } else {
