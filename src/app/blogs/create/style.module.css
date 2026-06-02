@@ -1,0 +1,383 @@
+.page {
+  min-height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0;
+  color: #231f1a;
+  font-family: var(--font-outfit), sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.92), transparent 34%),
+    linear-gradient(180deg, #f7f3ec 0%, #fbf8f2 45%, #f4eee5 100%);
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 22px 48px 18px;
+  border-bottom: 1px solid rgba(63, 48, 34, 0.08);
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(16px);
+}
+
+.topbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.iconButton {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(63, 48, 34, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #241f1a;
+}
+
+.headerTitleGroup {
+  min-width: 0;
+}
+
+.headerLabel {
+  margin: 0 0 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #7e6f61;
+}
+
+.headerTitle {
+  margin: 0;
+  color: #201b17;
+  font-size: clamp(1.35rem, 2vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.headerSubtitle {
+  margin: 4px 0 0;
+  color: #6f6256;
+  font-size: 0.92rem;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.publishButton {
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 18px;
+  background: #201b17;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.editorCard {
+  flex: 1;
+  min-height: 0;
+  border: 1px solid rgba(63, 48, 34, 0.08);
+  border-radius: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: none;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+
+.editor {
+  min-height: 100dvh;
+  padding: 42px 48px 56px;
+  font-family: var(--font-outfit), sans-serif;
+  overflow: visible;
+}
+
+.editor :global(#editorjs) {
+  color: #201b17;
+  min-height: 100%;
+}
+
+.editor :global(.codex-editor),
+.editor :global(.codex-editor__redactor) {
+  color: #201b17;
+  min-height: 100%;
+}
+
+.editor :global(.ce-block__content),
+.editor :global(.ce-toolbar__content) {
+  max-width: 860px;
+}
+
+.editor :global(.ce-paragraph) {
+  color: #221d18;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.editor :global(.ce-header) {
+  color: #191511;
+  letter-spacing: -0.04em;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.editor :global(h1.ce-header),
+.editor :global(.ce-header[data-level="1"]) {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  line-height: 1.02;
+  font-weight: 700;
+}
+
+.editor :global(h2.ce-header),
+.editor :global(.ce-header[data-level="2"]) {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+.editor :global(h3.ce-header),
+.editor :global(.ce-header[data-level="3"]) {
+  font-size: clamp(1.35rem, 2.2vw, 1.9rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.editor :global(.ce-toolbar__plus),
+.editor :global(.ce-toolbar__settings-btn) {
+  color: #665b51;
+}
+
+.editor :global(.ce-toolbar__plus:hover),
+.editor :global(.ce-toolbar__settings-btn:hover) {
+  background: rgba(31, 24, 18, 0.08);
+  border-radius: 10px;
+}
+
+.editor :global(.ce-popover),
+.editor :global(.ce-inline-toolbar),
+.editor :global(.ce-conversion-toolbar),
+.editor :global(.ce-settings) {
+  background: #fffdf8;
+  color: #201b17;
+  border: 1px solid rgba(63, 48, 34, 0.12);
+  box-shadow: 0 18px 50px rgba(71, 53, 36, 0.12);
+}
+
+.editor :global(.ce-popover-item) {
+  color: #201b17;
+}
+
+.editor :global(.ce-popover-item:hover) {
+  background: rgba(31, 24, 18, 0.06);
+}
+
+.editor :global(.ce-code) {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 420px;
+  border: 1px solid rgba(63, 48, 34, 0.12);
+  border-radius: 22px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.06), transparent 28%),
+    linear-gradient(180deg, #191611 0%, #120f0d 100%);
+  box-shadow:
+    0 18px 44px rgba(34, 24, 16, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.editor :global(.ce-code::before) {
+  content: "Code";
+  display: block;
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), transparent),
+    rgba(255, 255, 255, 0.02);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.editor :global(.ce-code__textarea) {
+  flex: 1;
+  min-height: 220px;
+  max-height: 340px;
+  border: 0;
+  border-radius: 0;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 0 52px, transparent 52px),
+    transparent;
+  color: #f5efe8;
+  caret-color: #fff;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  tab-size: 2;
+  padding: 18px 18px 18px 52px;
+  resize: vertical;
+  box-shadow: none;
+  white-space: pre;
+  word-wrap: normal;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+.editor :global(.ce-code__textarea::placeholder) {
+  color: rgba(245, 239, 232, 0.38);
+}
+
+.editor :global(.ce-code__textarea:focus) {
+  outline: none;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.editor :global(.ce-code__textarea::-webkit-scrollbar) {
+  height: 10px;
+  width: 10px;
+}
+
+.editor :global(.ce-code__textarea::-webkit-scrollbar-thumb) {
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+}
+
+.editor :global(.ce-code__textarea::-webkit-scrollbar-track) {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.editor :global(.ce-quote) {
+  border-left: 4px solid rgba(31, 24, 18, 0.18);
+  padding-left: 18px;
+  margin-left: 2px;
+  color: #312821;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.editor :global(.ce-quote__text) {
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+.editor :global(.ce-quote__caption) {
+  color: #7c6f62;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.editor :global(.cdx-checklist) {
+  padding-left: 0;
+}
+
+.editor :global(.cdx-checklist__item-checkbox) {
+  border-color: #9b8b79;
+}
+
+.editor :global(.cdx-checklist__item-checkbox:checked) {
+  background-color: #201b17;
+}
+
+.editor :global(.tc-table) {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(63, 48, 34, 0.12);
+}
+
+.editor :global(.tc-table__cell) {
+  border-color: rgba(63, 48, 34, 0.1);
+}
+
+.editor :global(.image-tool__image-picture),
+.editor :global(.image-tool__image) {
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+.editor :global(.image-tool__caption) {
+  color: #7a6f63;
+  font-family: var(--font-outfit), sans-serif;
+}
+
+.editor :global(.ce-delimiter) {
+  width: 100%;
+  max-width: 860px;
+  margin: 16px auto;
+}
+
+.editor :global(.ce-delimiter:before) {
+  background: #b7ab9c;
+  height: 2px;
+}
+
+.editor :global(.cdx-block) {
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+}
+
+.editor :global(.ce-paragraph::selection),
+.editor :global(.ce-header::selection) {
+  background: rgba(31, 24, 18, 0.14);
+}
+
+@media (max-width: 768px) {
+  .page {
+    min-height: 100dvh;
+  }
+
+  .topbar {
+    padding: 18px 16px 14px;
+  }
+
+  .publishButton {
+    padding: 10px 14px;
+  }
+
+  .headerLabel {
+    font-size: 0.7rem;
+  }
+
+  .headerTitle {
+    font-size: 1.15rem;
+  }
+
+  .headerSubtitle {
+    font-size: 0.82rem;
+  }
+
+  .editor {
+    min-height: 100dvh;
+    padding: 22px 16px 28px;
+  }
+
+  .editor :global(.ce-code__textarea) {
+    min-height: 200px;
+    max-height: 280px;
+    padding: 16px 14px 16px 44px;
+    font-size: 0.9rem;
+  }
+
+  .editor :global(.ce-code::before) {
+    padding: 12px 14px 10px;
+  }
+}

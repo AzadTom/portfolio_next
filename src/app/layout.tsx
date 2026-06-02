@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/helpers/SmoothScroll";
@@ -40,7 +40,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Azad Kumar", url: "https://yourdomain.com" }],
   creator: "Azad Kumar",
-  themeColor: "#ffffff",
   openGraph: {
     title: "Azad Kumar | Frontend Engineer",
     description: "Portfolio of Azad Kumar, a frontend software engineer from India who crafts high-quality web experiences.",
@@ -64,6 +63,10 @@ export const metadata: Metadata = {
     creator: "@Azadtom2917", // Optional
     images: ["/og_image.png"],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#050505",
 };
 
 export default function RootLayout({

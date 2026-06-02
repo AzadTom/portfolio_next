@@ -48,7 +48,7 @@ export const socials = [
     alt: "Twitter/X",
     username: "@Azadtom2917",
     external: true,
-  },
+  }
 ];
 
 
