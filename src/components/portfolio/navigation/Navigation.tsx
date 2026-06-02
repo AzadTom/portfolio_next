@@ -47,7 +47,7 @@ export const Navigation = ({ toggle }: { toggle: () => void }) => (
   <div>
     <motion.ul
       variants={variantsNavigation}
-      className="absolute overflow-scroll  top-[80px] right-4 left-4 sm:left-12 sm:right-12 outfilt-700 grid grid-cols-1 sm:grid-cols-2 gap-4"
+      className="absolute top-[80px] right-4 left-4 sm:left-12 sm:right-12 outfilt-700 grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-hidden"
     >
       {links.map((item: LinkType) => (
         <Link href={item.link} key={item.id}>

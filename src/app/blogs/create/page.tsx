@@ -6,6 +6,7 @@ import styles from "./style.module.css";
 import { createBox } from "motion/react";
 import { postBlogs } from "@/lib/blogs/blogsapi";
 import { BlogStatus } from "@/lib/blogs/type";
+import { useRouter } from "next/navigation";
 
 const AUTOSAVE_KEY = "blog-editor-draft";
 
@@ -400,11 +401,15 @@ function ArticleHeader({
   onPublish: () => void | Promise<void>;
   loading: boolean;
 }) {
+
+  const route = useRouter();
+
   return (
     <header className={styles.topbar}>
       <div className={styles.topbarLeft}>
         <button
           type="button"
+          onClick={()=>route.back()}
           className={styles.iconButton}
           aria-label="Go back"
         >

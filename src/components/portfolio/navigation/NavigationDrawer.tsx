@@ -42,7 +42,7 @@ const NavigationDrawer = () => {
 
 
   return (
-    <div className={cn("fixed inset-0 z-[999] w-[100vw] h-[100vh] overflow-hidden", !isOpen && 'pointer-events-none')}>
+    <div className={cn("fixed inset-0 z-[999] overflow-hidden", !isOpen && 'pointer-events-none')}>
       <motion.nav
         initial={false}
         animate={isOpen ? "open" : "closed"}
