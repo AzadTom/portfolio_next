@@ -1,24 +1,51 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import type EditorJS from "@editorjs/editorjs";
-import Embed from "@editorjs/embed";
-import { ArrowLeft } from "lucide-react";
-import InlineCode from "@editorjs/inline-code";
-import LinkTool from "@editorjs/link";
-import Warning from "@editorjs/warning";
+import { ArrowLeft, Redo2, Undo2 } from "lucide-react";
 import styles from "./style.module.css";
 
 export default function BlogEditorClient() {
   const editorRef = useRef<EditorJS | null>(null);
+  const historyRef = useRef<string[]>([]);
+  const historyIndexRef = useRef(-1);
+  const isApplyingSnapshotRef = useRef(false);
   const [title, setTitle] = useState("Untitled");
   const [subtitle, setSubtitle] = useState("");
+  const [canUndo, setCanUndo] = useState(false);
+  const [canRedo, setCanRedo] = useState(false);
+
+  const refreshHistoryControls = () => {
+    setCanUndo(historyIndexRef.current > 0);
+    setCanRedo(historyIndexRef.current < historyRef.current.length - 1);
+  };
+
+  const getEditorData = async () => {
+    const editor = editorRef.current;
+    if (!editor?.saver?.save) return null;
+    return editor.saver.save();
+  };
+
+  const pushSnapshot = async () => {
+    if (isApplyingSnapshotRef.current) return;
+
+    const data = await getEditorData();
+    if (!data) return;
+
+    const snapshot = JSON.stringify(data);
+    const currentSnapshot = historyRef.current[historyIndexRef.current];
+
+    if (snapshot === currentSnapshot) return;
+
+    historyRef.current = historyRef.current.slice(0, historyIndexRef.current + 1);
+    historyRef.current.push(snapshot);
+    historyIndexRef.current = historyRef.current.length - 1;
+    refreshHistoryControls();
+  };
 
   const syncTitleFromContent = async () => {
-    const editor = editorRef.current;
+    const data = await getEditorData();
+    if (!data) return;
 
-    if (!editor) return;
-
-    const data = await editor.save();
     const firstHeading = data.blocks.find(
       (block) => block.type === "header" && block.data?.level === 1 && typeof block.data?.text === "string",
     );
@@ -33,6 +60,55 @@ export default function BlogEditorClient() {
 
     setTitle(strippedTitle || "Untitled");
     setSubtitle(subtitleText ? strippedSubtitle : "");
+  };
+
+  const handleEditorChange = () => {
+    void (async () => {
+      await pushSnapshot();
+      await syncTitleFromContent();
+    })();
+  };
+
+  const handleUndo = async () => {
+    const editor = editorRef.current;
+
+    if (!editor || historyIndexRef.current <= 0) return;
+
+    historyIndexRef.current -= 1;
+    const snapshot = historyRef.current[historyIndexRef.current];
+
+    if (!snapshot) return;
+
+    isApplyingSnapshotRef.current = true;
+
+    try {
+      await editor.render(JSON.parse(snapshot));
+      await syncTitleFromContent();
+    } finally {
+      isApplyingSnapshotRef.current = false;
+      refreshHistoryControls();
+    }
+  };
+
+  const handleRedo = async () => {
+    const editor = editorRef.current;
+
+    if (!editor || historyIndexRef.current >= historyRef.current.length - 1) return;
+
+    historyIndexRef.current += 1;
+    const snapshot = historyRef.current[historyIndexRef.current];
+
+    if (!snapshot) return;
+
+    isApplyingSnapshotRef.current = true;
+
+    try {
+      await editor.render(JSON.parse(snapshot));
+      await syncTitleFromContent();
+    } finally {
+      isApplyingSnapshotRef.current = false;
+      refreshHistoryControls();
+    }
   };
 
   const uploadImage = async (file: File) => {
@@ -90,9 +166,7 @@ export default function BlogEditorClient() {
         holder: "editorjs",
         placeholder: "Tell your story...",
         autofocus: true,
-        onChange: () => {
-          void syncTitleFromContent();
-        },
+        onChange: handleEditorChange,
         tools: {
           header: {
             class: Header,
@@ -151,6 +225,10 @@ export default function BlogEditorClient() {
           },
         },
       });
+
+      await pushSnapshot();
+      await syncTitleFromContent();
+      refreshHistoryControls();
     };
 
     void initEditor();
@@ -181,15 +259,46 @@ export default function BlogEditorClient() {
 
   return (
     <main className={styles.page}>
-      <ArticleHeader title={title} subtitle={subtitle} />
-      <article className={styles.editorCard}>
-        <div id="editorjs" className={styles.editor} />
-      </article>
+      <ArticleHeader
+        title={title}
+        subtitle={subtitle}
+      />
+      <section className={styles.editorShell}>
+        <article className={styles.editorCard}>
+          <div id="editorjs" className={styles.editor} />
+        </article>
+        <div className={styles.historyBar}>
+          <button
+            type="button"
+            className={styles.actionButton}
+            onClick={() => void handleUndo()}
+            disabled={!canUndo}
+            aria-label="Undo"
+          >
+            <Undo2 size={16} />
+          </button>
+          <button
+            type="button"
+            className={styles.actionButton}
+            onClick={() => void handleRedo()}
+            disabled={!canRedo}
+            aria-label="Redo"
+          >
+            <Redo2 size={16} />
+          </button>
+        </div>
+      </section>
     </main>
   );
 }
 
-function ArticleHeader({ title, subtitle }: { title: string; subtitle: string }) {
+function ArticleHeader({
+  title,
+  subtitle,
+}: {
+  title: string;
+  subtitle: string;
+}) {
   return (
     <header className={styles.topbar}>
       <div className={styles.topbarLeft}>

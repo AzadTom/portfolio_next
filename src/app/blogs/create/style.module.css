@@ -1,27 +1,39 @@
 .page {
   min-height: 100dvh;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 0;
   padding: 0;
   color: #231f1a;
   font-family: var(--font-outfit), sans-serif;
-  background:
-    radial-gradient(circle at top, rgba(255, 255, 255, 0.92), transparent 34%),
-    linear-gradient(180deg, #f7f3ec 0%, #fbf8f2 45%, #f4eee5 100%);
+  background:#ffffff;
+}
+
+.editorShell {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding-top: 92px;
+  padding-bottom: 92px;
 }
 
 .topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
   padding: 22px 48px 18px;
+  background: #ffffff;
   border-bottom: 1px solid rgba(63, 48, 34, 0.08);
-  background: rgba(255, 255, 255, 0.58);
-  backdrop-filter: blur(16px);
 }
 
 .topbarLeft {
@@ -89,36 +101,88 @@
   letter-spacing: -0.01em;
 }
 
+.historyBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+  flex: 0 0 auto;
+  padding: 16px 48px 22px;
+  background: rgba(255, 255, 255, 0.88);
+  border-top: 1px solid rgba(63, 48, 34, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.actionButton {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(63, 48, 34, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.78);
+  color: #241f1a;
+}
+
+.actionButton:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
 .editorCard {
+  position: relative;
   flex: 1;
   min-height: 0;
-  border: 1px solid rgba(63, 48, 34, 0.08);
+  width: 100%;
   border-radius: 0;
-  border-left: 0;
-  border-right: 0;
-  border-bottom: 0;
   background: rgba(255, 255, 255, 0.82);
   box-shadow: none;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   backdrop-filter: blur(16px);
 }
 
 .editor {
-  min-height: 100dvh;
-  padding: 42px 48px 56px;
-  font-family: var(--font-outfit), sans-serif;
+  position: relative;
+  min-height: 0;
   overflow: visible;
+  padding: 24px 48px 24px;
+  font-family: var(--font-outfit), sans-serif;
 }
 
 .editor :global(#editorjs) {
   color: #201b17;
   min-height: 100%;
+  height: auto;
 }
 
 .editor :global(.codex-editor),
 .editor :global(.codex-editor__redactor) {
   color: #201b17;
   min-height: 100%;
+  height: auto;
+}
+
+.editor :global(.codex-editor) {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: auto;
+}
+
+.editor :global(.codex-editor__redactor) {
+  min-height: 0;
+  overflow: visible;
+  padding-bottom: 24px;
+  box-sizing: border-box;
 }
 
 .editor :global(.ce-block__content),
@@ -353,6 +417,11 @@
     padding: 10px 14px;
   }
 
+  .historyBar {
+    gap: 8px;
+    padding: 14px 16px 18px;
+  }
+
   .headerLabel {
     font-size: 0.7rem;
   }
@@ -366,8 +435,7 @@
   }
 
   .editor {
-    min-height: 100dvh;
-    padding: 22px 16px 28px;
+    padding: 18px 16px 16px;
   }
 
   .editor :global(.ce-code__textarea) {

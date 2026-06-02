@@ -69,10 +69,6 @@
   font-style: normal;
 }
 
-*::-webkit-scrollbar {
-  display: none;
-}
-
 body {
   background: black;
 }
