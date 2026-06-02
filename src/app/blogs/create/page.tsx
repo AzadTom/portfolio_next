@@ -3,6 +3,9 @@ import { useEffect, useRef, useState } from "react";
 import type EditorJS from "@editorjs/editorjs";
 import { ArrowLeft, Redo2, Undo2 } from "lucide-react";
 import styles from "./style.module.css";
+import { createBox } from "motion/react";
+import { postBlogs } from "@/lib/blogs/blogsapi";
+import { BlogStatus } from "@/lib/blogs/type";
 
 export default function BlogEditorClient() {
   const editorRef = useRef<EditorJS | null>(null);
@@ -13,6 +16,7 @@ export default function BlogEditorClient() {
   const [subtitle, setSubtitle] = useState("");
   const [canUndo, setCanUndo] = useState(false);
   const [canRedo, setCanRedo] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const refreshHistoryControls = () => {
     setCanUndo(historyIndexRef.current > 0);
@@ -36,7 +40,10 @@ export default function BlogEditorClient() {
 
     if (snapshot === currentSnapshot) return;
 
-    historyRef.current = historyRef.current.slice(0, historyIndexRef.current + 1);
+    historyRef.current = historyRef.current.slice(
+      0,
+      historyIndexRef.current + 1,
+    );
     historyRef.current.push(snapshot);
     historyIndexRef.current = historyRef.current.length - 1;
     refreshHistoryControls();
@@ -47,10 +54,16 @@ export default function BlogEditorClient() {
     if (!data) return;
 
     const firstHeading = data.blocks.find(
-      (block) => block.type === "header" && block.data?.level === 1 && typeof block.data?.text === "string",
+      (block) =>
+        block.type === "header" &&
+        block.data?.level === 1 &&
+        typeof block.data?.text === "string",
     );
     const firstSubheading = data.blocks.find(
-      (block) => block.type === "header" && block.data?.level === 2 && typeof block.data?.text === "string",
+      (block) =>
+        block.type === "header" &&
+        block.data?.level === 2 &&
+        typeof block.data?.text === "string",
     );
 
     const titleText = firstHeading?.data?.text ?? "";
@@ -93,7 +106,8 @@ export default function BlogEditorClient() {
   const handleRedo = async () => {
     const editor = editorRef.current;
 
-    if (!editor || historyIndexRef.current >= historyRef.current.length - 1) return;
+    if (!editor || historyIndexRef.current >= historyRef.current.length - 1)
+      return;
 
     historyIndexRef.current += 1;
     const snapshot = historyRef.current[historyIndexRef.current];
@@ -108,6 +122,30 @@ export default function BlogEditorClient() {
     } finally {
       isApplyingSnapshotRef.current = false;
       refreshHistoryControls();
+    }
+  };
+
+  const handlePublish = async () => {
+    setLoading(true);
+    const data = await getEditorData();
+    if (data) {
+      postBlogs({
+        title: title,
+        content: data,
+        excerpt: title,
+        slug: title.toLowerCase().replace(/\s+/g, "-"),
+        status: BlogStatus.PUBLISHED,
+        publishedAt: new Date(),
+      })
+        .then((res) => {
+          if (res) {
+            setLoading(false);
+          }
+        })
+        .finally(() => {
+          setLoading(false);
+          alert("Blog published successfully!");
+        });
     }
   };
 
@@ -191,7 +229,23 @@ export default function BlogEditorClient() {
             class: ImageTool,
             config: {
               uploader: {
-                uploadByFile: uploadImage,
+                async uploadByFile(file: File) {
+                  return {
+                    success: 1,
+                    file: {
+                      url: URL.createObjectURL(file),
+                    },
+                  };
+                },
+
+                async uploadByUrl(url: string) {
+                  return {
+                    success: 1,
+                    file: {
+                      url,
+                    },
+                  };
+                },
               },
             },
           },
@@ -262,6 +316,8 @@ export default function BlogEditorClient() {
       <ArticleHeader
         title={title}
         subtitle={subtitle}
+        loading={loading}
+        onPublish={handlePublish}
       />
       <section className={styles.editorShell}>
         <article className={styles.editorCard}>
@@ -295,23 +351,38 @@ export default function BlogEditorClient() {
 function ArticleHeader({
   title,
   subtitle,
+  onPublish,
+  loading,
 }: {
   title: string;
   subtitle: string;
+  onPublish: () => void | Promise<void>;
+  loading: boolean;
 }) {
   return (
     <header className={styles.topbar}>
       <div className={styles.topbarLeft}>
-        <button type="button" className={styles.iconButton} aria-label="Go back">
+        <button
+          type="button"
+          className={styles.iconButton}
+          aria-label="Go back"
+        >
           <ArrowLeft size={16} />
         </button>
         <div className={styles.headerTitleGroup}>
           <h1 className={styles.headerTitle}>{title}</h1>
-          {subtitle ? <p className={styles.headerSubtitle}>{subtitle}</p> : null}
+          {subtitle ? (
+            <p className={styles.headerSubtitle}>{subtitle}</p>
+          ) : null}
         </div>
       </div>
-      <button type="button" className={styles.publishButton}>
-        Publish
+      <button
+        type="button"
+        className={styles.publishButton}
+        onClick={() => void onPublish()}
+        disabled={loading}
+      >
+        {loading ? "Publishing..." : "Publish"}
       </button>
     </header>
   );
