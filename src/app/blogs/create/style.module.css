@@ -408,6 +408,8 @@
 @media (max-width: 768px) {
   .page {
     min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .topbar {
@@ -437,6 +439,19 @@
 
   .editor {
     padding: 18px 16px 16px;
+  }
+
+  .editorShell {
+    overflow: visible;
+    padding-top: 86px;
+    padding-bottom: 100px;
+  }
+
+  .editorCard {
+    overflow: visible;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: auto;
+    overscroll-behavior: auto;
   }
 
   .editor :global(.ce-code__textarea) {
