@@ -1,21 +1,9 @@
 "use client";
-
-import React, { useEffect } from 'react';
-import { useSpeechRecognition } from '../../hooks/useSpeechRecognition';
-import { useRouter } from 'next/navigation';
+import { useSpeechRecognition } from '@/hooks/useSpeechRecognition';
+import React from 'react';
 
 export default function SpeechDemoPage() {
   const { text, isListening, startListening, stopListening, clearText, hasSupport } = useSpeechRecognition();
-  const router = useRouter();
-
- 
-  useEffect(() => {
-    if (!isListening && text) {
-      const searchParams = new URLSearchParams();
-      searchParams.set('query', text);
-      router.push(`/?${searchParams.toString()}`);
-    }
-  }, [isListening, text, router]);
 
   if (!hasSupport) {
     return (

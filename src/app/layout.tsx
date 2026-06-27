@@ -38,12 +38,12 @@ export const metadata: Metadata = {
     "Pixel Perfect Web Apps",
     "Azad Kumar"
   ],
-  authors: [{ name: "Azad Kumar", url: "https://yourdomain.com" }],
+  authors: [{ name: "Azad Kumar", url: "https://azadtom.netlify.app/" }],
   creator: "Azad Kumar",
   openGraph: {
     title: "Azad Kumar | Frontend Engineer",
     description: "Portfolio of Azad Kumar, a frontend software engineer from India who crafts high-quality web experiences.",
-    url: "https://yourdomain.com",
+    url: "https://azadtom.netlify.app/",
     siteName: "Azad Kumar Portfolio",
     images: [
       {

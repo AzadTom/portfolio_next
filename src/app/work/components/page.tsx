@@ -20,7 +20,6 @@ const page = () => {
         <CinemaHallContainer />
         <CountDown />
         <KanBan />
-       
       </div>
      <ToastExample/>
     </>
