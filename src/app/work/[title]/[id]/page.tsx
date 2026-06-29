@@ -68,7 +68,7 @@ const page = async ({ params }: WorkProps) => {
   if (Number(id) === 107) {
     return (
       <main>
-        <HeroSection1/>
+        <HeroSection1 />
       </main>
     );
   }
