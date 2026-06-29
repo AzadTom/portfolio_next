@@ -1,6 +1,7 @@
 import { ChatGptInput, CircleRing } from "@/components/animations";
 import ButtonInteraction from "@/components/button/ButtonInteraction";
 import EnterAnimation from "@/components/enteranimation/EnterAnimation";
+import HeroSection1 from "@/components/herosection/HeroSection1";
 import KanBan from "@/components/machinecodinground/kanban/KanBan";
 import ProgressBarContainer from "@/components/machinecodinground/progressbar/ProgressBarContainer";
 import StepperContainer from "@/components/machinecodinground/stepper/StepperContainer";
@@ -43,7 +44,7 @@ const page = async ({ params }: WorkProps) => {
   if (Number(id) === 104) {
     return (
       <main className="mx-auto my-12">
-        <EnterAnimation/>
+        <EnterAnimation />
       </main>
     );
   }
@@ -51,15 +52,23 @@ const page = async ({ params }: WorkProps) => {
   if (Number(id) === 105) {
     return (
       <main>
-        <ScrollTrigger/>
+        <ScrollTrigger />
       </main>
     );
   }
 
-   if (Number(id) === 106) {
+  if (Number(id) === 106) {
     return (
       <main>
-        <KanBan/>
+        <KanBan />
+      </main>
+    );
+  }
+
+  if (Number(id) === 107) {
+    return (
+      <main>
+        <HeroSection1/>
       </main>
     );
   }
