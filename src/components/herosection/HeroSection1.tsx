@@ -2,6 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import React from 'react'
+import { Heading } from '../designsytem/DesignSytem';
 
 const HeroSection1 = () => {
   return (
@@ -15,13 +16,15 @@ const HeroSection1 = () => {
                  <div className="p-10 size-full relative shadow-2xl flex flex-col justify-between">
                   <img className="absolute inset-0 w-full h-full object-cover mask-radial-from-50% mask-b-from-50% mask-t-from-20% select-none pointer-events-none" src="https://images.unsplash.com/photo-1782392455081-a09db8267afb?q=80&w=784&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="heroimg" />
                   <nav className="flex justify-end z-50 relative">
-                    <button className="px-4 py-2 rounded-md bg-gradient-to-t from-blue-700 to-blue-500 text-shadow-lg text-shadow-black/2 text-white  text-xs">Try for free</button>
+                    <button className="px-4 py-2 rounded-md bg-gradient-to-t from-blue-700 to-blue-500 text-shadow-lg text-shadow-black/2 text-white  text-base">Try for free</button>
                   </nav>
                   <div className="flex flex-col relative z-50">
-                      <h1 className="tracking-tight text-neutral-900 text-7xl font-medium max-w-4xl">The only AI capable of deep cloning voice.</h1>
-                      <p className="tracking-tight text-neutral-500 text-2xl font-normal max-w-2xl mt-8">
-                        Pass in a URL,and Deep cloning AI will clone the voice of the person in the credit card required.
-                      </p>
+                      <Heading className="text-neutral-950">
+                        The only AI capable of deep cloning voice.
+                      </Heading>
+                      <Heading variant={"subheading"} className="text-neutral-500 mt-8">
+                         Pass in a URL,and Deep cloning AI will clone the voice of the person in the credit card required.
+                      </Heading>
                       <div className="mt-8">
                         <button className="px-4 py-2 rounded-md bg-gradient-to-t from-blue-700 to-blue-500 text-shadow-lg text-shadow-black/2 text-white  text-base cursor-pointer active:scale-98 transition-duration">Try for free</button>
                       </div> 
