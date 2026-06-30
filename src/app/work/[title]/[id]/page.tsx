@@ -6,6 +6,7 @@ import KanBan from "@/components/machinecodinground/kanban/KanBan";
 import ProgressBarContainer from "@/components/machinecodinground/progressbar/ProgressBarContainer";
 import StepperContainer from "@/components/machinecodinground/stepper/StepperContainer";
 import ScrollTrigger from "@/components/scrolltrigger/ScrollTrigger";
+import SponserPage from "@/components/sponserpage/SponserPage";
 
 interface WorkProps {
   params: Promise<{ title: string; id: number }>;
@@ -70,6 +71,12 @@ const page = async ({ params }: WorkProps) => {
       <main>
         <HeroSection1 />
       </main>
+    );
+  }
+
+  if (Number(id) === 108) {
+    return (
+      <SponserPage/>
     );
   }
 
