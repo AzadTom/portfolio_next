@@ -22,7 +22,7 @@ type HeadingProps = {
   as?:ElementType,
 } & VariantProps<typeof headingVariants>;
 
-export const Heading = (props: HeadingProps) => {
+const Heading = (props: HeadingProps) => {
   const { children, className, variant,as:Component="h1"} = props;
   return (
     <Component className={cn(headingVariants({ variant }), className)}>{children}</Component>
@@ -49,7 +49,7 @@ type TextProps = {
 } & VariantProps<typeof textVariants>;
 
 
-export const Text = (props:TextProps)=>{
+const Text = (props:TextProps)=>{
   const {children,className,variant,as:Component="p"} = props;
   return(
     <Component className={cn(textVariants({variant}),className)}>
@@ -57,3 +57,5 @@ export const Text = (props:TextProps)=>{
     </Component>
   )
 }
+
+export {Heading,Text,headingVariants,textVariants};
