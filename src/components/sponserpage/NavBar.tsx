@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import {X } from "lucide-react";
+import { X } from "lucide-react";
 
 import {
   Sheet,
@@ -10,7 +10,6 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
-
 
 const logo = "/img/vtlogo.png";
 
@@ -33,15 +32,16 @@ const navLinks = [
   },
 ];
 
-export default function NavBar({className=""}:{className?:string}) {
+export default function NavBar({ className = "" }: { className?: string }) {
   return (
-    <header className={cn("flex items-center justify-between py-5",className)}>
+    <header className={cn("flex items-center justify-between py-5", className)}>
       {/* Logo */}
       <Image
         src={logo}
-        alt="logo"
-        width={50}
-        height={50}
+        alt="Logo"
+        width={100}
+        height={60}
+        className="h-auto w-auto"
         priority
       />
 
@@ -76,7 +76,7 @@ function MobileNav() {
   return (
     <Sheet>
       {/* Hamburger */}
-      <SheetTrigger  className="sm:hidden">
+      <SheetTrigger className="sm:hidden">
         <button
           className="
       flex h-11 w-14 flex-col items-center justify-center gap-1.5
@@ -97,9 +97,9 @@ function MobileNav() {
         <div className="flex h-full flex-col px-8 pb-8 pt-6">
           {/* Top */}
           <div className="flex items-center justify-between">
-            <Image src={logo} alt="logo" width={50} height={80} />
+            <Image src={logo} alt="logo" width={100} height={60}  className="w-auto h-auto" />
 
-            <SheetClose >
+            <SheetClose>
               <button className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm">
                 <X size={18} />
               </button>
@@ -109,11 +109,7 @@ function MobileNav() {
           {/* Links */}
           <nav className="mt-16 flex flex-1 flex-col gap-5">
             {navLinks.map((item) => (
-              <SheetClose
-                
-                key={item.text}
-                className="flex justify-start"
-              >
+              <SheetClose key={item.text} className="flex justify-start">
                 <Link
                   href={item.link}
                   className="
@@ -136,7 +132,7 @@ function MobileNav() {
           </nav>
 
           {/* Bottom Button */}
-          <SheetClose >
+          <SheetClose>
             <Link
               href="#contact"
               className="
