@@ -6,6 +6,14 @@
   display: none;
 }
 
+/* --color-primary 
+--color-secondary
+--color-background
+--color-surface
+--color-title
+--color-subtitle
+--color-border */
+
 @custom-variant dark (&:is(.dark *));
 
 .outfit-100 {
