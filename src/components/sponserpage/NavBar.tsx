@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 
-const logo = "/img/vtlogo.png";
+const logo = "https://yt3.ggpht.com/kUzxkRk6c-b2pN_bZ_bYhbe7bZ0JVVhtVR_g953YZuGBQfm7CwdOVDbt27WP_zb5CXiVTkzVMg=s176-c-k-c0x00ffffff-no-rj-mo";
 
 const navLinks = [
   {
@@ -39,9 +39,9 @@ export default function NavBar({ className = "" }: { className?: string }) {
       <Image
         src={logo}
         alt="Logo"
-        width={100}
-        height={60}
-        className="h-auto w-auto"
+        width={50}
+        height={50}
+        className="h-auto w-auto rounded-full aspect-square"
         priority
       />
 
@@ -97,7 +97,7 @@ function MobileNav() {
         <div className="flex h-full flex-col px-8 pb-8 pt-6">
           {/* Top */}
           <div className="flex items-center justify-between">
-            <Image src={logo} alt="logo" width={100} height={60}  className="w-auto h-auto" />
+            <Image src={logo} alt="logo" width={50} height={50}  className="w-auto h-auto rounded-full aspect-square" />
 
             <SheetClose>
               <button className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-sm">
@@ -113,6 +113,7 @@ function MobileNav() {
                 <Link
                   href={item.link}
                   className="
+                    outfit-400
                     py-4
                     text-left
                     text-5xl

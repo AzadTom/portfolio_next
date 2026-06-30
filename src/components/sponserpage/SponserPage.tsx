@@ -23,10 +23,10 @@ const HeroSection = () => {
       </picture>
       <div className="relative z-20 w-full flex flex-col gap-5 p-4">
          <NavBar className="py-0 md:hidden"/>
-        <Heading className="max-w-4xl">
+        <Heading className="max-w-4xl outfit-700">
           Reach Millions Through Trusted Tech
         </Heading>
-        <Heading variant={"subheading"} className="max-w-2xl">
+        <Heading variant={"subheading"} className="max-w-2xl font-sans">
          Authentic reviews, comparisons, and hands-on demos that help audiences buy with confidence.
 Partner on campaigns that build trust and drive measurable results.
         </Heading>
