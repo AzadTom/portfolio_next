@@ -1,27 +1,59 @@
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { ElementType, ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
 const headingVariants = cva("", {
   variants: {
     variant: {
-      heading: "tracking-tight text-[clamp(2.75rem,calc(1.93rem+4.08vw),4.5rem)] leading-[0.95] font-medium",
-      subheading:"text-[clamp(1.125rem,calc(0.95rem+0.82vw),1.5rem)]"
+      display: "tracking-tight text-[clamp(2.75rem,calc(1.93rem+4.08vw),4.5rem)] leading-[0.95] font-semibold",
+      lead:"text-[clamp(1.125rem,calc(0.95rem+0.82vw),1.5rem)]",
+      title:"tracking-tight text-4xl font-semibold ",
+      subtitle:"text-lg font-medium",
     },
   },
   defaultVariants: {
-    variant: "heading",
+    variant: "display",
   },
 });
 
 type HeadingProps = {
   children: ReactNode;
   className?: string;
+  as?:ElementType,
 } & VariantProps<typeof headingVariants>;
 
 export const Heading = (props: HeadingProps) => {
-  const { children, className, variant } = props;
+  const { children, className, variant,as:Component="h1"} = props;
   return (
-    <h1 className={cn(headingVariants({ variant }), className)}>{children}</h1>
+    <Component className={cn(headingVariants({ variant }), className)}>{children}</Component>
   );
 };
+
+
+const textVariants = cva("", {
+  variants: {
+    variant: {
+      description:"text-base",
+      label:"text-xs font-bold uppercase tracking-widest",
+    },
+  },
+  defaultVariants: {
+    variant: "description",
+  },
+});
+
+type TextProps = {
+  children: ReactNode;
+  className?: string;
+  as?:ElementType,
+} & VariantProps<typeof textVariants>;
+
+
+export const Text = (props:TextProps)=>{
+  const {children,className,variant,as:Component="p"} = props;
+  return(
+    <Component className={cn(textVariants({variant}),className)}>
+      {children}
+    </Component>
+  )
+}

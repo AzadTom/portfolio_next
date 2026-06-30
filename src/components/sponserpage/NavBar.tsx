@@ -51,7 +51,7 @@ export default function NavBar({ className = "" }: { className?: string }) {
           <Link
             key={item.text}
             href={item.link}
-            className="relative transition after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-slate-700 after:transition-all hover:after:w-full"
+            className="relative text-base transition after:absolute after:bottom-[-4px] after:left-0 after:h-px after:w-0 after:bg-slate-700 after:transition-all hover:after:w-full"
           >
             {item.text}
           </Link>
@@ -59,7 +59,7 @@ export default function NavBar({ className = "" }: { className?: string }) {
 
         <Link
           href="#contact"
-          className="bg-gradient-to-b from-blue-500 to-blue-900 rounded-md px-5 py-3 text-white transition-all duration-300 hover:-translate-y-1"
+          className="bg-gradient-to-b text-base from-blue-500 to-blue-900 rounded-md px-4 py-2 text-white transition-all duration-300 hover:-translate-y-1"
         >
           {`
           Book a Call`}

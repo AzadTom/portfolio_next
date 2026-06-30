@@ -1,11 +1,13 @@
-import { Heading } from "../designsytem/DesignSytem";
+import { Heading } from "@/components/designSytem/DesignSytem";
 import { Button } from "../ui/button";
 import NavBar from "./NavBar";
+import StatsSection from "./StatsSection";
 
 const SponserPage = () => {
   return (
     <main>   
       <HeroSection />
+      <StatsSection/>
     </main>
   );
 };
@@ -26,13 +28,13 @@ const HeroSection = () => {
         <Heading className="max-w-4xl outfit-700">
           Reach Millions Through Trusted Tech
         </Heading>
-        <Heading variant={"subheading"} className="max-w-2xl font-sans">
+        <Heading variant={"lead"} className="max-w-2xl font-sans">
          Authentic reviews, comparisons, and hands-on demos that help audiences buy with confidence.
 Partner on campaigns that build trust and drive measurable results.
         </Heading>
-        <div className="flex items-center mt-5">
-          <Button>Book a Sponsorship</Button>
-          <Button className="bg-gradient-to-b from-blue-500 to-blue-900">
+        <div className="flex gap-4 items-center mt-5">
+          <Button variant={"outline"} className="text-base">Book a Sponsorship</Button>
+          <Button className="bg-gradient-to-b from-blue-500 to-blue-900 text-base px-4 py-2">
             Download Media Kit
           </Button>
         </div>

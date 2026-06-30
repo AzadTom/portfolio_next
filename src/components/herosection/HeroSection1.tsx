@@ -1,9 +1,8 @@
 'use client';
-
 import { cn } from '@/lib/utils';
 import React from 'react'
-import { Heading } from '../designsytem/DesignSytem';
 import { Button } from '../ui/button';
+import { Heading } from '@/components/designSytem/DesignSytem';
 
 const HeroSection1 = () => {
   return (
@@ -20,10 +19,10 @@ const HeroSection1 = () => {
                     <Button className="px-4 py-2 rounded-md bg-gradient-to-t from-blue-700 to-blue-500 text-shadow-lg text-shadow-black/2 text-white  text-base">Try for free</Button>
                   </nav>
                   <div className="flex flex-col relative z-50">
-                      <Heading className="text-neutral-950 font-semibold">
+                      <Heading className="text-neutral-950 max-w-4xl">
                         The only AI capable of deep cloning voice.
                       </Heading>
-                      <Heading variant={"subheading"} className="text-neutral-800 mt-8">
+                      <Heading variant={"lead"} as={"p"} className="max-w-2xl text-neutral-800 mt-8">
                          Pass in a URL,and Deep cloning AI will clone the voice of the person in the credit card required.
                       </Heading>
                       <div className="mt-8 flex flex-col  gap-5 md:flex-row md:items-center">
