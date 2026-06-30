@@ -5,9 +5,9 @@ import { cva, type VariantProps } from "class-variance-authority";
 const headingVariants = cva("", {
   variants: {
     variant: {
-      display: "tracking-tight text-[clamp(2.75rem,calc(1.93rem+4.08vw),4.5rem)] leading-[0.95] font-semibold",
+      display: "tracking-tight text-[clamp(2.75rem,calc(1.93rem+4.08vw),4.5rem)] leading-[0.95] font-bold",
       lead:"text-[clamp(1.125rem,calc(0.95rem+0.82vw),1.5rem)]",
-      title:"tracking-tight text-4xl font-semibold ",
+      title:"tracking-tight text-4xl font-bold",
       subtitle:"text-lg font-medium",
     },
   },

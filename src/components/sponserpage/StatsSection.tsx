@@ -93,7 +93,7 @@ const StatsSection = () => {
                 <Text as={"h3"} variant={"label"} className="group-hover:text-zinc-100 text-zinc-400 mb-2">
                   {stat.label}
                 </Text>
-                <Heading as={"h2"} variant={"title"} className="text-4xl font-semibold tracking-tight group-hover:text-white text-zinc-900 mb-4 ">
+                <Heading as={"h2"} variant={"title"} className="font-semibold group-hover:text-white text-zinc-900 mb-4 ">
                   {stat.value}
                 </Heading>
                 <Text variant={"description"} className=" group-hover:text-zinc-100 text-zinc-500">
