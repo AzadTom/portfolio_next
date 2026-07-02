@@ -89,8 +89,8 @@ const AutoComplete = ({
           className="w-full h-[42px] px-4 py-2 border border-white text-white"
           placeholder={placeholder}
           value={query}
-          onKeyDown={handleKeyDown}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
       </div>
       <SuggestionList
@@ -134,7 +134,6 @@ const SuggestionList = ({
     index: number
   ) => {
     const parts = item.role.split(new RegExp(`(${query})`, "gi"));
-
     return (
       <li
         ref={(el: any) => (itemRefs.current[index] = el)}
