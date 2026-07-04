@@ -2,12 +2,18 @@ import { Heading } from "@/components/designSytem/DesignSytem";
 import { Button } from "../ui/button";
 import NavBar from "./NavBar";
 import StatsSection from "./StatsSection";
+import TestimonialSection from "./Testimonial/TestimonialSection";
+import FaqSection from "./FaqSection";
+import FooterSectionComponent from "./Footer";
 
 const SponserPage = () => {
   return (
     <main>   
       <HeroSection />
       <StatsSection/>
+      <TestimonialSection/>
+      <FaqSection/>
+      <FooterSectionComponent/>
     </main>
   );
 };
