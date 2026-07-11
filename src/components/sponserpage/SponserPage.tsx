@@ -5,6 +5,8 @@ import StatsSection from "./StatsSection";
 import TestimonialSection from "./Testimonial/TestimonialSection";
 import FaqSection from "./FaqSection";
 import FooterSectionComponent from "./Footer";
+import ProcessSection from "./ProcessSection";
+
 
 const SponserPage = () => {
   return (
@@ -12,6 +14,7 @@ const SponserPage = () => {
       <HeroSection />
       <StatsSection/>
       <TestimonialSection/>
+      <ProcessSection/>
       <FaqSection/>
       <FooterSectionComponent/>
     </main>

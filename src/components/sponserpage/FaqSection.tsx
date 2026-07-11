@@ -50,12 +50,12 @@ const faqs: FAQ[] = [
 
 function FaqItem({ question, answer }: FAQ) {
   return (
-    <AccordionItem value={question} className="border-b border-b-slate-200">
+    <AccordionItem value={question} className="border-b border-b-zinc-900">
       <AccordionTrigger className="py-6 text-left capitalize text-base font-medium hover:no-underline">
         {question}
       </AccordionTrigger>
 
-      <AccordionContent className="pb-6 text-base">
+      <AccordionContent className="pb-6 text-basefont-thin text-zinc-500">
         {answer}
       </AccordionContent>
     </AccordionItem>
@@ -69,15 +69,15 @@ export default function FAQSection() {
         <div className="grid gap-14 lg:grid-cols-[440px_1fr]">
           {/* Left */}
           <div className="lg:sticky lg:top-28 h-fit">
-            <span className={cn(headingVariants({variant:"subtitle"}))}>
+            <span className="text-lg font-medium">
               FAQ
             </span>
 
-            <h2 className={cn(headingVariants({variant:"title"}), "mt-4")}>
+            <h2 className="text-4xl font-bold mt-4">
               Frequently Asked Questions
             </h2>
 
-            <p className={cn(textVariants({variant:"description"}), "mt-6 text-slate-500")}>
+            <p className="mt-4 text-base text-zinc-500 font-thin">
               Everything you need to know about sponsorships, collaborations,
               timelines, and campaign delivery.
             </p>
@@ -92,7 +92,7 @@ export default function FAQSection() {
           <Accordion
             type="single"
             collapsible
-            className="w-full rounded-3xl border border-slate-200 bg-background px-6 lg:px-10"
+            className="w-full rounded-xl border border-zinc-900 bg-background px-6 lg:px-10"
           >
             {faqs.map((faq) => (
               <FaqItem key={faq.question} {...faq} />
