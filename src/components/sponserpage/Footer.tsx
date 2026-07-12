@@ -41,8 +41,8 @@ const Footer = () => {
   };
 
   return (
-    <>
-      <div className="relative h-full sm:pt-14 pt-8 text-white" ref={container}>
+    <section>
+      <div className="relative h-full sm:pt-14 pt-8 text-white bg-zinc-950" ref={container}>
         <div className="sm:container  px-4 mx-auto">
           <div className="md:flex justify-between w-full">
             <div>
@@ -61,7 +61,7 @@ const Footer = () => {
                     <input
                       type="email"
                       name="newsletter_email"
-                      className="border-none text-white bg-transparent  py-3 px-6  col-span-5"
+                      className="border-none text-white bg-zinc-900  py-3 px-6  col-span-5"
                       placeholder="Your Email * "
                     />{" "}
                     <button
@@ -164,7 +164,7 @@ const Footer = () => {
           </div>
           <div className="flex md:flex-row flex-col-reverse gap-3 justify-between py-2">
             <span className="font-medium">
-              &copy; 2023 NextCodez. All Rights Reserved.
+              &copy; {new Date().getFullYear()} NextCodez. All Rights Reserved.
             </span>
             <a href="#" className="font-semibold">
               Privacy Policy
@@ -172,7 +172,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 

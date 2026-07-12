@@ -66,17 +66,13 @@ const StatsSection = () => {
     <section className="bg-white py-24">
       <div className="max-w-7xl mx-auto px-5">
         {/* Section Heading */}
-        <div className="max-w-2xl mb-16">
-          <Heading variant={"subtitle"} as={"p"} className="text-blue-500">
-              Quick Statistics
-          </Heading>
-          <Heading variant={"title"} as={"h2"} className="">
+        <div className="mb-16 text-center">
+           <h1 className="text-4xl font-bold text-zinc-900 mb-4">
             Numbers That Sponsors Care About
-          </Heading>
-          <Text variant={"description"} className="mt-4 text-zinc-600">
-            A highly engaged developer audience built through consistent,
-            educational content and authentic recommendations.
-          </Text>
+          </h1>
+          <p className="text-lg text-zinc-600">
+              Quick Statistics
+          </p>
         </div>
 
         {/* Existing Card Design */}
@@ -87,7 +83,7 @@ const StatsSection = () => {
               className="group p-8 rounded-2xl relative overflow-hidden bg-zinc-50 border border-zinc-100 hover:border-zinc-200 transition-colors"
             >
               <article className="relative z-10">
-                <div className="size-8 rounded-lg bg-white group-hover:bg-orange-600 border border-zinc-200 flex items-center justify-center text-lg font-bold text-zinc-900 mb-6 group-hover:text-white transition-colors">
+                <div className="size-8 rounded-lg bg-white group-hover:bg-zinc-900 border border-zinc-200 flex items-center justify-center text-lg font-bold text-zinc-900 mb-6 group-hover:text-white transition-colors">
                   {stat.icon}
                 </div>
                 <Text as={"h3"} variant={"label"} className="group-hover:text-zinc-100 text-zinc-400 mb-2">

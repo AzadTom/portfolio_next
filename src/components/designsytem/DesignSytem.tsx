@@ -2,6 +2,8 @@ import { cn } from "@/lib/utils";
 import { ElementType, ReactNode } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 
+
+
 const headingVariants = cva("", {
   variants: {
     variant: {
@@ -59,3 +61,7 @@ const Text = (props:TextProps)=>{
 }
 
 export {Heading,Text,headingVariants,textVariants};
+
+
+//  text-[clamp(2.75rem,calc(1.93rem+4.08vw),4.5rem)]
+// text-[clamp(1.125rem,calc(0.95rem+0.82vw),1.5rem)]

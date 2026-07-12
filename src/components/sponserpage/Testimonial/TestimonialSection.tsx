@@ -42,10 +42,10 @@ const testimonials = [
 
 export default function TestimonialSection() {
   return (
-    <section className="bg-[#f8f8fb] py-24">
+    <section className="bg-white py-24">
       <div>
-        <h2 className={cn(headingVariants({variant:"title"}),"text-center")}>Testimonials</h2>
-        <p className={cn(headingVariants({variant:"subtitle"}), "text-center mb-8")}>Proven Brand Partnerships</p>
+        <h2 className="text-4xl md:text-5xl font-bold text-center">Testimonials</h2>
+        <p className="text-xl text-center font-medium mb-8">Proven Brand Partnerships</p>
       </div>
       <div className="mx-4 md:mx-0">
         <Swiper
@@ -96,7 +96,7 @@ export default function TestimonialSection() {
 
 const TestimonialCard = ({ item }: { item: (typeof testimonials)[0] }) => {
   return (
-    <div className="overflow-hidden rounded-2xl bg-white shadow-sm border border-slate-100">
+    <div className="overflow-hidden rounded-2xl bg-zinc-50 shadow-sm border border-zinc-100">
       <div className="flex flex-col  md:flex-row ">
         <div className="relative min-h-64 flex-1">
           <Image
