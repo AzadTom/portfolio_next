@@ -1,12 +1,14 @@
 "use client";
 import { motion, useInView } from "motion/react";
 import Link from "next/link";
-import React, { type FormEvent, useRef, useState } from "react";
-
+import React, { type FormEvent, useRef, useState, useEffect } from "react";
 
 const Footer = () => {
   const container = useRef<HTMLDivElement>(null);
-  const [openPopup, setOpenPopUp] = useState(false);
+  const [email, setEmail] = useState("");
+  const [formState, setFormState] = useState<"idle" | "submitting" | "success">(
+    "idle"
+  );
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -24,20 +26,28 @@ const Footer = () => {
 
     hidden: { translateY: 200 },
   };
-  const handleNewsLetterData = (e: FormEvent) => {
-    e.preventDefault();
-    console.log(e);
-    e.preventDefault();
-    const target = e.target as HTMLFormElement;
-    const formData = new FormData(target);
-    const clientEmail = formData.get("newsletter_email")!;
-    setOpenPopUp(true);
-    target.reset();
-    if (setOpenPopUp) {
-      setTimeout(() => {
-        setOpenPopUp(false);
+
+  useEffect(() => {
+    if (formState === "success") {
+      const timer = setTimeout(() => {
+        setFormState("idle");
       }, 2000);
+      return () => clearTimeout(timer);
     }
+  }, [formState]);
+
+  const handleNewsLetterData = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!email) return;
+
+    setFormState("submitting");
+    console.log("Subscribing with email:", email);
+
+    // Simulate API call
+    setTimeout(() => {
+      setFormState("success");
+      setEmail("");
+    }, 1000);
   };
 
   return (
@@ -55,18 +65,23 @@ const Footer = () => {
                 </p>
                 <div className=" hover-button relative bg-black flex justify-between items-center border-2 overflow-hidden  border-black rounded-full  text-white hover:text-black md:text-2xl">
                   <form
-                    onSubmit={(e) => handleNewsLetterData(e)}
-                    className="relative z-2 grid grid-cols-6  w-full h-full"
+                    onSubmit={handleNewsLetterData}
+                    className="relative z-2 grid grid-cols-6 w-full h-full"
                   >
                     <input
                       type="email"
                       name="newsletter_email"
                       className="border-none text-white bg-zinc-900  py-3 px-6  col-span-5"
                       placeholder="Your Email * "
-                    />{" "}
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      disabled={formState === "submitting"}
+                    />
                     <button
                       type="submit"
-                      className="cursor-pointer w-full hover:bg-primaryColor bg-white text-white h-full cols-span-1"
+                      className="cursor-pointer w-full hover:bg-primaryColor bg-white text-black h-full cols-span-1 disabled:opacity-50"
+                      disabled={formState === "submitting"}
                     >
                       <svg
                         width="15"
@@ -86,6 +101,11 @@ const Footer = () => {
                     </button>
                   </form>
                 </div>
+                {formState === "success" && (
+                  <p className="text-green-400 mt-2 text-sm">
+                    Thanks for subscribing!
+                  </p>
+                )}
               </div>
             </div>
             <div className="flex gap-10">

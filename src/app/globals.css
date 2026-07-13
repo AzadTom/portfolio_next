@@ -83,6 +83,10 @@ body {
   background: black;
 }
 
+@theme{
+  --color-muted: var(--color-zinc-900);
+}
+
 /* Custom arrows */
 .swiper-button-next,
 .swiper-button-prev {
