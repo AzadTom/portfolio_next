@@ -9,6 +9,7 @@ import { SpotlightTestimonial } from "../spotlight-testimonial";
 import TeamSection from "../team-section";
 import CardStacking from "../card-stacking";
 import ImageReveal2 from "../image-reveal2";
+import ContactSection from "../contactus-section";
 
 const SponserPage = () => {
   return (
@@ -23,6 +24,7 @@ const SponserPage = () => {
       <GrowthPlans/>
       <CardStacking/>
       <FaqSection />
+      <ContactSection/>
       <FooterSectionComponent />
     </main>
   );
