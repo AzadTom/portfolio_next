@@ -4,7 +4,7 @@ import ToastProvider from "./ToastProvider"
 import { toastStore } from "./toastStore";
 import { Check } from "lucide-react";
 
-const ToastExample = () => {
+const TestToast = () => {
     const handelAdd = () => {
         toastStore.add(
             <motion.div className="flex justify-between items-center gap-5 bg-white border border-gray-200 px-4 py-2 rounded">
@@ -29,4 +29,4 @@ const ToastExample = () => {
     )
 }
 
-export default ToastExample
+export default TestToast
