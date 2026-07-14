@@ -19,9 +19,9 @@ const SponserPage = () => {
       <AboutAgency/>
       <SpotlightTestimonial/>
       <TeamSection/>
-      <CardStacking/>
       <ProcessSection />
       <GrowthPlans/>
+      <CardStacking/>
       <FaqSection />
       <FooterSectionComponent />
     </main>
