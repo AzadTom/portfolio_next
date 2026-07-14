@@ -7,8 +7,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "./style.css";
-import { headingVariants, textVariants } from "../../designSytem/DesignSytem";
 import { cn } from "@/lib/utils";
+import { headingVariants, textVariants } from "@/components/designSystem/DesignSytem";
 
 const testimonials = [
   {

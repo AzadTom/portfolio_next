@@ -7,8 +7,6 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
-import { headingVariants, textVariants } from "../designSytem/DesignSytem";
 
 type FAQ = {
   question: string;

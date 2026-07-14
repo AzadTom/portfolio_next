@@ -7,7 +7,7 @@ import {
   Users,
   Video,
 } from "lucide-react";
-import { Heading, Text } from "@/components/designSytem/DesignSytem";
+import { Heading, Text } from "../designSystem/DesignSytem";
 
 type Stat = {
   label: string;
