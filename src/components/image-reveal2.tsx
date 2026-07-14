@@ -70,7 +70,7 @@ function ImageReveal2() {
   };
 
   return (
-    <section ref={containerRef} onMouseMove={handleMove} className='bg-white text-zinc-900 relative px-4 md:px-20  py-12'>
+    <section ref={containerRef} onMouseMove={handleMove} className='hidden md:block bg-white text-zinc-900 relative px-4 md:px-20  py-12'>
       {list.map((item) => (
         <div
           key={item.label}
