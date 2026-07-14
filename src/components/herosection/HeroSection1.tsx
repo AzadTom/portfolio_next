@@ -2,7 +2,7 @@
 import { cn } from '@/lib/utils';
 import React from 'react'
 import { Button } from '../ui/button';
-import { Heading } from '../designSytem/DesignSytem';
+import { Heading } from '../designSystem/DesignSytem';
 
 const HeroSection1 = () => {
   return (
