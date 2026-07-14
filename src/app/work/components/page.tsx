@@ -6,7 +6,6 @@ import ProgressBarContainer from '@/components/machinecodinground/progressbar/Pr
 import QuizContainer from '@/components/machinecodinground/quizComponent/QuizContainer'
 import StepperContainer from '@/components/machinecodinground/stepper/StepperContainer'
 import ToastExample from '@/components/toast/ToastExample';
-import React from 'react'
 
 const page = () => {
   return (
