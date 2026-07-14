@@ -5,7 +5,7 @@ import KanBan from '@/components/machinecodinground/kanban/KanBan'
 import ProgressBarContainer from '@/components/machinecodinground/progressbar/ProgressBarContainer'
 import QuizContainer from '@/components/machinecodinground/quizComponent/QuizContainer'
 import StepperContainer from '@/components/machinecodinground/stepper/StepperContainer'
-import ToastExample from '@/components/toast/ToastExample';
+import ToastExample from '@/components/toast/ToastExample'
 
 
 const page = () => {
