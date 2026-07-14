@@ -23,11 +23,8 @@ function Switch({
       {...props}
     >
       <SwitchPrimitive.Thumb
-        data-slot="switch-thumb"
-        className={cn(
-          "pointer-events-none block rounded-full bg-background ring-0 transition-transform group-data-[size=default]/switch:size-4 group-data-[size=sm]/switch:size-3 data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0 dark:data-[state=checked]:bg-primary-foreground dark:data-[state=unchecked]:bg-foreground"
-        )}
-      />
+  className="block h-4 w-4 rounded-full bg-white transition-transform data-[state=checked]:translate-x-4 data-[state=unchecked]:translate-x-0"
+/>
     </SwitchPrimitive.Root>
   )
 }

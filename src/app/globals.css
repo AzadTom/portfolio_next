@@ -84,7 +84,7 @@ body {
 }
 
 @theme{
-  --color-muted: var(--color-zinc-900);
+  --color-muted: var(--color-zinc-100);
 }
 
 /* Custom arrows */

@@ -1,103 +1,93 @@
-'use client'
+"use client";
 
-import React, { useState } from 'react'
-
-import { Check } from 'lucide-react'
-
-import { motion } from 'motion/react'
-
-import NumberFlow from '@number-flow/react'
-
-import { useId } from 'react'
-
-// import { Button } from '@repo/ui/shadcn'
-
-import { cn } from '@/lib/utils'
-import { Button } from './ui/button';
-import { Switch } from './ui/switch';
-
-
+import React, { useState } from "react";
+import { Check } from "lucide-react";
+import NumberFlow from "@number-flow/react";
+import { useId } from "react";
+import { cn } from "@/lib/utils";
+import { Button } from "./ui/button";
+import { Switch } from "./ui/switch";
 
 const PLANS = [
   {
-    name: 'Basic Plan',
+    name: "Basic Plan",
 
-    description: 'Ideal for small businesses',
+    description: "Ideal for small businesses",
 
     monthly: 29,
 
     yearly: 23,
 
     features: [
-      'Unified dashboard',
+      "Unified dashboard",
 
-      'Finance management module',
+      "Finance management module",
 
-      'Inventory control',
+      "Inventory control",
 
-      'Basic reporting and analytics',
+      "Basic reporting and analytics",
 
-      '10 user accounts',
+      "10 user accounts",
     ],
 
-    variant: 'outline' as const,
+    variant: "outline" as const,
   },
 
   {
-    name: 'Business Plan',
+    name: "Business Plan",
 
-    description: 'For growing businesses',
+    description: "For growing businesses",
 
     monthly: 59,
 
     yearly: 47,
 
     features: [
-      'Everything in basic plan',
+      "Everything in basic plan",
 
-      'HR & payroll module',
+      "HR & payroll module",
 
-      'Sales & CRM module',
+      "Sales & CRM module",
 
-      'Workflow automation',
+      "Workflow automation",
 
-      'Advanced analytics & reporting',
+      "Advanced analytics & reporting",
     ],
 
-    variant: 'secondary' as const,
+    variant: "secondary" as const,
 
     featured: true,
   },
 
   {
-    name: 'Premium Plan',
+    name: "Premium Plan",
 
-    description: 'Ideal for enterprises seeking',
+    description: "Ideal for enterprises seeking",
 
     monthly: 99,
 
     yearly: 79,
 
     features: [
-      'Everything in business plan',
+      "Everything in business plan",
 
-      'Custom integrations',
+      "Custom integrations",
 
-      'AI-Driven recommendations',
+      "AI-Driven recommendations",
 
-      'Role based access control',
+      "Role based access control",
 
-      'Unlimited user accounts',
+      "Unlimited user accounts",
     ],
 
-    variant: 'outline' as const,
+    variant: "outline" as const,
   },
-]
+];
 
 export const GrowthPlans = () => {
-  const [billing, setBilling] = useState<'monthly' | 'yearly'>('yearly')
+  const [billing, setBilling] = useState<"monthly" | "yearly">("yearly");
 
-  const id = useId()
+  const id = useId();
 
   return (
     <section className="py-24 bg-white font-dmSans text-black">
@@ -113,36 +103,30 @@ export const GrowthPlans = () => {
         <div className="flex items-center justify-center gap-4 mb-16 bg-neutral-100 border border-neutral-200 w-fit p-3 mx-auto">
           <span
             className={cn(
-              'text-sm transition-colors',
+              "text-sm transition-colors",
 
-              billing === 'monthly'
-                ? 'text-neutral-900 font-medium'
-                : 'text-neutral-400'
+              billing === "monthly"
+                ? "text-neutral-900 font-medium"
+                : "text-neutral-400",
             )}
           >
             Monthly
           </span>
 
           <Switch
-            id={id}
-            // @ts-ignore
-
-            checked={billing === 'yearly'}
-            className="bg-white data-[state=checked]:bg-zinc-900"
-            // @ts-ignore
-            onCheckedChange={(checked) =>
-              setBilling(checked ? 'yearly' : 'monthly')
-            }
+            checked={billing === "yearly"}
+            onCheckedChange={(checked) =>setBilling(checked ? "yearly" : "monthly")}
+            className="bg-neutral-300  data-[state=unchecked]:bg-neutral-300"
           />
 
           <div className="flex items-center gap-2">
             <span
               className={cn(
-                'text-sm transition-colors',
+                "text-sm transition-colors",
 
-                billing === 'yearly'
-                  ? 'text-neutral-900 font-medium'
-                  : 'text-neutral-400'
+                billing === "yearly"
+                  ? "text-neutral-900 font-medium"
+                  : "text-neutral-400",
               )}
             >
               Yearly
@@ -159,11 +143,11 @@ export const GrowthPlans = () => {
             <div
               key={plan.name}
               className={cn(
-                'rounded-lg p-8 flex flex-col border transition-all',
+                "rounded-lg p-8 flex flex-col border transition-all",
 
                 plan.featured
-                  ? 'bg-neutral-950 text-white scale-105 shadow-2xl z-10 border-transparent'
-                  : 'bg-neutral-100 border border-neutral-200'
+                  ? "bg-neutral-950 text-white scale-105 shadow-2xl z-10 border-transparent"
+                  : "bg-neutral-100 border border-neutral-200",
               )}
             >
               <div className="text-left mb-8">
@@ -171,9 +155,9 @@ export const GrowthPlans = () => {
 
                 <p
                   className={cn(
-                    'text-sm',
+                    "text-sm",
 
-                    plan.featured ? 'text-neutral-400' : 'text-neutral-400'
+                    plan.featured ? "text-neutral-400" : "text-neutral-400",
                   )}
                 >
                   {plan.description}
@@ -183,9 +167,9 @@ export const GrowthPlans = () => {
               <div className="flex items-baseline gap-1 mb-8 text-left">
                 <span
                   className={cn(
-                    'text-2xl font-medium',
+                    "text-2xl font-medium",
 
-                    plan.featured ? 'text-gre' : 'text-neutral-400'
+                    plan.featured ? "text-gre" : "text-neutral-400",
                   )}
                 >
                   $
@@ -193,13 +177,13 @@ export const GrowthPlans = () => {
 
                 <span
                   className={cn(
-                    'text-5xl font-bold ',
+                    "text-5xl font-bold ",
 
-                    plan.featured ? 'text-white' : 'text-neutral-900'
+                    plan.featured ? "text-white" : "text-neutral-900",
                   )}
                 >
                   <NumberFlow
-                    value={billing === 'monthly' ? plan.monthly : plan.yearly}
+                    value={billing === "monthly" ? plan.monthly : plan.yearly}
                   />
                 </span>
 
@@ -209,11 +193,11 @@ export const GrowthPlans = () => {
               <Button
                 variant={plan.variant}
                 className={cn(
-                  'w-full mb-10 rounded-lg h-14',
+                  "w-full mb-10 rounded-lg h-14",
 
                   plan.featured
-                    ? 'py-4 bg-neutral-800 border border-neutral-700'
-                    : 'bg-white border-neutral-200 hover:shadow-neutral-200 hover:shadow-lg hover:bg-white'
+                    ? "py-4 bg-neutral-800 border border-neutral-700"
+                    : "bg-white border-neutral-200 hover:shadow-neutral-200 hover:shadow-lg hover:bg-white",
                 )}
               >
                 Select Plan
@@ -221,18 +205,18 @@ export const GrowthPlans = () => {
 
               <div
                 className={cn(
-                  'space-y-4 pt-8 border-t text-left',
+                  "space-y-4 pt-8 border-t text-left",
 
-                  plan.featured ? 'border-neutral-700' : 'border-neutral-200'
+                  plan.featured ? "border-neutral-700" : "border-neutral-200",
                 )}
               >
                 {plan.features.map((f, i) => (
                   <div
                     key={i}
                     className={cn(
-                      'flex items-center gap-3 text-sm',
+                      "flex items-center gap-3 text-sm",
 
-                      plan.featured ? 'text-neutral-300' : 'text-neutral-600'
+                      plan.featured ? "text-neutral-300" : "text-neutral-600",
                     )}
                   >
                     <Check className="size-4 shrink-0" />
@@ -246,5 +230,5 @@ export const GrowthPlans = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

@@ -15,13 +15,13 @@ const SponserPage = () => {
     <main>
       <HeroFinancial/>
       <StatsSection />
+      <ImageReveal2/>
       <AboutAgency/>
       <SpotlightTestimonial/>
-      <ProcessSection />
-      <GrowthPlans/>
-      <ImageReveal2/>
       <TeamSection/>
       <CardStacking/>
+      <ProcessSection />
+      <GrowthPlans/>
       <FaqSection />
       <FooterSectionComponent />
     </main>

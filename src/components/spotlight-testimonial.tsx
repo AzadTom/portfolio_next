@@ -57,7 +57,7 @@ export const SpotlightTestimonial: React.FC = () => {
   return (
     <section
       ref={timelineRef}
-      className="bg-zinc-100 min-h-screen flex flex-col justify-center font-manrope"
+      className="bg-white min-h-screen flex flex-col justify-center font-manrope"
     >
       {/* Header */}
       <div className="max-w-7xl mx-auto px-6 mb-16 text-center">

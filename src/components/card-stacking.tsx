@@ -3,9 +3,9 @@ import { ReactLenis } from 'lenis/react';
 export default function CardStacking() {
   return (
     <ReactLenis root>
-      <main className='bg-zinc-950 text-white'>
+      <main className='bg-white text-zinc-900'>
         <div className='wrapper'>
-          <section className='text-white  h-screen  w-full bg-zinc-950  grid place-content-center sticky top-0'>
+          <section className='text-zinc-900  h-screen  w-full bg-white  grid place-content-center sticky top-0'>
             <div className='absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-size-[54px_54px] mask-[radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)]'></div>
 
             <h1 className='2xl:text-7xl text-5xl px-8 font-semibold text-center tracking-tight leading-[120%]'>
@@ -14,7 +14,7 @@ export default function CardStacking() {
           </section>
         </div>
 
-        <section className='text-white   w-full bg-zinc-950  '>
+        <section className='text-zinc-900   w-full bg-white  '>
           <>
             <div className='sm:sticky sm:top-0  w-full '>
               <figure className='w-full h-screen flex items-center justify-center '>
