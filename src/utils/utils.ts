@@ -29,10 +29,10 @@ export const socials = [
     external: false,
   },
   {
-    href: "https://www.linkedin.com/in/azadkumar93108/",
+    href: "https://www.linkedin.com/in/azaddev/",
     icon: "/img/linkedin.webp",
     alt: "LinkedIn",
-    username: "azadkumar93108",
+    username: "azaddev",
     external: true,
   },
   {
