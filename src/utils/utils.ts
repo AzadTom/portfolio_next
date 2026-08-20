@@ -134,6 +134,22 @@ export type TListItemType = {
 
 const blogs_components_list: TListItemType[] = [
   {
+    id:111,
+    type:"component",
+    date: new Date("2026-06-15"),
+    img:"/blog_components/landing.png",
+    link:"/work/landing/108",
+    name:"Hero section"
+  },
+  {
+    id:110,
+    type:"component",
+    date: new Date("2026-07-25"),
+    img:"/blog_components/herosection.png",
+    link:"/work/hero-section/107",
+    name:"Testing landing page"
+  },
+  {
     id: 109,
     type: "blog",
     date: new Date("2026-02-02"),

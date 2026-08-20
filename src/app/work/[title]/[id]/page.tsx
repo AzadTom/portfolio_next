@@ -5,6 +5,7 @@ import HeroSection1 from "@/components/herosection/HeroSection1";
 import KanBan from "@/components/machinecodinground/kanban/KanBan";
 import ProgressBarContainer from "@/components/machinecodinground/progressbar/ProgressBarContainer";
 import StepperContainer from "@/components/machinecodinground/stepper/StepperContainer";
+import NodeMailer from "@/components/nodemailer/NodeMailer";
 import ScrollTrigger from "@/components/scrolltrigger/ScrollTrigger";
 import SponserPage from "@/components/sponserpage/SponserPage";
 
@@ -78,6 +79,10 @@ const page = async ({ params }: WorkProps) => {
     return (
       <SponserPage/>
     );
+  }
+
+  if(Number(id) === 109){
+    return (<NodeMailer/>)
   }
 
   return null;
