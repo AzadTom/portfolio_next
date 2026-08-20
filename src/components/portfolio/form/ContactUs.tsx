@@ -30,11 +30,35 @@ const ContactUs = () => {
   const [submitted, setSubmitted] = useState(false)
 
   const onSubmit = async (data: ContactFormData) => {
-    console.log('Submitted:', data)
-    setSubmitted(true)
-    reset()
-    setTimeout(() => setSubmitted(false), 5000)
-  }
+    try {
+      const response = await fetch(
+        "https://formspree.io/f/xkgzbbyz",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(data),
+        }
+      );
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(
+          result?.error || "Something went wrong"
+        );
+      }
+
+      setSubmitted(true);
+      reset();
+      setTimeout(() => setSubmitted(false), 5000)
+    } catch (error) {
+      console.error("Form submission failed:", error);
+      alert("Failed to send message.");
+    }
+  };
 
   return (
     <motion.div
